@@ -18,7 +18,7 @@ function shuffleArray(array) {
   return array;
 }
 
-function setupSocket(server) {
+function setupSocket(httpServer) {
  const allowedEnv = (process.env.ALLOWED_ORIGINS || "")
     .split(",")
     .map(s => s.trim())

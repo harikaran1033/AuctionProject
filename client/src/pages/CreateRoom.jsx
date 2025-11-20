@@ -118,7 +118,7 @@ export default function CreateRoom() {
   };
 
   return (
-    <div className="min-h-screen bg-bg flex items-center justify-center p-20">
+    <div className="min-h-screen bg-bg flex items-center justify-center p-5 sm:p-10 md:p-20 lg:p-20">
       {alertMsg && (
         <Alert
           type={alertType}

@@ -140,7 +140,7 @@ export default function RoomLobby() {
   const remaining = Math.max(0, (Number(maxPlayers) || 0) - players.length);
 
   return (
-    <div className="min-h-screen  bg-bg flex items-center justify-center p-6">
+    <div className="min-h-screen  bg-bg flex items-center justify-center p-5 sm:p-10 md:p-20 lg:p-20">
       {/* Global Alert */}
       {alertMsg && (
         <Alert

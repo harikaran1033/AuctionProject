@@ -7,10 +7,25 @@ import JoinRoom from "./pages/JoinRoom.jsx";
 import RoomLobby from "./pages/RoomLobby.jsx";
 import AuctionRoom from "./pages/AuctionRoom.jsx";
 import TeamSquad from "./pages/TeamSquad.jsx";
-
 import React from "react";
-import ThemeProvider from "./components/ThemeProvider.jsx";
-import ThemeToggle from "./components/ThemeToggle.jsx";
+// import ThemeProvider from "./components/ThemeProvider.jsx";
+// import ThemeToggle from "./components/ThemeToggle.jsx";
+import socket from "./socket";
+
+if (!socket.__tradeHandlersInstalled) {
+  socket.on("trade:created", (data) => {
+    // console.log("GLOBAL trade:created", data);
+    // show a toast, or increment unread counter (your AllTeamsModal can still maintain state)
+    // e.g. dispatch Redux or update global state so modal picks it up
+  });
+
+  socket.on("trade:updated", (data) => {
+    // console.log("GLOBAL trade:updated", data);
+  });
+
+  socket.__tradeHandlersInstalled = true;
+}
+
 
 // 🎞 Wrapper for smooth fade-slide transitions per route
 function PageWrapper({ children }) {
@@ -69,8 +84,9 @@ function App() {
   return (
     <Router>
       <ErrorBoundary>
-        <ThemeProvider />
-        <ThemeToggle />
+        
+        {/* <ThemeProvider />
+        <ThemeToggle /> */}
         <AnimatedRoutes />
       </ErrorBoundary>
     </Router>

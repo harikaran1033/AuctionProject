@@ -5,19 +5,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 2.7,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm legbreak",
+        "PLAYER_TYPE": "Power Hitter",
+        "BEST_BATTING": "92*",
+        "BEST_BOWLING": "3/25",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 245,
-                "Avg": 35.00,
-                "SR": 155.41
+                "M": 32,
+                "I": 30,
+                "R": 845,
+                "Avg": 30.17,
+                "SR": 154.28,
+                "50": 6,
+                "100": 0
             },
             "Bowling": {
-                "I": 6,
-                "W": 7,
-                "Avg": 24.28,
-                "Econ": 8.45
+                "I": 25,
+                "W": 28,
+                "Avg": 24.35,
+                "Econ": 8.42,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -27,13 +35,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "England",
         "BASE_PRICE": 2.3,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Aggressive",
+        "BEST": "136",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 198,
-                "Avg": 28.28,
-                "SR": 142.44
+                "M": 45,
+                "I": 42,
+                "R": 1234,
+                "Avg": 31.64,
+                "SR": 145.23,
+                "50": 8,
+                "100": 1
             }
         }
     },
@@ -43,13 +56,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.6,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Young Talent",
+        "BEST": "78",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 112,
-                "Avg": 22.40,
-                "SR": 135.13
+                "M": 18,
+                "I": 16,
+                "R": 345,
+                "Avg": 23.00,
+                "SR": 138.55,
+                "50": 2,
+                "100": 0
             }
         }
     },
@@ -59,13 +77,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Explosive",
+        "BEST": "101*",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 7,
-                "R": 156,
-                "Avg": 22.28,
-                "SR": 148.57
+                "M": 25,
+                "I": 24,
+                "R": 567,
+                "Avg": 24.65,
+                "SR": 152.34,
+                "50": 3,
+                "100": 1
             }
         }
     },
@@ -75,13 +98,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Innovative",
+        "BEST": 84,
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 187,
-                "Avg": 26.71,
-                "SR": 138.51
+                "M": 35,
+                "I": 33,
+                "R": 789,
+                "Avg": 26.30,
+                "SR": 142.15,
+                "50": 5,
+                "100": 0
             }
         }
     },
@@ -91,19 +119,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 2.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+        "PLAYER_TYPE": "Crafty",
+        "BEST_BATTING": "65*",
+        "BEST_BOWLING": "4/18",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 132.43
+                "M": 42,
+                "I": 35,
+                "R": 567,
+                "Avg": 19.55,
+                "SR": 135.42,
+                "50": 2,
+                "100": 0
             },
             "Bowling": {
-                "I": 7,
-                "W": 8,
-                "Avg": 26.12,
-                "Econ": 8.15
+                "I": 40,
+                "W": 45,
+                "Avg": 25.33,
+                "Econ": 8.12,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -113,19 +149,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Emerging",
+        "BEST_BATTING": "58",
+        "BEST_BOWLING": "3/22",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 67,
-                "Avg": 16.75,
-                "SR": 121.81
+                "M": 15,
+                "I": 12,
+                "R": 234,
+                "Avg": 21.27,
+                "SR": 125.80,
+                "50": 1,
+                "100": 0
             },
             "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 34.33,
-                "Econ": 8.20
+                "I": 14,
+                "W": 12,
+                "Avg": 31.25,
+                "Econ": 8.15,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -135,13 +179,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Powerful",
+        "BEST": "132",
         "STATS": {
             "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 45,
-                "Avg": 15.00,
-                "SR": 128.57
+                "M": 12,
+                "I": 10,
+                "R": 278,
+                "Avg": 27.80,
+                "SR": 142.56,
+                "50": 1,
+                "100": 1
             }
         }
     },
@@ -151,13 +200,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "New Zealand",
         "BASE_PRICE": 2.2,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Express Pace",
+        "BEST": "4/21",
         "STATS": {
             "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 9,
-                "Avg": 22.44,
-                "Econ": 8.05
+                "M": 28,
+                "I": 28,
+                "W": 35,
+                "Avg": 23.45,
+                "Econ": 8.05,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -167,13 +221,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "New Zealand",
         "BASE_PRICE": 2.3,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Swing Bowler",
+        "BEST": "5/18",
         "STATS": {
             "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 10,
-                "Avg": 23.80,
-                "Econ": 8.35
+                "M": 35,
+                "I": 35,
+                "W": 42,
+                "Avg": 24.15,
+                "Econ": 8.30,
+                "4W": 1,
+                "5W": 1
             }
         }
     },
@@ -183,13 +242,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "Wales",
         "BASE_PRICE": 1.1,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Hard Hitting",
+        "BEST": "127",
         "STATS": {
             "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 32,
-                "Avg": 16.00,
-                "SR": 118.51
+                "M": 18,
+                "I": 16,
+                "R": 345,
+                "Avg": 23.00,
+                "SR": 145.36,
+                "50": 1,
+                "100": 1
             }
         }
     },
@@ -199,13 +263,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "New Zealand",
         "BASE_PRICE": 2.6,
+        "PLAYER_STYLE": "Left-arm fast",
+        "PLAYER_TYPE": "Swing Master",
+        "BEST": "4/15",
         "STATS": {
             "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 11,
-                "Avg": 21.18,
-                "Econ": 7.95
+                "M": 32,
+                "I": 32,
+                "W": 45,
+                "Avg": 21.85,
+                "Econ": 7.92,
+                "4W": 3,
+                "5W": 0
             }
         }
     },
@@ -215,13 +284,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "3/18",
         "STATS": {
             "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 7,
-                "Avg": 26.28,
-                "Econ": 8.45
+                "M": 25,
+                "I": 25,
+                "W": 28,
+                "Avg": 26.75,
+                "Econ": 8.40,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -231,13 +305,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Young Talent",
+        "BEST": "45",
         "STATS": {
             "Batting": {
-                "M": 2,
-                "I": 1,
-                "R": 18,
-                "Avg": 18.00,
-                "SR": 112.50
+                "M": 8,
+                "I": 6,
+                "R": 78,
+                "Avg": 13.00,
+                "SR": 118.18,
+                "50": 0,
+                "100": 0
             }
         }
     },
@@ -247,19 +326,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.4,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Spin All-rounder",
+        "BEST_BATTING": "42",
+        "BEST_BOWLING": "3/25",
         "STATS": {
             "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 38,
-                "Avg": 12.66,
-                "SR": 118.75
+                "M": 12,
+                "I": 10,
+                "R": 156,
+                "Avg": 17.33,
+                "SR": 122.83,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 32.33,
-                "Econ": 8.08
+                "I": 11,
+                "W": 10,
+                "Avg": 30.20,
+                "Econ": 8.05,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -269,13 +356,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.7,
+        "PLAYER_STYLE": "Left-arm fast-medium",
+        "PLAYER_TYPE": "Left-Arm",
+        "BEST": "4/22",
         "STATS": {
             "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 6,
-                "Avg": 28.16,
-                "Econ": 8.65
+                "M": 22,
+                "I": 22,
+                "W": 25,
+                "Avg": 27.45,
+                "Econ": 8.60,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -285,13 +377,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "England",
         "BASE_PRICE": 2.4,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Aggressive",
+        "BEST": "133*",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 234,
-                "Avg": 33.42,
-                "SR": 142.68
+                "M": 35,
+                "I": 32,
+                "R": 845,
+                "Avg": 28.16,
+                "SR": 145.23,
+                "50": 5,
+                "100": 1
             }
         }
     },
@@ -301,19 +398,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 2.5,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm medium-fast",
+        "PLAYER_TYPE": "Versatile",
+        "BEST_BATTING": "78*",
+        "BEST_BOWLING": "4/29",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 145,
-                "Avg": 24.16,
-                "SR": 138.09
+                "M": 42,
+                "I": 38,
+                "R": 756,
+                "Avg": 22.90,
+                "SR": 142.15,
+                "50": 3,
+                "100": 0
             },
             "Bowling": {
-                "I": 8,
-                "W": 9,
-                "Avg": 25.11,
-                "Econ": 8.35
+                "I": 40,
+                "W": 48,
+                "Avg": 24.35,
+                "Econ": 8.42,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -323,13 +428,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.7,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Young Talent",
+        "BEST": "84",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 132.43
+                "M": 18,
+                "I": 16,
+                "R": 345,
+                "Avg": 23.00,
+                "SR": 135.42,
+                "50": 2,
+                "100": 0
             }
         }
     },
@@ -339,19 +449,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 2.4,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Powerful",
+        "BEST_BATTING": "108*",
+        "BEST_BOWLING": "3/22",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 212,
-                "Avg": 30.28,
-                "SR": 152.51
+                "M": 38,
+                "I": 36,
+                "R": 987,
+                "Avg": 28.20,
+                "SR": 155.34,
+                "50": 6,
+                "100": 1
             },
             "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 31.25,
-                "Econ": 8.65
+                "I": 32,
+                "W": 28,
+                "Avg": 29.45,
+                "Econ": 8.65,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -361,13 +479,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "South Africa",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Hard Hitting",
+        "BEST": "127",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 87,
-                "Avg": 21.75,
-                "SR": 148.72
+                "M": 25,
+                "I": 22,
+                "R": 567,
+                "Avg": 27.00,
+                "SR": 152.34,
+                "50": 3,
+                "100": 1
             }
         }
     },
@@ -377,13 +500,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "England",
         "BASE_PRICE": 1.9,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Consistent",
+        "BEST": "87",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 134,
-                "Avg": 22.33,
-                "SR": 128.84
+                "M": 45,
+                "I": 40,
+                "R": 1023,
+                "Avg": 27.78,
+                "SR": 132.45,
+                "50": 7,
+                "100": 0
             }
         }
     },
@@ -393,13 +521,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "Afghanistan",
         "BASE_PRICE": 2.8,
+        "PLAYER_STYLE": "Right-arm legbreak",
+        "PLAYER_TYPE": "Mystery Spinner",
+        "BEST": "5/18",
         "STATS": {
             "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 12,
-                "Avg": 18.25,
-                "Econ": 7.45
+                "M": 52,
+                "I": 52,
+                "W": 78,
+                "Avg": 18.45,
+                "Econ": 7.25,
+                "4W": 3,
+                "5W": 2
             }
         }
     },
@@ -409,19 +542,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 2.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Handy",
+        "BEST_BATTING": "72*",
+        "BEST_BOWLING": "4/31",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 76,
-                "Avg": 15.20,
-                "SR": 126.66
+                "M": 48,
+                "I": 40,
+                "R": 678,
+                "Avg": 18.83,
+                "SR": 130.45,
+                "50": 2,
+                "100": 0
             },
             "Bowling": {
-                "I": 6,
-                "W": 7,
-                "Avg": 26.28,
-                "Econ": 8.45
+                "I": 46,
+                "W": 52,
+                "Avg": 25.85,
+                "Econ": 8.55,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -431,19 +572,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.6,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "68",
+        "BEST_BOWLING": "3/25",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 45,
-                "Avg": 11.25,
-                "SR": 115.38
+                "M": 35,
+                "I": 30,
+                "R": 456,
+                "Avg": 16.28,
+                "SR": 128.45,
+                "50": 2,
+                "100": 0
             },
             "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 30.75,
-                "Econ": 8.55
+                "I": 33,
+                "W": 35,
+                "Avg": 28.75,
+                "Econ": 8.65,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -453,13 +602,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Express Pace",
+        "BEST": "4/22",
         "STATS": {
             "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 7,
-                "Avg": 27.14,
-                "Econ": 8.65
+                "M": 28,
+                "I": 28,
+                "W": 32,
+                "Avg": 26.45,
+                "Econ": 8.55,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -469,13 +623,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "Australia",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Left-arm fast-medium",
+        "PLAYER_TYPE": "Swing Bowler",
+        "BEST": "4/18",
         "STATS": {
             "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 8,
-                "Avg": 25.12,
-                "Econ": 8.15
+                "M": 38,
+                "I": 38,
+                "W": 45,
+                "Avg": 23.85,
+                "Econ": 8.05,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -485,13 +644,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Emerging Fast",
+        "BEST": "4/25",
         "STATS": {
             "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 7,
-                "Avg": 26.28,
-                "Econ": 8.45
+                "M": 22,
+                "I": 22,
+                "W": 28,
+                "Avg": 25.35,
+                "Econ": 8.45,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -501,13 +665,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "Australia",
         "BASE_PRICE": 1.7,
+        "PLAYER_STYLE": "Right-arm legbreak",
+        "PLAYER_TYPE": "Leg Spinner",
+        "BEST": "3/18",
         "STATS": {
             "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 6,
-                "Avg": 28.16,
-                "Econ": 8.25
+                "M": 32,
+                "I": 32,
+                "W": 38,
+                "Avg": 26.85,
+                "Econ": 8.15,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -517,13 +686,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Developing",
+        "BEST": "65",
         "STATS": {
             "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 38,
-                "Avg": 12.66,
-                "SR": 118.75
+                "M": 15,
+                "I": 12,
+                "R": 234,
+                "Avg": 21.27,
+                "SR": 125.80,
+                "50": 1,
+                "100": 0
             }
         }
     },
@@ -533,13 +707,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "3/28",
         "STATS": {
             "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 4,
-                "Avg": 32.25,
-                "Econ": 8.85
+                "M": 18,
+                "I": 18,
+                "W": 19,
+                "Avg": 31.45,
+                "Econ": 8.85,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -549,13 +728,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "England",
         "BASE_PRICE": 2.8,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Explosive",
+        "BEST": "124",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 267,
-                "Avg": 38.14,
-                "SR": 145.90
+                "M": 65,
+                "I": 62,
+                "R": 2156,
+                "Avg": 38.50,
+                "SR": 148.25,
+                "50": 15,
+                "100": 3
             }
         }
     },
@@ -565,13 +749,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "England",
         "BASE_PRICE": 2.4,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Aggressive",
+        "BEST": "109*",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 234,
-                "Avg": 33.42,
-                "SR": 152.94
+                "M": 48,
+                "I": 46,
+                "R": 1345,
+                "Avg": 30.56,
+                "SR": 155.34,
+                "50": 8,
+                "100": 1
             }
         }
     },
@@ -581,13 +770,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "South Africa",
         "BASE_PRICE": 2.5,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Power Hitter",
+        "BEST": "118",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 7,
-                "R": 198,
-                "Avg": 33.00,
-                "SR": 158.40
+                "M": 42,
+                "I": 40,
+                "R": 1234,
+                "Avg": 32.47,
+                "SR": 158.75,
+                "50": 7,
+                "100": 1
             }
         }
     },
@@ -597,19 +791,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Handy",
+        "BEST_BATTING": "78",
+        "BEST_BOWLING": "4/25",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 112,
-                "Avg": 22.40,
-                "SR": 135.13
+                "M": 58,
+                "I": 50,
+                "R": 987,
+                "Avg": 21.45,
+                "SR": 138.42,
+                "50": 4,
+                "100": 0
             },
             "Bowling": {
-                "I": 7,
-                "W": 8,
-                "Avg": 25.12,
-                "Econ": 8.55
+                "I": 56,
+                "W": 62,
+                "Avg": 25.35,
+                "Econ": 8.55,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -619,13 +821,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "New Zealand",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Solid",
+        "BEST": "101*",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 67,
-                "Avg": 16.75,
-                "SR": 121.81
+                "M": 35,
+                "I": 32,
+                "R": 756,
+                "Avg": 25.20,
+                "SR": 135.42,
+                "50": 3,
+                "100": 1
             }
         }
     },
@@ -635,13 +842,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Young Talent",
+        "BEST": "85",
         "STATS": {
             "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 28,
-                "Avg": 14.00,
-                "SR": 116.66
+                "M": 12,
+                "I": 10,
+                "R": 234,
+                "Avg": 23.40,
+                "SR": 128.57,
+                "50": 1,
+                "100": 0
             }
         }
     },
@@ -651,13 +863,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "4/28",
         "STATS": {
             "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 5,
-                "Avg": 31.40,
-                "Econ": 8.85
+                "M": 22,
+                "I": 22,
+                "W": 25,
+                "Avg": 29.45,
+                "Econ": 8.75,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -667,19 +884,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "New Zealand",
         "BASE_PRICE": 2.0,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Emerging Star",
+        "BEST_BATTING": "104",
+        "BEST_BOWLING": "3/22",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 6,
-                "R": 145,
-                "Avg": 24.16,
-                "SR": 138.09
+                "M": 28,
+                "I": 26,
+                "R": 678,
+                "Avg": 27.12,
+                "SR": 142.15,
+                "50": 3,
+                "100": 1
             },
             "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 32.33,
-                "Econ": 8.08
+                "I": 25,
+                "W": 22,
+                "Avg": 30.45,
+                "Econ": 8.05,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -689,13 +914,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "England",
         "BASE_PRICE": 1.1,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Developing",
+        "BEST": "65",
         "STATS": {
             "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 25,
-                "Avg": 12.50,
-                "SR": 113.63
+                "M": 8,
+                "I": 7,
+                "R": 112,
+                "Avg": 16.00,
+                "SR": 118.52,
+                "50": 1,
+                "100": 0
             }
         }
     },
@@ -705,19 +935,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.4,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm fast",
+        "PLAYER_TYPE": "Left-Arm",
+        "BEST_BATTING": "48",
+        "BEST_BOWLING": "3/25",
         "STATS": {
             "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 38,
-                "Avg": 12.66,
-                "SR": 126.66
+                "M": 25,
+                "I": 20,
+                "R": 234,
+                "Avg": 13.00,
+                "SR": 132.45,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 34.33,
-                "Econ": 8.95
+                "I": 24,
+                "W": 28,
+                "Avg": 28.75,
+                "Econ": 8.85,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -727,13 +965,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Express Pace",
+        "BEST": "4/32",
         "STATS": {
             "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 7,
-                "Avg": 26.28,
-                "Econ": 8.45
+                "M": 28,
+                "I": 28,
+                "W": 32,
+                "Avg": 26.15,
+                "Econ": 8.45,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -743,13 +986,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "Afghanistan",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Left-arm wrist-spin",
+        "PLAYER_TYPE": "Mystery Spinner",
+        "BEST": "4/18",
         "STATS": {
             "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 6,
-                "Avg": 24.16,
-                "Econ": 7.85
+                "M": 35,
+                "I": 35,
+                "W": 42,
+                "Avg": 23.85,
+                "Econ": 7.75,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -759,13 +1007,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.6,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Swing Master",
+        "BEST": "4/20",
         "STATS": {
             "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 4,
-                "Avg": 28.25,
-                "Econ": 7.95
+                "M": 42,
+                "I": 42,
+                "W": 48,
+                "Avg": 25.45,
+                "Econ": 7.85,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -775,13 +1028,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Young Fast",
+        "BEST": "3/28",
         "STATS": {
             "Bowling": {
-                "M": 3,
-                "I": 3,
-                "W": 2,
-                "Avg": 36.50,
-                "Econ": 8.85
+                "M": 15,
+                "I": 15,
+                "W": 14,
+                "Avg": 32.85,
+                "Econ": 8.75,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -791,13 +1049,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-arm orthodox",
+        "PLAYER_TYPE": "Left-Arm Spinner",
+        "BEST": "4/22",
         "STATS": {
             "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 5,
-                "Avg": 30.40,
-                "Econ": 8.25
+                "M": 28,
+                "I": 28,
+                "W": 32,
+                "Avg": 27.45,
+                "Econ": 8.15,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -807,19 +1070,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+        "PLAYER_TYPE": "Developing",
+        "BEST_BATTING": "35",
+        "BEST_BOWLING": "2/30",
         "STATS": {
             "Batting": {
-                "M": 2,
-                "I": 1,
-                "R": 12,
-                "Avg": 12.00,
-                "SR": 109.09
+                "M": 8,
+                "I": 6,
+                "R": 67,
+                "Avg": 11.16,
+                "SR": 115.52,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 38.00,
-                "Econ": 8.90
+                "I": 7,
+                "W": 5,
+                "Avg": 36.20,
+                "Econ": 8.90,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -829,13 +1100,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 0.9,
+        "PLAYER_STYLE": "Right-arm offbreak",
+        "PLAYER_TYPE": "Young Spinner",
+        "BEST": "2/25",
         "STATS": {
             "Bowling": {
-                "M": 2,
-                "I": 2,
-                "W": 1,
-                "Avg": 42.00,
-                "Econ": 9.00
+                "M": 6,
+                "I": 6,
+                "W": 4,
+                "Avg": 38.50,
+                "Econ": 8.95,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -1141,13 +1417,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "England",
         "BASE_PRICE": 2.5,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Explosive",
+        "BEST": "114*",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 245,
-                "Avg": 35.00,
-                "SR": 145.23
+                "M": 85,
+                "I": 80,
+                "R": 2456,
+                "Avg": 32.85,
+                "SR": 148.25,
+                "50": 16,
+                "100": 2
             }
         }
     },
@@ -1157,13 +1438,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "Australia",
         "BASE_PRICE": 2.2,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Innovative",
+        "BEST": "116",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 7,
-                "R": 178,
-                "Avg": 25.42,
-                "SR": 132.83
+                "M": 65,
+                "I": 62,
+                "R": 1876,
+                "Avg": 31.85,
+                "SR": 135.42,
+                "50": 12,
+                "100": 1
             }
         }
     },
@@ -1173,13 +1459,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.6,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Solid",
+        "BEST": "103*",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 112,
-                "Avg": 22.40,
-                "SR": 128.73
+                "M": 48,
+                "I": 45,
+                "R": 1123,
+                "Avg": 26.74,
+                "SR": 132.45,
+                "50": 6,
+                "100": 1
             }
         }
     },
@@ -1189,13 +1480,18 @@ export default[
         "ROLE": "WK-Batter",
         "NATION": "England",
         "BASE_PRICE": 1.9,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Power Hitter",
+        "BEST": "127",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 134,
-                "Avg": 22.33,
-                "SR": 142.55
+                "M": 62,
+                "I": 58,
+                "R": 1567,
+                "Avg": 28.49,
+                "SR": 145.23,
+                "50": 9,
+                "100": 1
             }
         }
     },
@@ -1205,13 +1501,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Aggressive",
+        "BEST": "108*",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 87,
-                "Avg": 21.75,
-                "SR": 138.09
+                "M": 38,
+                "I": 35,
+                "R": 987,
+                "Avg": 29.03,
+                "SR": 142.15,
+                "50": 5,
+                "100": 1
             }
         }
     },
@@ -1221,19 +1522,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "Australia",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Economical",
+        "BEST_BATTING": "68*",
+        "BEST_BOWLING": "4/22",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 76,
-                "Avg": 15.20,
-                "SR": 126.66
+                "M": 52,
+                "I": 45,
+                "R": 756,
+                "Avg": 18.90,
+                "SR": 130.45,
+                "50": 2,
+                "100": 0
             },
             "Bowling": {
-                "I": 6,
-                "W": 6,
-                "Avg": 28.16,
-                "Econ": 8.05
+                "I": 50,
+                "W": 54,
+                "Avg": 26.85,
+                "Econ": 7.95,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -1243,13 +1552,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Solid",
+        "BEST": "89",
         "STATS": {
             "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 45,
-                "Avg": 15.00,
-                "SR": 115.38
+                "M": 28,
+                "I": 25,
+                "R": 567,
+                "Avg": 23.62,
+                "SR": 128.45,
+                "50": 3,
+                "100": 0
             }
         }
     },
@@ -1259,19 +1573,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Spin All-rounder",
+        "BEST_BATTING": "74",
+        "BEST_BOWLING": "3/28",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 67,
-                "Avg": 16.75,
-                "SR": 121.81
+                "M": 35,
+                "I": 30,
+                "R": 456,
+                "Avg": 16.28,
+                "SR": 125.80,
+                "50": 2,
+                "100": 0
             },
             "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 32.33,
-                "Econ": 8.55
+                "I": 32,
+                "W": 28,
+                "Avg": 31.45,
+                "Econ": 8.45,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -1281,19 +1603,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.7,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm fast-medium",
+        "PLAYER_TYPE": "Left-Arm",
+        "BEST_BATTING": "82*",
+        "BEST_BOWLING": "4/25",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 87,
-                "Avg": 17.40,
-                "SR": 138.09
+                "M": 42,
+                "I": 38,
+                "R": 678,
+                "Avg": 19.37,
+                "SR": 142.35,
+                "50": 3,
+                "100": 0
             },
             "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 31.25,
-                "Econ": 8.65
+                "I": 40,
+                "W": 42,
+                "Avg": 28.75,
+                "Econ": 8.55,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -1303,13 +1633,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "New Zealand",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Swing Bowler",
+        "BEST": "5/22",
         "STATS": {
             "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 8,
-                "Avg": 26.12,
-                "Econ": 8.35
+                "M": 58,
+                "I": 58,
+                "W": 72,
+                "Avg": 24.35,
+                "Econ": 8.25,
+                "4W": 3,
+                "5W": 1
             }
         }
     },
@@ -1319,13 +1654,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Left-arm fast-medium",
+        "PLAYER_TYPE": "Left-Arm",
+        "BEST": "4/18",
         "STATS": {
             "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 7,
-                "Avg": 27.14,
-                "Econ": 8.65
+                "M": 45,
+                "I": 45,
+                "W": 52,
+                "Avg": 26.85,
+                "Econ": 8.55,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -1335,13 +1675,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "Australia",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Express Pace",
+        "BEST": "4/25",
         "STATS": {
             "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 5,
-                "Avg": 30.40,
-                "Econ": 9.05
+                "M": 38,
+                "I": 38,
+                "W": 45,
+                "Avg": 27.45,
+                "Econ": 8.95,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -1351,13 +1696,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Left-arm fast-medium",
+        "PLAYER_TYPE": "Young Fast",
+        "BEST": "3/28",
         "STATS": {
             "Bowling": {
-                "M": 3,
-                "I": 3,
-                "W": 2,
-                "Avg": 36.50,
-                "Econ": 8.85
+                "M": 15,
+                "I": 15,
+                "W": 16,
+                "Avg": 32.25,
+                "Econ": 8.75,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -1367,13 +1717,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.3,
+        "PLAYER_STYLE": "Right-arm legbreak",
+        "PLAYER_TYPE": "Leg Spinner",
+        "BEST": "4/20",
         "STATS": {
             "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 3,
-                "Avg": 34.33,
-                "Econ": 8.35
+                "M": 32,
+                "I": 32,
+                "W": 35,
+                "Avg": 29.85,
+                "Econ": 8.25,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -1383,13 +1738,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 0.9,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Developing",
+        "BEST": "2/25",
         "STATS": {
             "Bowling": {
-                "M": 2,
-                "I": 2,
-                "W": 1,
-                "Avg": 42.00,
-                "Econ": 9.00
+                "M": 8,
+                "I": 8,
+                "W": 6,
+                "Avg": 38.50,
+                "Econ": 8.95,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -1399,19 +1759,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Young All-rounder",
+        "BEST_BATTING": "35",
+        "BEST_BOWLING": "2/30",
         "STATS": {
             "Batting": {
-                "M": 2,
-                "I": 1,
-                "R": 18,
-                "Avg": 18.00,
-                "SR": 112.50
+                "M": 6,
+                "I": 5,
+                "R": 67,
+                "Avg": 13.40,
+                "SR": 115.52,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 1,
-                "W": 0,
-                "Avg": 0,
-                "Econ": 8.20
+                "I": 5,
+                "W": 4,
+                "Avg": 34.25,
+                "Econ": 8.15,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -1421,13 +1789,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "South Africa",
         "BASE_PRICE": 2.3,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Consistent",
+        "BEST": "127*",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 212,
-                "Avg": 30.28,
-                "SR": 138.56
+                "M": 68,
+                "I": 65,
+                "R": 1876,
+                "Avg": 31.26,
+                "SR": 142.35,
+                "50": 12,
+                "100": 1
             }
         }
     },
@@ -1437,13 +1810,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Aggressive",
+        "BEST": "114",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 7,
-                "R": 187,
-                "Avg": 26.71,
-                "SR": 148.41
+                "M": 125,
+                "I": 122,
+                "R": 3456,
+                "Avg": 29.54,
+                "SR": 148.75,
+                "50": 24,
+                "100": 2
             }
         }
     },
@@ -1453,13 +1831,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.6,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Power Hitter",
+        "BEST": "103*",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 112,
-                "Avg": 22.40,
-                "SR": 142.55
+                "M": 85,
+                "I": 80,
+                "R": 1987,
+                "Avg": 26.49,
+                "SR": 145.23,
+                "50": 11,
+                "100": 1
             }
         }
     },
@@ -1469,19 +1852,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Emerging",
+        "BEST_BATTING": "68",
+        "BEST_BOWLING": "3/25",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 67,
-                "Avg": 16.75,
-                "SR": 121.81
+                "M": 25,
+                "I": 22,
+                "R": 345,
+                "Avg": 17.25,
+                "SR": 125.45,
+                "50": 1,
+                "100": 0
             },
             "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 32.33,
-                "Econ": 8.35
+                "I": 23,
+                "W": 21,
+                "Avg": 30.85,
+                "Econ": 8.25,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -1491,19 +1882,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "Australia",
         "BASE_PRICE": 1.7,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+        "PLAYER_TYPE": "Handy",
+        "BEST_BATTING": "89*",
+        "BEST_BOWLING": "3/28",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 132.43
+                "M": 58,
+                "I": 52,
+                "R": 1234,
+                "Avg": 24.68,
+                "SR": 135.42,
+                "50": 6,
+                "100": 0
             },
             "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 34.33,
-                "Econ": 8.85
+                "I": 45,
+                "W": 38,
+                "Avg": 31.25,
+                "Econ": 8.75,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
@@ -1513,13 +1912,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Elegant",
+        "BEST": "116",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 198,
-                "Avg": 28.28,
-                "SR": 142.44
+                "M": 145,
+                "I": 140,
+                "R": 4123,
+                "Avg": 30.98,
+                "SR": 142.85,
+                "50": 28,
+                "100": 3
             }
         }
     },
@@ -1529,19 +1933,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "New Zealand",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Left-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Spin All-rounder",
+        "BEST_BATTING": "78",
+        "BEST_BOWLING": "4/22",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 87,
-                "Avg": 17.40,
-                "SR": 128.84
+                "M": 42,
+                "I": 38,
+                "R": 756,
+                "Avg": 21.60,
+                "SR": 132.45,
+                "50": 3,
+                "100": 0
             },
             "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 30.75,
-                "Econ": 8.15
+                "I": 40,
+                "W": 42,
+                "Avg": 28.35,
+                "Econ": 8.05,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
@@ -1551,19 +1963,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Powerful",
+        "BEST_BATTING": "74*",
+        "BEST_BOWLING": "4/25",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 112,
-                "Avg": 18.66,
-                "SR": 135.13
+                "M": 65,
+                "I": 58,
+                "R": 987,
+                "Avg": 18.27,
+                "SR": 142.15,
+                "50": 4,
+                "100": 0
             },
             "Bowling": {
-                "I": 7,
-                "W": 8,
-                "Avg": 25.12,
-                "Econ": 8.55
+                "I": 62,
+                "W": 68,
+                "Avg": 25.45,
+                "Econ": 8.55,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -1573,19 +1993,27 @@ export default[
         "ROLE": "All-Rounder",
         "NATION": "England",
         "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Tall Fast",
+        "BEST_BATTING": "65",
+        "BEST_BOWLING": "4/28",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 76,
-                "Avg": 15.20,
-                "SR": 118.75
+                "M": 78,
+                "I": 65,
+                "R": 876,
+                "Avg": 15.36,
+                "SR": 122.83,
+                "50": 2,
+                "100": 0
             },
             "Bowling": {
-                "I": 6,
-                "W": 7,
-                "Avg": 26.28,
-                "Econ": 8.45
+                "I": 75,
+                "W": 85,
+                "Avg": 26.75,
+                "Econ": 8.35,
+                "4W": 3,
+                "5W": 0
             }
         }
     },
@@ -1595,13 +2023,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 2.2,
+        "PLAYER_STYLE": "Left-arm fast",
+        "PLAYER_TYPE": "Express Pace",
+        "BEST": "4/18",
         "STATS": {
             "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 9,
-                "Avg": 23.44,
-                "Econ": 8.65
+                "M": 95,
+                "I": 95,
+                "W": 112,
+                "Avg": 24.15,
+                "Econ": 8.65,
+                "4W": 4,
+                "5W": 0
             }
         }
     },
@@ -1611,13 +2044,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 2.3,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Death Specialist",
+        "BEST": "4/15",
         "STATS": {
             "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 10,
-                "Avg": 24.80,
-                "Econ": 8.75
+                "M": 125,
+                "I": 123,
+                "W": 145,
+                "Avg": 25.85,
+                "Econ": 8.75,
+                "4W": 5,
+                "5W": 0
             }
         }
     },
@@ -1627,13 +2065,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 2.4,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Express Pace",
+        "BEST": "4/18",
         "STATS": {
             "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 8,
-                "Avg": 21.25,
-                "Econ": 8.05
+                "M": 48,
+                "I": 48,
+                "W": 62,
+                "Avg": 22.45,
+                "Econ": 8.05,
+                "4W": 3,
+                "5W": 0
             }
         }
     },
@@ -1643,13 +2086,18 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 2.1,
+        "PLAYER_STYLE": "Left-arm fast-medium",
+        "PLAYER_TYPE": "Swing Bowler",
+        "BEST": "4/22",
         "STATS": {
             "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 8,
-                "Avg": 26.12,
-                "Econ": 8.35
+                "M": 68,
+                "I": 68,
+                "W": 78,
+                "Avg": 26.35,
+                "Econ": 8.25,
+                "4W": 2,
+                "5W": 0
             }
         }
     },
@@ -1659,13 +2107,18 @@ export default[
         "ROLE": "Batter",
         "NATION": "England",
         "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Young Talent",
+        "BEST": "45",
         "STATS": {
             "Batting": {
-                "M": 2,
-                "I": 1,
-                "R": 18,
-                "Avg": 18.00,
-                "SR": 112.50
+                "M": 8,
+                "I": 6,
+                "R": 78,
+                "Avg": 13.00,
+                "SR": 118.18,
+                "50": 0,
+                "100": 0
             }
         }
     },
@@ -1675,14 +2128,19 @@ export default[
         "ROLE": "Bowler",
         "NATION": "England",
         "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-arm orthodox",
+        "PLAYER_TYPE": "Left-Arm Spinner",
+        "BEST": "4/20",
         "STATS": {
             "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 5,
-                "Avg": 30.40,
-                "Econ": 8.25
+                "M": 85,
+                "I": 84,
+                "W": 92,
+                "Avg": 28.45,
+                "Econ": 8.15,
+                "4W": 2,
+                "5W": 0
             }
         }
-    }
+    },
 ]

@@ -6,8 +6,8 @@
   --font-heading: "Boldonse", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-text: "Poppins", sans-serif;
-  /* 🎨 Colors */
-  --color-bg: #ffc300;
+
+  /* --color-bg: #ffc300;
   --color-text: #0a0a0f;
   --color-main: #1e1e2a;
   --color-highlight: #ff5733;
@@ -16,17 +16,16 @@
   --color-text2:#ffffff;
 
   --color-aucBG: #eef3fa;
-  --color-card: #aed9e0;
+  --color-card: #000000;
   --color-playerName: #0d47a1;
   --color-role: #1565c0;
   --color-currentBid: #0078ff;
   --color-highestBid: #00c853;
   --color-font: #1b2430;
   --color-mute: #7a859b;
-  --color-card2: #141414;
-}
+  --color-card2: #141414; */
 
-.dark {
+   /* dark
   --color-bg: #0a0a0f;
   --color-text: #f5f5f5;
   --color-main: #1e1e2a;
@@ -45,5 +44,42 @@
   --color-currentBid: #2196f3;
 
   --color-font: #e6f1ff;
-  --color-mute: #94a3b8;
+  --color-mute: #94a3b8; */
+
+
+  --color-bg:#0A0F1F;
+  --color-text:#E6E9EE;
+
+  --color-muted:#7A808A;
+  --color-highlight:#00FF88;
+
+  --color-card1:#141B25;
+  --color-card2:#1C2633;
+
+  --color-btn1:#00C46C;
+  --color-btn2:#2DCAFF;
+
+  --color-auc:#141A2E;
+  --color-player:#3B82F6;
+  --color-gold:#FACC15;
+
+  --color-helper:#5A5DFF;
+
+  --color-neon:#00E5FF;
+  --color-outline:#1B2437;
+  
+
+
+
+
 }
+
+/* .dark {
+  
+} */
+
+  #copyTeamBtn.copied {
+    background-color: #22c55e !important;      /* green-500 */
+    color: white !important;
+    transform: scale(1.04);
+  }

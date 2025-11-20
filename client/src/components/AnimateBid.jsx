@@ -20,7 +20,7 @@ const AnimateBid = ({ highestBid = 0, highestBidder }) => {
   }, [highestBid, springBid]);
 
   return (
-    <span className="flex gap-2 text-sm items-center text-white">
+    <span className="flex gap-2 text-sm items-center text-white ">
       {displayBid} Cr - {highestBidder || "Base Price"}
     </span>
   );

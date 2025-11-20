@@ -1,4014 +1,5601 @@
 export default[
-    {
-        "NAME": "DEWALD BREVIS",
-        "ROLE": "BATTER",
-        "TEAM": "CSK",
-        "NATION": "SOUTH AFRICA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 14,
-                "R": 385,
-                "Avg": 35.00,
-                "SR": 142.50
-            }
+   {
+    "NAME": "DEWALD BREVIS",
+    "TEAM": "CSK",
+    "ROLE": "Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "57",
+    "STATS": {
+        "Batting": {
+            "M": 16,
+            "I": 16,
+            "R": 455,
+            "Avg": 28.44,
+            "SR": 153.20,
+            "50": 2,
+            "100": 0
         }
-    },
+    }
+},
+{
+  "NAME": "Ruturaj Gaikwad",
+  "TEAM": "CSK",
+  "ROLE": "Batter",
+  "NATION": "India",
+  "BASE_PRICE": 2.0,
+  "PLAYER_STYLE": "Right-hand bat",
+  "PLAYER_TYPE": "Top-order / Anchoring",
+  "BEST": "108*",
+  "STATS": {
+    "Batting": {
+      "M": 66,
+      "I": 65,
+      "R": 2380,
+      "Avg": 41.75,
+      "SR": 136.86,
+      "50": 18,
+      "100": 2
+    }
+  }
+},
     {
-        "NAME": "DEVON CONWAY",
-        "ROLE": "BATTER",
-        "TEAM": "CSK",
-        "NATION": "NEW ZEALAND",
-        "Base_Price": 2.5,
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 16,
-                "R": 672,
-                "Avg": 51.69,
-                "SR": 139.75
-            }
+    "NAME": "DEVON CONWAY",
+    "TEAM": "CSK",
+    "ROLE": "Batter",
+    "NATION": "New Zealand",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "92*",
+    "STATS": {
+        "Batting": {
+            "M": 29,
+            "I": 29,
+            "R": 1080,
+            "Avg": 43.20,
+            "SR": 139.72,
+            "50": 11,
+            "100": 0
         }
-    },
+    }
+},{
+    "NAME": "RAHUL TRIPATHI",
+    "TEAM": "CSK",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "93",
+    "STATS": {
+        "Batting": {
+            "M": 100,
+            "I": 100,
+            "R": 2291,
+            "Avg": 26.33,
+            "SR": 137.85,
+            "50": 12,
+            "100": 0
+        }
+    }
+},
+   {
+    "NAME": "SHAIK RASHEED",
+    "TEAM": "CSK",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "27",
+    "STATS": {
+        "Batting": {
+            "M": 5,
+            "I": 5,
+            "R": 71,
+            "Avg": 14.20,
+            "SR": 112.69,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+   {
+    "NAME": "ANDRE SIDDARTH",
+    "TEAM": "CSK",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "-",
+    "STATS": {
+        "Batting": {
+            "M": 0,
+            "I": 0,
+            "R": 0,
+            "Avg": 0.00,
+            "SR": 0.00,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+  {
+    "NAME": "AYUSH MHATRE",
+    "TEAM": "CSK",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "94",
+    "STATS": {
+        "Batting": {
+            "M": 7,
+            "I": 7,
+            "R": 240,
+            "Avg": 34.29,
+            "SR": 188.98,
+            "50": 1,
+            "100": 0
+        }
+    }
+},
+   {
+    "NAME": "URVIL PATEL",
+    "TEAM": "CSK",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "37",
+    "STATS": {
+        "Batting": {
+            "M": 3,
+            "I": 3,
+            "R": 68,
+            "Avg": 22.67,
+            "SR": 212.50,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+   {
+    "NAME": "RACHIN RAVINDRA",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "New Zealand",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "65*",
+    "BEST_BOWLING": "0/3",
+    "STATS": {
+        "Batting": {
+            "M": 18,
+            "I": 18,
+            "R": 413,
+            "Avg": 24.29,
+            "SR": 143.90,
+            "50": 2,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 18,
+            "W": 5,
+            "Avg": 42.60,
+            "Econ": 8.52,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+   {
+    "NAME": "RAVICHANDRAN ASHWIN",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "50",
+    "BEST_BOWLING": "4/34",
+    "STATS": {
+        "Batting": {
+            "M": 221,
+            "I": 98,
+            "R": 833,
+            "Avg": 13.02,
+            "SR": 118.16,
+            "50": 1,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 221,
+            "W": 187,
+            "Avg": 30.23,
+            "Econ": 7.20,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
     {
-        "NAME": "RAHUL TRIPTAHI",
-        "ROLE": "BATTER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 15,
-                "R": 413,
-                "Avg": 31.76,
-                "SR": 148.20
-            }
+    "NAME": "VIJAY SHANKAR",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "69*",
+    "BEST_BOWLING": "2/19",
+    "STATS": {
+        "Batting": {
+            "M": 78,
+            "I": 65,
+            "R": 1233,
+            "Avg": 26.23,
+            "SR": 129.79,
+            "50": 7,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 78,
+            "I": 48,
+            "W": 9,
+            "Avg": 38.22,
+            "Econ": 8.67,
+            "4W": 0,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "SHAIK RASHEED",
-        "ROLE": "BATTER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 156,
-                "Avg": 22.28,
-                "SR": 118.18
-            }
+    }
+},
+   {
+    "NAME": "SAM CURRAN",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "England",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm medium-fast",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "88",
+    "BEST_BOWLING": "4/11",
+    "STATS": {
+        "Batting": {
+            "M": 64,
+            "I": 53,
+            "R": 997,
+            "Avg": 24.93,
+            "SR": 136.39,
+            "50": 6,
+            "100": 0,
+            "4s": 85,
+            "6s": 41
+        },
+        "Bowling": {
+            "M": 64,
+            "W": 59,
+            "Avg": 34.46,
+            "Econ": 9.74,
+            "4W": 1,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "VANSH BEDI",
-        "ROLE": "WK-BATTER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 87,
-                "Avg": 21.75,
-                "SR": 115.45
-            }
+    }
+},
+  {
+    "NAME": "ANSHUL KAMBOJ",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Emerging",
+    "BEST_BATTING": "5*",
+    "BEST_BOWLING": "3/13",
+    "STATS": {
+        "Batting": {
+            "M": 11,
+            "I": 11,
+            "R": 16,
+            "Avg": 8.00,
+            "SR": 116.00,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 11,
+            "I": 11,
+            "W": 10,
+            "Avg": 28.60,
+            "Econ": 9.08,
+            "4W": 0,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "ANDRE SIDDARTH",
-        "ROLE": "BATTER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 42,
-                "Avg": 21.00,
-                "SR": 105.00
-            }
+    }
+},
+  {
+    "NAME": "DEEPAK HOODA",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "64",
+    "BEST_BOWLING": "2/16",
+    "STATS": {
+        "Batting": {
+            "M": 125,
+            "I": 109,
+            "R": 1496,
+            "Avg": 17.60,
+            "SR": 127.65,
+            "50": 8,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 125,
+            "W": 10,
+            "Avg": 54.60,
+            "Econ": 8.64,
+            "4W": 0,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "AYUSH MHATRE",
-        "ROLE": "BATTER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 2,
-                "I": 1,
-                "R": 18,
-                "Avg": 18.00,
-                "SR": 112.50
-            }
+    }
+},
+   {
+    "NAME": "JAMIE OVERTON",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "England",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "11*",
+    "BEST_BOWLING": "0/24",
+    "STATS": {
+        "Batting": {
+            "M": 3,
+            "I": 2,
+            "R": 15,
+            "Avg": 15.00,
+            "SR": 214.29,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 3,
+            "I": 3,
+            "W": 0,
+            "Avg": 0.00,
+            "Econ": 13.83,
+            "4W": 0,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "URVIL PATEL",
-        "ROLE": "WK-BATTER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 134,
-                "Avg": 26.80,
-                "SR": 127.61
-            }
+    }
+},
+   {
+    "NAME": "KAMLESH NAGARKOTI",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "8*",
+    "BEST_BOWLING": "2/13",
+    "STATS": {
+        "Batting": {
+            "M": 12,
+            "I": 7,
+            "R": 22,
+            "Avg": 5.50,
+            "SR": 66.67,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 12,
+            "W": 5,
+            "Avg": 57.00,
+            "Econ": 9.50,
+            "4W": 0,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "RACHIN RAVINDRA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "NEW ZEALAND",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 14,
-                "R": 398,
-                "Avg": 33.16,
-                "SR": 145.25
-            },
-            "Bowling": {
-                "I": 8,
-                "W": 5,
-                "Avg": 42.60,
-                "Econ": 8.52
-            }
-        }
-    },
-    {
-        "NAME": "RAVICHANDRAN ASHWIN",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 2.5,
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 12,
-                "R": 156,
-                "Avg": 19.50,
-                "SR": 135.65
-            },
-            "Bowling": {
-                "I": 16,
-                "W": 18,
-                "Avg": 28.45,
-                "Econ": 7.85
-            }
-        }
-    },
-    {
-        "NAME": "VIJAY SHANKAR",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Batting": {
-                "M": 12,
-                "I": 11,
-                "R": 287,
-                "Avg": 28.70,
-                "SR": 138.65
-            },
-            "Bowling": {
-                "I": 6,
-                "W": 4,
-                "Avg": 45.25,
-                "Econ": 9.05
-            }
-        }
-    },
-    {
-        "NAME": "SAM CURRAN",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "ENGLAND",
-        "Base_Price": 2.5,
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 14,
-                "R": 234,
-                "Avg": 21.27,
-                "SR": 142.68
-            },
-            "Bowling": {
-                "I": 16,
-                "W": 16,
-                "Avg": 32.18,
-                "Econ": 8.95
-            }
-        }
-    },
-    {
-        "NAME": "ANSHUL KAMBOJ",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 45,
-                "Avg": 15.00,
-                "SR": 112.50
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 52.50,
-                "Econ": 10.50
-            }
-        }
-    },
-    {
-        "NAME": "DEEPAK HOODA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Batting": {
-                "M": 13,
-                "I": 12,
-                "R": 278,
-                "Avg": 25.27,
-                "SR": 132.38
-            },
-            "Bowling": {
-                "I": 5,
-                "W": 3,
-                "Avg": 48.33,
-                "Econ": 9.66
-            }
-        }
-    },
-    {
-        "NAME": "JAMIE OVERTON",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "ENGLAND",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 145,
-                "Avg": 24.16,
-                "SR": 148.97
-            },
-            "Bowling": {
-                "I": 8,
-                "W": 9,
-                "Avg": 34.22,
-                "Econ": 9.25
-            }
-        }
-    },
-    {
-        "NAME": "KAMLESH NAGARKOTI",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 38,
-                "Avg": 12.66,
-                "SR": 118.75
-            },
-            "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 41.75,
-                "Econ": 9.27
-            }
-        }
-    },
+    }
+},
     {
         "NAME": "RAMAKRISHNA GOSH",
-        "ROLE": "ALL-ROUNDER",
         "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+        "PLAYER_TYPE": "Emerging",
+        "BEST_BATTING": "16",
+        "BEST_BOWLING": "1/28",
         "STATS": {
             "Batting": {
                 "M": 3,
                 "I": 2,
                 "R": 28,
-                "Avg": 14.00,
-                "SR": 116.66
+                "Avg": 14.0,
+                "SR": 116.66,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
                 "I": 2,
                 "W": 1,
-                "Avg": 56.00,
-                "Econ": 9.33
+                "Avg": 56.0,
+                "Econ": 9.33,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
-        "NAME": "RAVINDRA JADEJA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 3.0,
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 14,
-                "R": 267,
-                "Avg": 29.66,
-                "SR": 142.78
-            },
-            "Bowling": {
-                "I": 16,
-                "W": 17,
-                "Avg": 26.82,
-                "Econ": 7.45
-            }
+    "NAME": "RAVINDRA JADEJA",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "77*",
+    "BEST_BOWLING": "5/16",
+    "STATS": {
+        "Batting": {
+            "M": 254,
+            "I": 214,
+            "R": 3260,
+            "Avg": 27.86,
+            "SR": 142.78,
+            "50": 5,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 254,
+            "W": 170,
+            "Avg": 30.52,
+            "Econ": 7.45,
+            "4W": 0,
+            "5W": 1
         }
-    },
+    }
+},
     {
-        "NAME": "SHIVAM DUBE",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 14,
-                "R": 412,
-                "Avg": 37.45,
-                "SR": 158.46
-            },
-            "Bowling": {
-                "I": 4,
-                "W": 2,
-                "Avg": 52.50,
-                "Econ": 10.50
-            }
+    "NAME": "SHIVAM DUBE",
+    "TEAM": "CSK",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "95*",
+    "BEST_BOWLING": "3/4",
+    "STATS": {
+        "Batting": {
+            "M": 79,
+            "I": 73,
+            "R": 1859,
+            "Avg": 30.48,
+            "SR": 158.46,
+            "50": 10,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 16,
+            "W": 4,
+            "Avg": 52.50,
+            "Econ": 10.50,
+            "4W": 0,
+            "5W": 0
         }
-    },
+    }
+},
+   {
+    "NAME": "KHALEEL AHMED",
+    "TEAM": "CSK",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/21",
+    "STATS": {
+        "Bowling": {
+            "M": 71,
+            "I": 71,
+            "W": 89,
+            "Avg": 26.16,
+            "Econ": 8.98,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
     {
-        "NAME": "KHALEEL AHMED",
-        "ROLE": "BOWLER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Bowling": {
-                "M": 14,
-                "I": 14,
-                "W": 16,
-                "Avg": 28.75,
-                "Econ": 8.65
-            }
+    "NAME": "NOOR AHMED",
+    "TEAM": "CSK",
+    "ROLE": "Bowler",
+    "NATION": "Afghanistan",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-arm wrist-spin",
+    "PLAYER_TYPE": "Wrist Spinner",
+    "BEST": "4/18",
+    "STATS": {
+        "Bowling": {
+            "M": 37,
+            "I": 37,
+            "W": 48,
+            "Avg": 22.23,
+            "Econ": 8.08,
+            "4W": 2,
+            "5W": 0
         }
-    },
+    }
+},
+   {
+    "NAME": "MUKESH CHOUDHARY",
+    "TEAM": "CSK",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-arm medium-fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/46",
+    "STATS": {
+        "Bowling": {
+            "M": 13,
+            "I": 13,
+            "W": 16,
+            "Avg": 28.18,
+            "Econ": 9.10,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+   {
+    "NAME": "NATHAN ELLIS",
+    "TEAM": "CSK",
+    "ROLE": "Bowler",
+    "NATION": "Australia",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/30",
+    "STATS": {
+        "Bowling": {
+            "M": 17,
+            "I": 17,
+            "W": 19,
+            "Avg": 29.16,
+            "Econ": 8.66,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+  {
+    "NAME": "SHERYAS GOPAL",
+    "TEAM": "CSK",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Wrist Spinner",
+    "BEST": "5/21",
+    "STATS": {
+        "Bowling": {
+            "M": 49,
+            "I": 49,
+            "W": 49,
+            "Avg": 24.69,
+            "Econ": 7.55,
+            "4W": 1,
+            "5W": 1
+        }
+    }
+},
+   {
+    "NAME": "MATHEESA PATHIRANA",
+    "TEAM": "CSK",
+    "ROLE": "Bowler",
+    "NATION": "Sri Lanka",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "5/15",
+    "STATS": {
+        "Bowling": {
+            "M": 19,
+            "I": 19,
+            "W": 30,
+            "Avg": 19.66,
+            "Econ": 8.52,
+            "4W": 0,
+            "5W": 1
+        }
+    }
+},
+   {
+    "NAME": "MS DHONI",
+    "TEAM": "CSK",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "84*",
+    "STATS": {
+        "Batting": {
+            "M": 264,
+            "I": 229,
+            "R": 5243,
+            "Avg": 39.13,
+            "SR": 135.92,
+            "50": 24,
+            "100": 0
+        }
+    }
+},
+   {
+    "NAME": "SHAI HOPE",
+    "TEAM": "DC",
+    "ROLE": "Batter",
+    "NATION": "West Indies",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "33",
+    "STATS": {
+        "Batting": {
+            "M": 3,
+            "I": 3,
+            "R": 53,
+            "Avg": 17.66,
+            "SR": 141.89,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+   {
+    "NAME": "KL RAHUL",
+    "TEAM": "DC",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "132*",
+    "STATS": {
+        "Batting": {
+            "M": 118,
+            "I": 109,
+            "R": 4163,
+            "Avg": 46.37,
+            "SR": 134.87,
+            "50": 34,
+            "100": 4
+        }
+    }
+},
     {
-        "NAME": "NOOR AHMED",
-        "ROLE": "BOWLER",
-        "TEAM": "CSK",
-        "NATION": "AFGHANISTAN",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Bowling": {
-                "M": 12,
-                "I": 12,
-                "W": 14,
-                "Avg": 26.85,
-                "Econ": 7.92
-            }
+    "NAME": "KARUN NAIR",
+    "TEAM": "DC",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "83*",
+    "STATS": {
+        "Batting": {
+            "M": 76,
+            "I": 73,
+            "R": 1496,
+            "Avg": 23.37,
+            "SR": 127.75,
+            "50": 10,
+            "100": 0
         }
-    },
-    {
-        "NAME": "MUKESH CHOUDHARY",
-        "ROLE": "BOWLER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Bowling": {
-                "M": 9,
-                "I": 9,
-                "W": 11,
-                "Avg": 31.18,
-                "Econ": 8.95
-            }
+    }
+},
+   {
+    "NAME": "FAF DU PLESSIS",
+    "TEAM": "DC",
+    "ROLE": "Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "96",
+    "STATS": {
+        "Batting": {
+            "M": 154,
+            "I": 147,
+            "R": 4773,
+            "Avg": 35.10,
+            "SR": 135.79,
+            "50": 39,
+            "100": 0
         }
-    },
-    {
-        "NAME": "NATHAN ELLIS",
-        "ROLE": "BOWLER",
-        "TEAM": "CSK",
-        "NATION": "AUSTRALIA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Bowling": {
-                "M": 11,
-                "I": 11,
-                "W": 13,
-                "Avg": 29.46,
-                "Econ": 8.75
-            }
+    }
+},
+   {
+    "NAME": "DONOVAN FERREIRA",
+    "TEAM": "DC",
+    "ROLE": "WK-Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "7",
+    "STATS": {
+        "Batting": {
+            "M": 3,
+            "I": 3,
+            "R": 9,
+            "Avg": 3.00,
+            "SR": 64.29,
+            "50": 0,
+            "100": 0
         }
-    },
-    {
-        "NAME": "SHERYAS GOPAL",
-        "ROLE": "BOWLER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 7,
-                "Avg": 35.28,
-                "Econ": 8.82
-            }
+    }
+},
+   {
+    "NAME": "ABISHEK POREL",
+    "TEAM": "DC",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "65",
+    "STATS": {
+        "Batting": {
+            "M": 31,
+            "I": 29,
+            "R": 661,
+            "Avg": 25.42,
+            "SR": 149.89,
+            "50": 3,
+            "100": 0
         }
-    },
-    {
-        "NAME": "MATHEESA PATHIRANA",
-        "ROLE": "BOWLER",
-        "TEAM": "CSK",
-        "NATION": "SRI LANKA",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Bowling": {
-                "M": 13,
-                "I": 13,
-                "W": 18,
-                "Avg": 22.33,
-                "Econ": 8.15
-            }
+    }
+},
+   {
+    "NAME": "TRISTAN STUBBS",
+    "TEAM": "DC",
+    "ROLE": "WK-Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "71*",
+    "STATS": {
+        "Batting": {
+            "M": 32,
+            "I": 30,
+            "R": 705,
+            "Avg": 41.47,
+            "SR": 163.19,
+            "50": 3,
+            "100": 0
         }
-    },
-    {
-        "NAME": "MS DHONI",
-        "ROLE": "WK-BATTER",
-        "TEAM": "CSK",
-        "NATION": "INDIA",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 10,
-                "R": 136,
-                "Avg": 34.00,
-                "SR": 142.10
-            }
+    }
+},
+   {
+    "NAME": "AXAR PATEL",
+    "TEAM": "DC",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "66",
+    "BEST_BOWLING": "4/21",
+    "STATS": {
+        "Batting": {
+            "M": 162,
+            "I": 124,
+            "R": 1916,
+            "Avg": 22.02,
+            "SR": 133.99,
+            "50": 3,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 162,
+            "W": 128,
+            "Avg": 30.12,
+            "Econ": 7.29,
+            "4W": 0,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "KL RAHUL",
-        "ROLE": "WK-BATTER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 3.0,
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 15,
-                "R": 587,
-                "Avg": 45.15,
-                "SR": 138.42
-            }
+    }
+},
+   {
+    "NAME": "SAMEER RIZVI",
+    "TEAM": "DC",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST_BATTING": "58*",
+    "STATS": {
+        "Batting": {
+            "M": 13,
+            "I": 12,
+            "R": 172,
+            "Avg": 15.63,
+            "SR": 123.94,
+            "50": 1,
+            "100": 0
         }
-    },
-    {
-        "NAME": "KARUN NAIR",
-        "ROLE": "BATTER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 198,
-                "Avg": 28.28,
-                "SR": 125.47
-            }
+    }
+},
+  {
+    "NAME": "ASHUTOSH SHARMA",
+    "TEAM": "DC",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST_BATTING": "66*",
+    "STATS": {
+        "Batting": {
+            "M": 24,
+            "I": 21,
+            "R": 393,
+            "Avg": 23.11,
+            "SR": 156.00,
+            "50": 1,
+            "100": 0
         }
-    },
-    {
-        "NAME": "FAF DU PLESSIS",
-        "ROLE": "BATTER",
-        "TEAM": "DC",
-        "NATION": "SOUTH AFRICA",
-        "Base_Price": 2.5,
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 16,
-                "R": 612,
-                "Avg": 47.07,
-                "SR": 144.33
-            }
+    }
+},
+   {
+    "NAME": "DARSHAN NALKANDE",
+    "TEAM": "DC",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm medium-fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST_BOWLING": "2/26",
+    "STATS": {
+        "Bowling": {
+            "M": 6,
+            "I": 6,
+            "W": 6,
+            "Avg": 24.67,
+            "Econ": 10.57,
+            "4W": 0,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "DONOVAN FERREIRA",
-        "ROLE": "WK-BATTER",
-        "TEAM": "DC",
-        "NATION": "SOUTH AFRICA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 134,
-                "Avg": 26.80,
-                "SR": 142.55
-            }
+    }
+},
+   {
+    "NAME": "VIPRAJ NIGAM",
+    "TEAM": "DC",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm legbreak",
+    "PLAYER_TYPE": "Emerging",
+    "BEST_BATTING": "39",
+    "BEST_BOWLING": "2/18",
+    "STATS": {
+        "Batting": {
+            "M": 14,
+            "I": 8,
+            "R": 142,
+            "Avg": 20.29,
+            "SR": 179.75,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "M": 14,
+            "I": 13,
+            "W": 11,
+            "Avg": 32.36,
+            "Econ": 9.13,
+            "4W": 0,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "ABISHEK POREL",
-        "ROLE": "WK-BATTER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 65,
-                "Avg": 21.66,
-                "SR": 118.18
-            }
-        }
-    },
-    {
-        "NAME": "TRISTAN STUBBS",
-        "ROLE": "WK-BATTER",
-        "TEAM": "DC",
-        "NATION": "SOUTH AFRICA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Batting": {
-                "M": 12,
-                "I": 10,
-                "R": 278,
-                "Avg": 34.75,
-                "SR": 156.18
-            }
-        }
-    },
-    {
-        "NAME": "AXAR PATEL",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 14,
-                "R": 287,
-                "Avg": 26.09,
-                "SR": 132.41
-            },
-            "Bowling": {
-                "I": 16,
-                "W": 15,
-                "Avg": 29.86,
-                "Econ": 7.45
-            }
-        }
-    },
-    {
-        "NAME": "SAMEER RIZVI",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 135.61
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 48.50,
-                "Econ": 9.70
-            }
-        }
-    },
-    {
-        "NAME": "ASHUTOSH SHARMA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 87,
-                "Avg": 21.75,
-                "SR": 148.72
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 52.00,
-                "Econ": 10.40
-            }
-        }
-    },
-    {
-        "NAME": "DHARSHAN NALKANDE",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 42,
-                "Avg": 14.00,
-                "SR": 116.66
-            },
-            "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 44.33,
-                "Econ": 9.85
-            }
-        }
-    },
-    {
-        "NAME": "VIPRAJ NIGAM",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 2,
-                "I": 1,
-                "R": 18,
-                "Avg": 18.00,
-                "SR": 112.50
-            },
-            "Bowling": {
-                "I": 1,
-                "W": 0,
-                "Avg": 0,
-                "Econ": 8.50
-            }
-        }
-    },
+    }
+},
     {
         "NAME": "AJAY MANDAL",
-        "ROLE": "ALL-ROUNDER",
         "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "24",
+        "BEST_BOWLING": "1/28",
         "STATS": {
             "Batting": {
                 "M": 3,
                 "I": 2,
                 "R": 35,
-                "Avg": 17.50,
-                "SR": 120.68
+                "Avg": 17.5,
+                "SR": 120.68,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
                 "I": 2,
                 "W": 1,
-                "Avg": 54.00,
-                "Econ": 9.00
+                "Avg": 54.0,
+                "Econ": 9.0,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "MANVANTH KUMAR",
-        "ROLE": "ALL-ROUNDER",
         "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+        "PLAYER_TYPE": "Emerging",
+        "BEST_BATTING": "12",
+        "BEST_BOWLING": "0/31",
         "STATS": {
             "Batting": {
                 "M": 2,
                 "I": 1,
                 "R": 12,
-                "Avg": 12.00,
-                "SR": 109.09
+                "Avg": 12.0,
+                "SR": 109.09,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
                 "I": 1,
                 "W": 0,
                 "Avg": 0,
-                "Econ": 7.80
+                "Econ": 7.8,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "TIRPURANA VIJAY",
-        "ROLE": "ALL-ROUNDER",
         "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Emerging",
+        "BEST_BATTING": "8",
+        "BEST_BOWLING": "0/33",
         "STATS": {
             "Batting": {
                 "M": 1,
                 "I": 1,
                 "R": 8,
-                "Avg": 8.00,
-                "SR": 114.28
+                "Avg": 8.0,
+                "SR": 114.28,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
                 "I": 1,
                 "W": 0,
                 "Avg": 0,
-                "Econ": 8.20
+                "Econ": 8.2,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "MADHAV TIWARI",
-        "ROLE": "ALL-ROUNDER",
         "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+        "PLAYER_TYPE": "Emerging",
+        "BEST_BATTING": "0",
+        "BEST_BOWLING": "0/36",
         "STATS": {
             "Batting": {
                 "M": 1,
                 "I": 0,
                 "R": 0,
                 "Avg": 0,
-                "SR": 0
+                "SR": 0,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
                 "I": 1,
                 "W": 0,
                 "Avg": 0,
-                "Econ": 9.00
+                "Econ": 9.0,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
-        "NAME": "MITCHELL STARC",
-        "ROLE": "BOWLER",
-        "TEAM": "DC",
-        "NATION": "AUSTRALIA",
-        "Base_Price": 3.0,
-        "STATS": {
-            "Bowling": {
-                "M": 14,
-                "I": 14,
-                "W": 17,
-                "Avg": 25.88,
-                "Econ": 8.35
-            }
+    "NAME": "MITCHELL STARC",
+    "TEAM": "DC",
+    "ROLE": "Bowler",
+    "NATION": "Australia",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Left-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "5/35",
+    "STATS": {
+        "Bowling": {
+            "M": 52,
+            "I": 49,
+            "W": 65,
+            "Avg": 23.12,
+            "Econ": 8.61,
+            "4W": 2,
+            "5W": 1
         }
-    },
+    }
+},
+   {
+  "NAME": "T. NATARAJAN",
+  "TEAM": "DC",
+  "ROLE": "Bowler",
+  "NATION": "India",
+  "BASE_PRICE": 1.5,
+  "PLAYER_STYLE": "Left-arm fast-medium",
+  "PLAYER_TYPE": "Pace",
+  "BEST": "4/19",
+  "STATS": {
+    "Bowling": {
+      "M": 63,
+      "I": 63,
+      "W": 67,
+      "Avg": 30.12,
+      "Econ": 8.94,
+      "4W": 1,
+      "5W": 0
+    }
+  }
+},
     {
-        "NAME": "T. NATARAJAN",
-        "ROLE": "BOWLER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Bowling": {
-                "M": 12,
-                "I": 12,
-                "W": 14,
-                "Avg": 28.57,
-                "Econ": 8.95
-            }
-        }
-    },
+  "NAME": "MOHIT SHARMA",
+  "TEAM": "DC",
+  "ROLE": "Bowler",
+  "NATION": "India",
+  "BASE_PRICE": 1.5,
+  "PLAYER_STYLE": "Right-arm fast-medium",
+  "PLAYER_TYPE": "Pace",
+  "BEST": "5/10",
+  "STATS": {
+    "Bowling": {
+      "M": 120,
+      "I": 120,
+      "W": 134,
+      "Avg": 26.22,
+      "Econ": 8.77,
+      "4W": 0,
+      "5W": 1
+    }
+  }
+},{
+  "NAME": "MUKESH KUMAR",
+  "TEAM": "DC",
+  "ROLE": "Bowler",
+  "NATION": "India",
+  "BASE_PRICE": 1.0,
+  "PLAYER_STYLE": "Right-arm fast-medium",
+  "PLAYER_TYPE": "Pace",
+  "BEST": "4/33",
+  "STATS": {
+    "Bowling": {
+      "M": 32,
+      "I": 32,
+      "W": 36,
+      "Avg": 30.61,
+      "Econ": 10.40,
+      "4W": 1,
+      "5W": 0
+    }
+  }
+},
     {
-        "NAME": "MOHIT SHARMA",
-        "ROLE": "BOWLER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Bowling": {
-                "M": 13,
-                "I": 13,
-                "W": 16,
-                "Avg": 26.18,
-                "Econ": 8.42
-            }
+    "NAME": "DUSHMANTHA CHAMEERA",
+    "TEAM": "DC",
+    "ROLE": "Bowler",
+    "NATION": "Sri Lanka",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/27",
+    "STATS": {
+        "Bowling": {
+            "M": 30,
+            "I": 30,
+            "W": 39,
+            "Avg": 27.56,
+            "Econ": 8.68,
+            "4W": 2,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "MUKESH KUMAR",
-        "ROLE": "BOWLER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Bowling": {
-                "M": 11,
-                "I": 11,
-                "W": 12,
-                "Avg": 32.41,
-                "Econ": 9.15
-            }
+    }
+},
+{
+    "NAME": "KULDEEP YADAV",
+    "TEAM": "DC",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-arm wrist-spin",
+    "PLAYER_TYPE": "Wrist Spinner",
+    "BEST": "4/14",
+    "STATS": {
+        "Bowling": {
+            "M": 98,
+            "I": 98,
+            "W": 102,
+            "Avg": 26.97,
+            "Econ": 8.04,
+            "4W": 1,
+            "5W": 0
         }
-    },
-    {
-        "NAME": "DUSHMANTHA CHAMEERA",
-        "ROLE": "BOWLER",
-        "TEAM": "DC",
-        "NATION": "SRI LANKA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 9,
-                "Avg": 34.22,
-                "Econ": 9.25
-            }
+    }
+},
+   {
+    "NAME": "MUSTAFIZUR RAHMAN",
+    "TEAM": "DC",
+    "ROLE": "Bowler",
+    "NATION": "Bangladesh",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/16",
+    "STATS": {
+        "Bowling": {
+            "M": 19,
+            "I": 19,
+            "W": 22,
+            "Avg": 27.00,
+            "Econ": 8.50,
+            "4W": 0,
+            "5W": 0
         }
+    }
+},
+{
+  "NAME": "Glenn Phillips",
+  "TEAM": "Gujarat Titans",
+  "ROLE": "All-Rounder",
+  "NATION": "New Zealand",
+  "BASE_PRICE": 2.0,
+  "PLAYER_STYLE": "Right-hand bat, Right-arm off-break",
+  "PLAYER_TYPE": "Dynamic / Power-hitter",
+  "BEST_BATTING": "25",
+  "BEST_BOWLING": "1/10",
+  "STATS": {
+    "Batting": {
+      "M": 8,
+      "I": 8,
+      "R": 65,
+      "Avg": 9.29,
+      "SR": 118.18,
+      "50": 0,
+      "100": 0
     },
-    {
-        "NAME": "KULDEEP YADAV",
-        "ROLE": "BOWLER",
-        "TEAM": "DC",
-        "NATION": "INDIA",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Bowling": {
-                "M": 15,
-                "I": 15,
-                "W": 18,
-                "Avg": 24.16,
-                "Econ": 7.68
-            }
+    "Bowling": {
+      "I": 4,
+      "W": 2,
+      "Avg": 20.00,
+      "Econ": 8.00,
+      "4W": 0,
+      "5W": 0
+    }
+  }
+},
+   {
+    "NAME": "ANUJ RAWAT",
+    "TEAM": "GT",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "66",
+    "STATS": {
+        "Batting": {
+            "M": 24,
+            "I": 21,
+            "R": 318,
+            "Avg": 19.88,
+            "SR": 119.10,
+            "50": 1,
+            "100": 0
         }
-    },
-    {
-        "NAME": "MUSTAFIZUR RAHMAN",
-        "ROLE": "BOWLER",
-        "TEAM": "DC",
-        "NATION": "BANGLADESH",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Bowling": {
-                "M": 10,
-                "I": 10,
-                "W": 11,
-                "Avg": 31.81,
-                "Econ": 8.75
-            }
+    }
+},
+   {
+    "NAME": "SHUBMAN GILL",
+    "TEAM": "GT",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "129",
+    "STATS": {
+        "Batting": {
+            "M": 118,
+            "I": 115,
+            "R": 3866,
+            "Avg": 39.45,
+            "SR": 138.72,
+            "50": 26,
+            "100": 4
         }
-    },
-    {
-        "NAME": "ANUJ RAWAT",
-        "ROLE": "WK-BATTER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 9,
-                "I": 8,
-                "R": 187,
-                "Avg": 26.71,
-                "SR": 128.76
-            }
-        }
-    },
+    }
+},
     {
         "NAME": "SHERFANE RUTHERFORD",
-        "ROLE": "BATTER",
-        "TEAM": "GT",
-        "NATION": "WEST INDIES",
-        "Base_Price": 1.5,
+        "TEAM": "DC",
+        "ROLE": "Batter",
+        "NATION": "West Indies",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Powerful",
+        "BEST": "58*",
         "STATS": {
             "Batting": {
-                "M": 11,
-                "I": 10,
-                "R": 245,
-                "Avg": 30.62,
-                "SR": 148.48
+                "M": 19,
+                "I": 16,
+                "R": 289,
+                "Avg": 22.23,
+                "SR": 128.44,
+                "50": 1,
+                "100": 0
             }
         }
     },
     {
         "NAME": "KUSAL MENDIS",
-        "ROLE": "BATTER",
-        "TEAM": "GT",
-        "NATION": "SRI LANKA",
-        "Base_Price": 1.5,
+        "TEAM": "N/A",
+        "ROLE": "Batter",
+        "NATION": "Sri Lanka",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Aggressive",
+        "BEST": "0",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 198,
-                "Avg": 24.75,
-                "SR": 126.92
+                "M": 0,
+                "I": 0,
+                "R": 0,
+                "Avg": 0,
+                "SR": 0,
+                "50": 0,
+                "100": 0
             }
         }
     },
     {
         "NAME": "NISHANT SINDHU",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "TEAM": "CSK",
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "0",
+        "BEST_BOWLING": "0",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 78,
-                "Avg": 19.50,
-                "SR": 118.18
+                "M": 2,
+                "I": 1,
+                "R": 0,
+                "Avg": 0.0,
+                "SR": 0.0,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 46.50,
-                "Econ": 9.30
+                "I": 2,
+                "W": 1,
+                "Avg": 36.0,
+                "Econ": 9.0,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "MAIPAL LOMROR",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "TEAM": "RCB",
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "54*",
+        "BEST_BOWLING": "1/4",
         "STATS": {
             "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 134,
-                "Avg": 26.80,
-                "SR": 132.67
+                "M": 28,
+                "I": 21,
+                "R": 301,
+                "Avg": 20.06,
+                "SR": 123.36,
+                "50": 1,
+                "100": 0
             },
             "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 52.00,
-                "Econ": 8.66
+                "I": 6,
+                "W": 2,
+                "Avg": 58.5,
+                "Econ": 9.75,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "WASHINGTON SUNDAR",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.5,
+        "TEAM": "SRH",
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "40*",
+        "BEST_BOWLING": "3/16",
         "STATS": {
             "Batting": {
-                "M": 12,
-                "I": 10,
-                "R": 156,
-                "Avg": 22.28,
-                "SR": 125.80
+                "M": 70,
+                "I": 49,
+                "R": 452,
+                "Avg": 16.74,
+                "SR": 118.01,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 12,
-                "W": 11,
-                "Avg": 32.18,
-                "Econ": 7.85
+                "I": 67,
+                "W": 36,
+                "Avg": 42.38,
+                "Econ": 7.73,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "MOHD. ARSHAD KHAN",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "TEAM": "LSG",
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium-fast",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "15*",
+        "BEST_BOWLING": "3/39",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 87,
-                "Avg": 17.40,
-                "SR": 128.67
+                "M": 17,
+                "I": 10,
+                "R": 75,
+                "Avg": 12.50,
+                "SR": 122.95,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 41.25,
-                "Econ": 9.16
+                "I": 16,
+                "W": 10,
+                "Avg": 42.30,
+                "Econ": 9.39,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "SAI KISHORE",
-        "ROLE": "ALL-ROUNDER",
         "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "0*",
+        "BEST_BOWLING": "4/33",
         "STATS": {
             "Batting": {
-                "M": 8,
-                "I": 6,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 115.29
+                "M": 9,
+                "I": 3,
+                "R": 0,
+                "Avg": 0.0,
+                "SR": 0.0,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 8,
-                "W": 9,
-                "Avg": 28.44,
-                "Econ": 7.85
+                "I": 9,
+                "W": 10,
+                "Avg": 28.20,
+                "Econ": 7.83,
+                "4W": 1,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "JAYANT YADAV",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
+        "TEAM": "MI",
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "27",
+        "BEST_BOWLING": "2/25",
         "STATS": {
             "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 45,
-                "Avg": 11.25,
-                "SR": 107.14
+                "M": 36,
+                "I": 21,
+                "R": 171,
+                "Avg": 12.21,
+                "SR": 97.71,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 5,
-                "W": 3,
-                "Avg": 48.33,
-                "Econ": 8.05
+                "I": 33,
+                "W": 24,
+                "Avg": 39.29,
+                "Econ": 8.18,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "KARIM JANAT",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "GT",
-        "NATION": "AFGHANISTAN",
-        "Base_Price": 1.0,
+        "TEAM": "SRH",
+        "ROLE": "All-Rounder",
+        "NATION": "Afghanistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium-fast",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "9",
+        "BEST_BOWLING": "0/21",
         "STATS": {
             "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 76,
-                "Avg": 15.20,
-                "SR": 138.18
+                "M": 3,
+                "I": 2,
+                "R": 9,
+                "Avg": 4.50,
+                "SR": 90.00,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 42.75,
-                "Econ": 9.50
+                "I": 3,
+                "W": 0,
+                "Avg": 0,
+                "Econ": 10.50,
+                "4W": 0,
+                "5W": 0
             }
         }
     },
     {
         "NAME": "SAI SUDHARSHAN",
-        "ROLE": "ALL-ROUNDER",
         "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 2.0,
+        "ROLE": "Batter",
+        "NATION": "India",
+        "BASE_PRICE": 2.0,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Anchor",
+        "BEST": "96",
         "STATS": {
             "Batting": {
-                "M": 14,
-                "I": 14,
-                "R": 467,
-                "Avg": 38.91,
-                "SR": 134.55
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 1,
-                "Avg": 58.00,
-                "Econ": 9.66
+                "M": 25,
+                "I": 24,
+                "R": 810,
+                "Avg": 40.50,
+                "SR": 130.54,
+                "50": 6,
+                "100": 0
             }
         }
     },
     {
         "NAME": "DASUN SHANAKA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "GT",
-        "NATION": "SRI LANKA",
-        "Base_Price": 1.5,
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 145,
-                "Avg": 24.16,
-                "SR": 142.15
-            },
-            "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 44.33,
-                "Econ": 9.25
-            }
-        }
-    },
-    {
-        "NAME": "SHAHRUKH KHAN",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Batting": {
-                "M": 10,
-                "I": 9,
-                "R": 187,
-                "Avg": 23.37,
-                "SR": 148.41
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 56.00,
-                "Econ": 11.20
-            }
-        }
-    },
-    {
-        "NAME": "KAGISO RABADA",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "SOUTH AFRICA",
-        "Base_Price": 3.0,
-        "STATS": {
-            "Bowling": {
-                "M": 15,
-                "I": 15,
-                "W": 19,
-                "Avg": 23.68,
-                "Econ": 8.25
-            }
-        }
-    },
-    {
-        "NAME": "MOHAMMED SIRAJ",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Bowling": {
-                "M": 16,
-                "I": 16,
-                "W": 17,
-                "Avg": 28.52,
-                "Econ": 8.55
-            }
-        }
-    },
-    {
-        "NAME": "PRASIDH KRISHNA",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.2,
-        "STATS": {
-            "Bowling": {
-                "M": 12,
-                "I": 12,
-                "W": 14,
-                "Avg": 30.78,
-                "Econ": 9.15
-            }
-        }
-    },
-    {
-        "NAME": "MANAV SUTHAR",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 3,
-                "Avg": 42.33,
-                "Econ": 8.46
-            }
-        }
-    },
-    {
-        "NAME": "GERALD COETZEE",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "SOUTH AFRICA",
-        "Base_Price": 2.0,
-        "STATS": {
-            "Bowling": {
-                "M": 10,
-                "I": 10,
-                "W": 12,
-                "Avg": 29.16,
-                "Econ": 9.35
-            }
-        }
-    },
-    {
-        "NAME": "GURNOOR SINGH BRAR",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 0.8,
-        "STATS": {
-            "Bowling": {
-                "M": 3,
-                "I": 3,
-                "W": 2,
-                "Avg": 48.50,
-                "Econ": 9.70
-            }
-        }
-    },
-    {
-        "NAME": "ISHANT SHARMA",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 2.5,
-        "STATS": {
-            "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 6,
-                "Avg": 38.33,
-                "Econ": 8.75
-            }
-        }
-    },
-    {
-        "NAME": "KULWANT KHEJROLIYA",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.0,
-        "STATS": {
-            "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 4,
-                "Avg": 44.25,
-                "Econ": 9.83
-            }
-        }
-    },
-    {
-        "NAME": "RAHUL TEWATIA",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "INDIA",
-        "Base_Price": 1.2,
-        "STATS": {
-            "Bowling": {
-                "M": 9,
-                "I": 8,
-                "W": 7,
-                "Avg": 41.85,
-                "Econ": 9.30
-            }
-        }
-    },
-    {
-        "NAME": "RASHID KHAN",
-        "ROLE": "BOWLER",
-        "TEAM": "GT",
-        "NATION": "AFGHANISTAN",
-        "Base_Price": 2.5,
-        "STATS": {
-            "Bowling": {
-                "M": 16,
-                "I": 16,
-                "W": 20,
-                "Avg": 22.45,
-                "Econ": 7.65
-            }
-        }
-    }
-,
-   {
-        "NAME": "AJINKYA RAHANE",
-        "ROLE": "BATTER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 14,
-                "R": 398,
-                "Avg": 33.16,
-                "SR": 142.85
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "RINKU SINGH",
-        "ROLE": "BATTER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 15,
-                "R": 467,
-                "Avg": 46.70,
-                "SR": 152.28
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "QUINTON DE KOCK",
-        "ROLE": "WK-BATTER",
-        "TEAM": "KKR",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 15,
-                "R": 512,
-                "Avg": 36.57,
-                "SR": 138.37
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "RAHMANULLAH GURBAZ",
-        "ROLE": "WK-BATTER",
-        "TEAM": "KKR",
-        "NATION": "AFGHANISTAN",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 8,
-                "R": 187,
-                "Avg": 26.71,
-                "SR": 145.31
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "ANGKRISH RAGHUVANSHI",
-        "ROLE": "BATTER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 134,
-                "Avg": 26.80,
-                "SR": 142.55
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "MANISH PANDEY",
-        "ROLE": "BATTER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 145,
-                "Avg": 24.16,
-                "SR": 128.31
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "LUVNITH SISODIA",
-        "ROLE": "WK-BATTER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
+        "TEAM": "LSG",
+        "ROLE": "All-Rounder",
+        "NATION": "Sri Lanka",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium-fast",
+        "PLAYER_TYPE": "Powerful",
+        "BEST_BATTING": "0",
+        "BEST_BOWLING": "0/11",
         "STATS": {
             "Batting": {
                 "M": 3,
                 "I": 2,
-                "R": 28,
-                "Avg": 14.00,
-                "SR": 116.66
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "VENKATESH IYER",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 14,
-                "R": 387,
-                "Avg": 29.76,
-                "SR": 144.77
-            },
-            "Bowling": {
-                "I": 6,
-                "W": 4,
-                "Avg": 46.25,
-                "Econ": 9.25
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "ANUKUL ROY",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 45,
-                "Avg": 11.25,
-                "SR": 115.38
-            },
-            "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 41.33,
-                "Econ": 8.26
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "MOEEN ALI",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "KKR",
-        "NATION": "ENGLAND",
-        "STATS": {
-            "Batting": {
-                "M": 12,
-                "I": 11,
-                "R": 234,
-                "Avg": 23.40,
-                "SR": 142.68
-            },
-            "Bowling": {
-                "I": 10,
-                "W": 9,
-                "Avg": 32.44,
-                "Econ": 8.11
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "RAMANDEEP SINGH",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 38,
-                "Avg": 12.66,
-                "SR": 118.75
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 44.50,
-                "Econ": 8.90
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ANDRE RUSSEL",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "KKR",
-        "NATION": "WEST INDIES",
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 14,
-                "R": 345,
-                "Avg": 31.36,
-                "SR": 158.25
-            },
-            "Bowling": {
-                "I": 14,
-                "W": 16,
-                "Avg": 26.18,
-                "Econ": 9.35
-            }
-        },
-        "Base_Price": 3.0
-    },
-    {
-        "NAME": "ANRICH NORTJE",
-        "ROLE": "BOWLER",
-        "TEAM": "KKR",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Bowling": {
-                "M": 12,
-                "I": 12,
-                "W": 15,
-                "Avg": 27.13,
-                "Econ": 8.85
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "VAIBHAV ARORA",
-        "ROLE": "BOWLER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 10,
-                "I": 10,
-                "W": 12,
-                "Avg": 29.41,
-                "Econ": 8.82
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "MAYANK MARKANDE",
-        "ROLE": "BOWLER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 9,
-                "I": 9,
-                "W": 10,
-                "Avg": 31.80,
-                "Econ": 8.44
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "SPENCER JOHNSON",
-        "ROLE": "BOWLER",
-        "TEAM": "KKR",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 9,
-                "Avg": 33.22,
-                "Econ": 9.15
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "HARSHIT RANA",
-        "ROLE": "BOWLER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 11,
-                "I": 11,
-                "W": 13,
-                "Avg": 28.69,
-                "Econ": 9.10
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "SUNIL NARINE",
-        "ROLE": "BOWLER",
-        "TEAM": "KKR",
-        "NATION": "WEST INDIES",
-        "STATS": {
-            "Bowling": {
-                "M": 16,
-                "I": 16,
-                "W": 18,
-                "Avg": 24.72,
-                "Econ": 7.85
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "VARUN CHAKARAVARTHY",
-        "ROLE": "BOWLER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 15,
-                "I": 15,
-                "W": 17,
-                "Avg": 26.47,
-                "Econ": 8.25
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "CHETAN SAKARIYA",
-        "ROLE": "BOWLER",
-        "TEAM": "KKR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 6,
-                "Avg": 38.33,
-                "Econ": 9.58
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "RISHABH PANT",
-        "ROLE": "WK-BATTER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 16,
-                "R": 523,
-                "Avg": 40.23,
-                "SR": 146.50
-            }
-        },
-        "Base_Price": 3.0
-    },
-    {
-        "NAME": "DAVID MILLER",
-        "ROLE": "BATTER",
-        "TEAM": "LSG",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 13,
-                "R": 387,
-                "Avg": 35.18,
-                "SR": 142.85
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "AIDEN MARKRAM",
-        "ROLE": "BATTER",
-        "TEAM": "LSG",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Batting": {
-                "M": 12,
-                "I": 12,
-                "R": 345,
-                "Avg": 31.36,
-                "SR": 135.29
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "ARYAN JUYAL",
-        "ROLE": "WK-BATTER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 48,
-                "Avg": 16.00,
-                "SR": 114.28
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "HIMMAT SINGH",
-        "ROLE": "BATTER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 67,
-                "Avg": 16.75,
-                "SR": 121.81
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "MATTHEW BREETZKE",
-        "ROLE": "BATTER",
-        "TEAM": "LSG",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 32,
-                "Avg": 16.00,
-                "SR": 118.51
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "NICHOLAS POORAN",
-        "ROLE": "WK-BATTER",
-        "TEAM": "LSG",
-        "NATION": "WEST INDIES",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 14,
-                "R": 412,
-                "Avg": 34.33,
-                "SR": 158.46
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "MITCHELL MARSH",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "LSG",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Batting": {
-                "M": 10,
-                "I": 9,
-                "R": 245,
-                "Avg": 30.62,
-                "SR": 145.23
-            },
-            "Bowling": {
-                "I": 8,
-                "W": 9,
-                "Avg": 28.44,
-                "Econ": 8.85
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "ABDUL SAMAD",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 134,
-                "Avg": 19.14,
-                "SR": 148.88
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 46.50,
-                "Econ": 9.30
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SHAHBAZ AHAMAD",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 122.50
-            },
-            "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 38.75,
-                "Econ": 8.61
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "YUVARAJ CHAUDHARY",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 25,
-                "Avg": 12.50,
-                "SR": 113.63
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 54.00,
-                "Econ": 9.00
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "RAJVARDHAN HANGARGEKAR",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 42,
-                "Avg": 10.50,
-                "SR": 127.27
-            },
-            "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 44.33,
-                "Econ": 9.85
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ARSHIN KULKARNI",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 38,
-                "Avg": 12.66,
-                "SR": 118.75
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 52.00,
-                "Econ": 8.66
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "AYUSH BADONI",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 9,
-                "I": 8,
-                "R": 156,
-                "Avg": 22.28,
-                "SR": 132.20
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 56.00,
-                "Econ": 9.33
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SHARDUL THAKUR",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 11,
-                "I": 9,
-                "R": 134,
-                "Avg": 16.75,
-                "SR": 128.84
-            },
-            "Bowling": {
-                "I": 11,
-                "W": 12,
-                "Avg": 32.08,
-                "Econ": 9.15
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "AVESH KHAN",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 13,
-                "I": 13,
-                "W": 15,
-                "Avg": 28.13,
-                "Econ": 8.65
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "AKASH DEEP",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 9,
-                "I": 9,
-                "W": 10,
-                "Avg": 31.80,
-                "Econ": 9.10
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "M. SIDDHARTH",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 5,
-                "Avg": 42.60,
-                "Econ": 8.52
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "DIGVESH SINGH",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 3,
-                "I": 3,
-                "W": 2,
-                "Avg": 48.50,
-                "Econ": 9.70
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "AKASH SINGH",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 3,
-                "Avg": 44.33,
-                "Econ": 8.86
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SHAMAR JOSEPH",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "WEST INDIES",
-        "STATS": {
-            "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 8,
-                "Avg": 32.12,
-                "Econ": 8.90
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "PRINCE YADAV",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 2,
-                "I": 2,
-                "W": 1,
-                "Avg": 58.00,
-                "Econ": 9.66
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "WILLIAM O'ROURKE",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "NEW ZEALAND",
-        "STATS": {
-            "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 4,
-                "Avg": 41.25,
-                "Econ": 9.16
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "RAVI BISHNOI",
-        "ROLE": "BOWLER",
-        "TEAM": "LSG",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 15,
-                "I": 15,
-                "W": 16,
-                "Avg": 27.81,
-                "Econ": 8.25
-            }
-        },
-        "Base_Price": 2.0
-    }
-,
-      {
-        "NAME": "ROBIN MINZ",
-        "ROLE": "WK-BATTER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 132.43
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SHRIJITH KRISHNAN",
-        "ROLE": "WK-BATTER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 32,
-                "Avg": 16.00,
-                "SR": 118.51
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "BEVON JACOBS",
-        "ROLE": "BATTER",
-        "TEAM": "MI",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 145,
-                "Avg": 24.16,
-                "SR": 128.31
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "JONNY BAIRSTOW",
-        "ROLE": "WK-BATTER",
-        "TEAM": "MI",
-        "NATION": "ENGLAND",
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 14,
-                "R": 412,
-                "Avg": 34.33,
-                "SR": 142.70
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "N. TILAK VARMA",
-        "ROLE": "BATTER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 15,
-                "R": 467,
-                "Avg": 38.91,
-                "SR": 145.48
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "HARDIK PANDYA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 14,
-                "R": 345,
-                "Avg": 31.36,
-                "SR": 142.15
-            },
-            "Bowling": {
-                "I": 14,
-                "W": 15,
-                "Avg": 28.73,
-                "Econ": 8.65
-            }
-        },
-        "Base_Price": 3.0
-    },
-    {
-        "NAME": "NAMAN DHIR",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 134,
-                "Avg": 19.14,
-                "SR": 135.35
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 46.50,
-                "Econ": 9.30
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "MITCHELL SANTNER",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "MI",
-        "NATION": "NEW ZEALAND",
-        "STATS": {
-            "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 87,
-                "Avg": 17.40,
-                "SR": 118.64
-            },
-            "Bowling": {
-                "I": 7,
-                "W": 6,
-                "Avg": 35.83,
-                "Econ": 7.95
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "RAJ ANGAD BAWA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 45,
-                "Avg": 15.00,
-                "SR": 122.72
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 44.50,
-                "Econ": 8.90
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "TRENT BOULT",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "NEW ZEALAND",
-        "STATS": {
-            "Bowling": {
-                "M": 14,
-                "I": 14,
-                "W": 17,
-                "Avg": 26.47,
-                "Econ": 8.25
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "KARN SHARMA",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 9,
-                "I": 9,
-                "W": 10,
-                "Avg": 32.80,
-                "Econ": 8.62
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "DEEPAK CHAHAR",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 12,
-                "I": 12,
-                "W": 14,
-                "Avg": 29.57,
-                "Econ": 8.85
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "ASHWANI KUMAR",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 4,
-                "Avg": 42.25,
-                "Econ": 9.38
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "REECE TOPLEY",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "ENGLAND",
-        "STATS": {
-            "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 9,
-                "Avg": 33.22,
-                "Econ": 9.15
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "V. SATYANARAYANA PENMETSA",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 3,
-                "I": 3,
-                "W": 2,
-                "Avg": 48.50,
-                "Econ": 9.70
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ARJUN TENDULKAR",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 3,
-                "Avg": 44.33,
-                "Econ": 8.86
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "MUJEEB-UR-RAHMAN",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "AFGHANISTAN",
-        "STATS": {
-            "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 6,
-                "Avg": 38.33,
-                "Econ": 8.52
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "RAGHU SHARMA",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 2,
-                "I": 2,
-                "W": 1,
-                "Avg": 56.00,
-                "Econ": 9.33
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "CHARITH ASALANKA",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "SRI LANKA",
-        "STATS": {
-            "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 5,
-                "Avg": 42.60,
-                "Econ": 8.52
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "RICHARD GLEESON",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "ENGLAND",
-        "STATS": {
-            "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 4,
-                "Avg": 41.25,
-                "Econ": 9.16
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "JASPRIT BUMRAH",
-        "ROLE": "BOWLER",
-        "TEAM": "MI",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 16,
-                "I": 16,
-                "W": 20,
-                "Avg": 22.45,
-                "Econ": 7.85
-            }
-        },
-        "Base_Price": 3.0
-    },
-    {
-        "NAME": "SHREYAS IYER",
-        "ROLE": "BATTER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 15,
-                "R": 478,
-                "Avg": 39.83,
-                "SR": 138.37
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "NEHAL WADHERA",
-        "ROLE": "BATTER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 167,
-                "Avg": 27.83,
-                "SR": 132.53
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "VISHNU VINOD",
-        "ROLE": "WK-BATTER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 78,
-                "Avg": 19.50,
-                "SR": 126.82
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "JOSH INGLIS",
-        "ROLE": "WK-BATTER",
-        "TEAM": "PBKS",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Batting": {
-                "M": 12,
-                "I": 11,
-                "R": 298,
-                "Avg": 29.80,
-                "SR": 142.58
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "HARNOOR PANNU",
-        "ROLE": "BATTER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 32,
-                "Avg": 16.00,
-                "SR": 118.51
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "PYLA AVINASH",
-        "ROLE": "BATTER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 2,
-                "I": 1,
-                "R": 18,
-                "Avg": 18.00,
-                "SR": 112.50
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "PRABHSIMRAN SINGH",
-        "ROLE": "WK-BATTER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 9,
-                "I": 8,
-                "R": 187,
-                "Avg": 26.71,
-                "SR": 145.31
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "SHASHANK SINGH",
-        "ROLE": "BATTER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 145,
-                "Avg": 29.00,
-                "SR": 148.97
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "MARCUS STOINIS",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "PBKS",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 13,
-                "R": 345,
-                "Avg": 31.36,
-                "SR": 148.27
-            },
-            "Bowling": {
-                "I": 12,
-                "W": 13,
-                "Avg": 29.61,
-                "Econ": 9.25
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "HARPREET BRAR",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 98,
-                "Avg": 16.33,
-                "SR": 122.50
-            },
-            "Bowling": {
-                "I": 8,
-                "W": 7,
-                "Avg": 36.14,
-                "Econ": 8.02
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "MARCO JANSEN",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "PBKS",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Batting": {
-                "M": 9,
-                "I": 8,
-                "R": 134,
-                "Avg": 19.14,
-                "SR": 138.14
-            },
-            "Bowling": {
-                "I": 9,
-                "W": 11,
-                "Avg": 28.63,
-                "Econ": 8.85
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "AZMATULLAH OMARZAI",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "PBKS",
-        "NATION": "AFGHANISTAN",
-        "STATS": {
-            "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 112,
-                "Avg": 22.40,
-                "SR": 135.13
-            },
-            "Bowling": {
-                "I": 6,
-                "W": 5,
-                "Avg": 38.80,
-                "Econ": 9.15
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "PRIYANSH ARYA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 28,
-                "Avg": 14.00,
-                "SR": 116.66
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 52.00,
-                "Econ": 8.66
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "AARON HARDIE",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "PBKS",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 156,
-                "Avg": 26.00,
-                "SR": 132.20
-            },
-            "Bowling": {
-                "I": 6,
-                "W": 5,
-                "Avg": 36.40,
-                "Econ": 8.65
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "MUSHEER KHAN",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 45,
-                "Avg": 15.00,
-                "SR": 122.72
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 54.00,
-                "Econ": 9.00
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SURYANSH SHEDGE",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 2,
-                "I": 1,
-                "R": 18,
-                "Avg": 18.00,
-                "SR": 112.50
+                "R": 0,
+                "Avg": 0.0,
+                "SR": 0.0,
+                "50": 0,
+                "100": 0
             },
             "Bowling": {
                 "I": 1,
                 "W": 0,
                 "Avg": 0,
-                "Econ": 8.20
+                "Econ": 11.00,
+                "4W": 0,
+                "5W": 0
             }
-        },
-        "Base_Price": 0.5
+        }
     },
     {
-        "NAME": "MITCH OWEN",
-        "ROLE": "BATTER",
+        "NAME": "SHAHRUKH KHAN",
+        "TEAM": "GT",
+        "ROLE": "Batter",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Powerful",
+        "BEST": "47",
+        "STATS": {
+            "Batting": {
+                "M": 33,
+                "I": 26,
+                "R": 426,
+                "Avg": 20.28,
+                "SR": 134.81,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+  "NAME": "Lockie Ferguson",
+  "TEAM": "PBKS",
+  "ROLE": "Bowler",
+  "NATION": "New Zealand",
+  "BASE_PRICE": 2.0,
+  "PLAYER_STYLE": "Right-arm fast",
+  "PLAYER_TYPE": "Pace",
+  "BEST": "4/28",
+  "STATS": {
+    "Bowling": {
+      "M": 49,
+      "W": 51,
+      "Avg": 30.00,
+      "Econ": 8.97,
+      "4W": 1,
+      "5W": 0
+    }
+  }
+},
+    {
+        "NAME": "KAGISO RABADA",
         "TEAM": "PBKS",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 32,
-                "Avg": 16.00,
-                "SR": 118.51
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ARSHDEEP SINGH",
-        "ROLE": "BOWLER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
+        "ROLE": "Bowler",
+        "NATION": "South Africa",
+        "BASE_PRICE": 3.0,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "4/21",
         "STATS": {
             "Bowling": {
-                "M": 15,
-                "I": 15,
-                "W": 18,
-                "Avg": 26.11,
-                "Econ": 8.55
+                "M": 75,
+                "I": 75,
+                "W": 113,
+                "Avg": 20.66,
+                "Econ": 8.27,
+                "4W": 6,
+                "5W": 1
             }
-        },
-        "Base_Price": 2.0
+        }
     },
     {
-        "NAME": "YUZVENDRA CHAHAL",
-        "ROLE": "BOWLER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 14,
-                "I": 14,
-                "W": 16,
-                "Avg": 27.18,
-                "Econ": 8.25
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "VYSHAK VIJAYKUMAR",
-        "ROLE": "BOWLER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 9,
-                "I": 9,
-                "W": 10,
-                "Avg": 32.80,
-                "Econ": 9.10
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "YASH THAKUR",
-        "ROLE": "BOWLER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 11,
-                "I": 11,
-                "W": 13,
-                "Avg": 29.69,
-                "Econ": 8.95
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "KULDEEP SEN",
-        "ROLE": "BOWLER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 6,
-                "Avg": 38.33,
-                "Econ": 9.58
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "XAVIER BARTLETT",
-        "ROLE": "BOWLER",
-        "TEAM": "PBKS",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 5,
-                "Avg": 42.60,
-                "Econ": 8.52
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "PRAVIN DUBEY",
-        "ROLE": "BOWLER",
-        "TEAM": "PBKS",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 3,
-                "Avg": 44.33,
-                "Econ": 8.86
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "KYLE JAMIESON",
-        "ROLE": "BOWLER",
-        "TEAM": "PBKS",
-        "NATION": "NEW ZEALAND",
-        "STATS": {
-            "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 9,
-                "Avg": 33.22,
-                "Econ": 9.15
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "RAJAT PATIDAR",
-        "ROLE": "BATTER",
+        "NAME": "MOHAMMED SIRAJ",
         "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 14,
-                "R": 412,
-                "Avg": 34.33,
-                "SR": 145.23
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "VIRAT KOHLI",
-        "ROLE": "BATTER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 16,
-                "R": 678,
-                "Avg": 52.15,
-                "SR": 142.10
-            }
-        },
-        "Base_Price": 3.0
-    },
-    {
-        "NAME": "PHIL SALT",
-        "ROLE": "WK-BATTER",
-        "TEAM": "RCB",
-        "NATION": "ENGLAND",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 15,
-                "R": 523,
-                "Avg": 40.23,
-                "SR": 148.58
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "JITESH SHARMA",
-        "ROLE": "WK-BATTER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 12,
-                "I": 10,
-                "R": 245,
-                "Avg": 27.22,
-                "SR": 152.17
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "SWASTIK CHHIKARA",
-        "ROLE": "BATTER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 48,
-                "Avg": 16.00,
-                "SR": 118.51
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "TIM SEIFERT",
-        "ROLE": "WK-BATTER",
-        "TEAM": "RCB",
-        "NATION": "NEW ZEALAND",
-        "STATS": {
-            "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 132.43
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "MAYANK AGARWAL",
-        "ROLE": "BATTER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 9,
-                "I": 9,
-                "R": 234,
-                "Avg": 26.00,
-                "SR": 128.57
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "LIAM LIVINGSTONE",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "RCB",
-        "NATION": "ENGLAND",
-        "STATS": {
-            "Batting": {
-                "M": 13,
-                "I": 12,
-                "R": 345,
-                "Avg": 31.36,
-                "SR": 158.27
-            },
-            "Bowling": {
-                "I": 10,
-                "W": 8,
-                "Avg": 36.25,
-                "Econ": 8.85
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "KRUNAL PANDYA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 12,
-                "R": 267,
-                "Avg": 26.70,
-                "SR": 132.33
-            },
-            "Bowling": {
-                "I": 14,
-                "W": 12,
-                "Avg": 32.08,
-                "Econ": 8.15
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "SWAPNIL SINGH",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 45,
-                "Avg": 11.25,
-                "SR": 115.38
-            },
-            "Bowling": {
-                "I": 4,
-                "W": 3,
-                "Avg": 41.33,
-                "Econ": 8.26
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "TIM DAVID",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "RCB",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 13,
-                "R": 312,
-                "Avg": 28.36,
-                "SR": 155.22
-            },
-            "Bowling": {
-                "I": 4,
-                "W": 2,
-                "Avg": 48.50,
-                "Econ": 9.70
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "ROMARIO SHEPHERD",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "RCB",
-        "NATION": "WEST INDIES",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 134,
-                "Avg": 22.33,
-                "SR": 148.88
-            },
-            "Bowling": {
-                "I": 7,
-                "W": 6,
-                "Avg": 38.33,
-                "Econ": 9.58
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "MANOJ BHANDAGE",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 28,
-                "Avg": 14.00,
-                "SR": 116.66
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 52.00,
-                "Econ": 8.66
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "BLESSING MUZARABANI",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "ZIMBABWE",
+        "ROLE": "Bowler",
+        "NATION": "India",
+        "BASE_PRICE": 2.0,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "4/21",
         "STATS": {
             "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 8,
-                "Avg": 32.12,
-                "Econ": 8.90
+                "M": 92,
+                "I": 91,
+                "W": 98,
+                "Avg": 31.98,
+                "Econ": 8.69,
+                "4W": 2,
+                "5W": 0
             }
-        },
-        "Base_Price": 1.0
+        }
     },
     {
-        "NAME": "JOSH HAZLEWOOD",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "AUSTRALIA",
+        "NAME": "PRASIDH KRISHNA",
+        "TEAM": "RR",
+        "ROLE": "Bowler",
+        "NATION": "India",
+        "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "3/22",
         "STATS": {
             "Bowling": {
-                "M": 12,
-                "I": 12,
-                "W": 15,
-                "Avg": 27.13,
-                "Econ": 8.25
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "RASIKH DAR",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 4,
-                "Avg": 42.25,
-                "Econ": 9.38
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SUYASH SHARMA",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 5,
-                "Avg": 42.60,
-                "Econ": 8.52
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "BHUVNESHWAR KUMAR",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 14,
-                "I": 14,
-                "W": 16,
-                "Avg": 28.18,
-                "Econ": 8.45
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "NUWAN THUSHARA",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "SRI LANKA",
-        "STATS": {
-            "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 9,
+                "M": 51,
+                "I": 51,
+                "W": 49,
                 "Avg": 34.22,
-                "Econ": 9.25
+                "Econ": 9.10,
+                "4W": 0,
+                "5W": 0
             }
-        },
-        "Base_Price": 1.0
+        }
     },
     {
-        "NAME": "LUNGISANI NGIDI",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "SOUTH AFRICA",
+        "NAME": "MANAV SUTHAR",
+        "TEAM": "GT",
+        "ROLE": "Bowler",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-arm orthodox",
+        "PLAYER_TYPE": "Finger Spinner",
+        "BEST": "0/9",
         "STATS": {
             "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 5,
-                "Avg": 42.60,
-                "Econ": 8.52
+                "M": 1,
+                "I": 1,
+                "W": 0,
+                "Avg": 0,
+                "Econ": 9.00,
+                "4W": 0,
+                "5W": 0
             }
-        },
-        "Base_Price": 1.0
+        }
     },
     {
-        "NAME": "ABHINANDAN SINGH",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 2,
-                "I": 2,
-                "W": 1,
-                "Avg": 56.00,
-                "Econ": 9.33
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "MOHIT RATHEE",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 3,
-                "I": 3,
-                "W": 2,
-                "Avg": 48.50,
-                "Econ": 9.70
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "YASH DAYAL",
-        "ROLE": "BOWLER",
-        "TEAM": "RCB",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 9,
-                "I": 9,
-                "W": 10,
-                "Avg": 32.80,
-                "Econ": 9.10
-            }
-        },
-        "Base_Price": 1.0
-    },
-    [
-    {
-        "NAME": "SANJU SAMSON",
-        "ROLE": "WK-BATTER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 16,
-                "R": 534,
-                "Avg": 41.07,
-                "SR": 146.30
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "SHUBHAM DUBEY",
-        "ROLE": "BATTER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 67,
-                "Avg": 16.75,
-                "SR": 121.81
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "VAIBHAV SURYAVANSHI",
-        "ROLE": "BATTER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 32,
-                "Avg": 16.00,
-                "SR": 118.51
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "KUNAL RATHORE",
-        "ROLE": "WK-BATTER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 45,
-                "Avg": 15.00,
-                "SR": 115.38
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "LUHAN-DRE-PRETORIUS",
-        "ROLE": "BATTER",
-        "TEAM": "RR",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 132.43
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SHIMRON HETMYER",
-        "ROLE": "BATTER",
-        "TEAM": "RR",
-        "NATION": "WEST INDIES",
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 12,
-                "R": 312,
-                "Avg": 31.20,
-                "SR": 152.19
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "YASHASVI JAISWAL",
-        "ROLE": "BATTER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 16,
-                "R": 589,
-                "Avg": 42.07,
-                "SR": 148.61
-            }
-        },
-        "Base_Price": 3.0
-    },
-    {
-        "NAME": "DHRUV JUREL",
-        "ROLE": "WK-BATTER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 12,
-                "I": 10,
-                "R": 245,
-                "Avg": 30.62,
-                "SR": 142.44
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "RIYAN PARAG",
-        "ROLE": "BATTER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 14,
-                "R": 412,
-                "Avg": 34.33,
-                "SR": 138.25
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "YUDHVIR SINGH CHARAK",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 38,
-                "Avg": 12.66,
-                "SR": 118.75
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 44.50,
-                "Econ": 8.90
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "JOFRA ARCHER",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "ENGLAND",
-        "STATS": {
-            "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 9,
-                "Avg": 33.22,
-                "Econ": 9.15
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "MAHEESH THEEKSHANA",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "SRI LANKA",
+        "NAME": "GERALD COETZEE",
+        "TEAM": "MI",
+        "ROLE": "Bowler",
+        "NATION": "South Africa",
+        "BASE_PRICE": 2.0,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "4/34",
         "STATS": {
             "Bowling": {
                 "M": 10,
                 "I": 10,
-                "W": 11,
-                "Avg": 31.81,
-                "Econ": 8.05
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "WANINDU HASARANGA",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "SRI LANKA",
-        "STATS": {
-            "Bowling": {
-                "M": 12,
-                "I": 12,
-                "W": 14,
-                "Avg": 26.85,
-                "Econ": 7.92
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "AKASH MADHWAL",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 11,
-                "I": 11,
                 "W": 13,
                 "Avg": 29.69,
-                "Econ": 9.10
+                "Econ": 9.94,
+                "4W": 1,
+                "5W": 0
             }
-        },
-        "Base_Price": 1.0
+        }
     },
     {
-        "NAME": "KUMAR KARTIKEYA SINGH",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
+        "NAME": "GURNOOR SINGH BRAR",
+        "TEAM": "PBKS",
+        "ROLE": "Bowler",
+        "NATION": "India",
+        "BASE_PRICE": 0.8,
+        "PLAYER_STYLE": "Right-arm medium-fast",
+        "PLAYER_TYPE": "Emerging",
+        "BEST": "0/31",
         "STATS": {
             "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 7,
-                "Avg": 41.85,
-                "Econ": 9.30
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "TUSHAR DESHPANDE",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 13,
-                "I": 13,
-                "W": 15,
-                "Avg": 28.73,
-                "Econ": 9.25
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "FAZALHAQ FAROOQI",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "AFGHANISTAN",
-        "STATS": {
-            "Bowling": {
-                "M": 7,
-                "I": 7,
-                "W": 6,
-                "Avg": 38.33,
-                "Econ": 8.52
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "KWENA MAPHAKA",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 3,
-                "Avg": 44.33,
-                "Econ": 8.86
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ASHOK SHARMA",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 3,
-                "I": 3,
-                "W": 2,
-                "Avg": 48.50,
-                "Econ": 9.70
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "NANDRE BURGER",
-        "ROLE": "BOWLER",
-        "TEAM": "RR",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Bowling": {
-                "M": 6,
-                "I": 6,
-                "W": 5,
-                "Avg": 42.60,
-                "Econ": 8.52
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ISHAN KISHAN",
-        "ROLE": "WK-BATTER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 15,
-                "R": 478,
-                "Avg": 36.76,
-                "SR": 142.26
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "ATHARVA TAIDE",
-        "ROLE": "BATTER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 167,
-                "Avg": 27.83,
-                "SR": 128.46
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ABHINAV MANOHAR",
-        "ROLE": "BATTER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 6,
-                "I": 5,
-                "R": 98,
-                "Avg": 19.60,
-                "SR": 132.43
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ANIKET VARMA",
-        "ROLE": "BATTER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 28,
-                "Avg": 14.00,
-                "SR": 116.66
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SACHIN BABY",
-        "ROLE": "BATTER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 4,
-                "I": 3,
-                "R": 45,
-                "Avg": 15.00,
-                "SR": 115.38
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "SMARAN RAVICHANDRAN",
-        "ROLE": "BATTER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 2,
+                "M": 1,
                 "I": 1,
-                "R": 18,
-                "Avg": 18.00,
-                "SR": 112.50
+                "W": 0,
+                "Avg": 0,
+                "Econ": 15.50,
+                "4W": 0,
+                "5W": 0
             }
-        },
-        "Base_Price": 0.5
+        }
     },
     {
-        "NAME": "HENRICH KLAASEN",
-        "ROLE": "WK-BATTER",
-        "TEAM": "SRH",
-        "NATION": "SOUTH AFRICA",
+        "NAME": "ISHANT SHARMA",
+        "TEAM": "DC",
+        "ROLE": "Bowler",
+        "NATION": "India",
+        "BASE_PRICE": 2.5,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "5/12",
         "STATS": {
-            "Batting": {
-                "M": 16,
-                "I": 15,
-                "R": 523,
-                "Avg": 40.23,
-                "SR": 158.48
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "TRAVIS HEAD",
-        "ROLE": "BATTER",
-        "TEAM": "SRH",
-        "NATION": "AUSTRALIA",
-        "STATS": {
-            "Batting": {
-                "M": 14,
-                "I": 14,
-                "R": 467,
-                "Avg": 35.92,
-                "SR": 152.28
-            }
-        },
-        "Base_Price": 2.0
-    },
-    {
-        "NAME": "HARSHAL PATEL",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 12,
-                "I": 9,
-                "R": 134,
-                "Avg": 16.75,
-                "SR": 128.84
-            },
             "Bowling": {
-                "I": 12,
-                "W": 14,
-                "Avg": 28.57,
-                "Econ": 9.25
+                "M": 101,
+                "I": 101,
+                "W": 93,
+                "Avg": 35.47,
+                "Econ": 8.10,
+                "4W": 1,
+                "5W": 1
             }
-        },
-        "Base_Price": 1.5
+        }
     },
     {
-        "NAME": "KAMINDU MENDIS",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "SRH",
-        "NATION": "SRI LANKA",
-        "STATS": {
-            "Batting": {
-                "M": 5,
-                "I": 4,
-                "R": 67,
-                "Avg": 16.75,
-                "SR": 121.81
-            },
-            "Bowling": {
-                "I": 3,
-                "W": 2,
-                "Avg": 44.50,
-                "Econ": 8.90
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "WIAAN MULDER",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "SRH",
-        "NATION": "SOUTH AFRICA",
-        "STATS": {
-            "Batting": {
-                "M": 7,
-                "I": 6,
-                "R": 112,
-                "Avg": 22.40,
-                "SR": 135.13
-            },
-            "Bowling": {
-                "I": 6,
-                "W": 5,
-                "Avg": 38.80,
-                "Econ": 9.15
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "HARSH DUBEY",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 3,
-                "I": 2,
-                "R": 25,
-                "Avg": 12.50,
-                "SR": 113.63
-            },
-            "Bowling": {
-                "I": 2,
-                "W": 1,
-                "Avg": 52.00,
-                "Econ": 8.66
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "ABHISHEK SHARMA",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 15,
-                "I": 14,
-                "R": 412,
-                "Avg": 31.69,
-                "SR": 148.02
-            },
-            "Bowling": {
-                "I": 8,
-                "W": 6,
-                "Avg": 38.33,
-                "Econ": 8.52
-            }
-        },
-        "Base_Price": 1.5
-    },
-    {
-        "NAME": "NITISH KUMAR REDDY",
-        "ROLE": "ALL-ROUNDER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Batting": {
-                "M": 8,
-                "I": 7,
-                "R": 156,
-                "Avg": 26.00,
-                "SR": 132.20
-            },
-            "Bowling": {
-                "I": 5,
-                "W": 4,
-                "Avg": 41.25,
-                "Econ": 9.16
-            }
-        },
-        "Base_Price": 0.5
-    },
-    {
-        "NAME": "PAT CUMMINS",
-        "ROLE": "BOWLER",
-        "TEAM": "SRH",
-        "NATION": "AUSTRALIA",
+        "NAME": "KULWANT KHEJROLIYA",
+        "TEAM": "LSG",
+        "ROLE": "Bowler",
+        "NATION": "India",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-arm medium-fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "3/34",
         "STATS": {
             "Bowling": {
                 "M": 16,
                 "I": 16,
-                "W": 18,
-                "Avg": 25.72,
-                "Econ": 8.35
-            }
-        },
-        "Base_Price": 3.0
-    },
-    {
-        "NAME": "MOHAMMAD SHAMI",
-        "ROLE": "BOWLER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 15,
-                "I": 15,
-                "W": 19,
-                "Avg": 23.68,
-                "Econ": 8.25
-            }
-        },
-        "Base_Price": 2.5
-    },
-    {
-        "NAME": "RAHUL CHAHAR",
-        "ROLE": "BOWLER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 13,
-                "I": 13,
                 "W": 15,
-                "Avg": 28.73,
-                "Econ": 8.25
+                "Avg": 40.73,
+                "Econ": 9.86,
+                "4W": 0,
+                "5W": 0
             }
-        },
-        "Base_Price": 1.5
+        }
     },
     {
-        "NAME": "SIMARJEET SINGH",
-        "ROLE": "BOWLER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
+        "NAME": "RAHUL TEWATIA",
+        "TEAM": "GT",
+        "ROLE": "All-Rounder",
+        "NATION": "India",
+        "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Left-hand bat, Right-arm legbreak",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "61*",
+        "BEST_BOWLING": "3/18",
         "STATS": {
+            "Batting": {
+                "M": 97,
+                "I": 78,
+                "R": 1158,
+                "Avg": 26.31,
+                "SR": 134.11,
+                "50": 3,
+                "100": 0
+            },
             "Bowling": {
-                "M": 8,
-                "I": 8,
-                "W": 7,
-                "Avg": 41.85,
-                "Econ": 9.30
+                "I": 58,
+                "W": 36,
+                "Avg": 42.52,
+                "Econ": 8.29,
+                "4W": 0,
+                "5W": 0
             }
-        },
-        "Base_Price": 0.5
+        }
     },
     {
-        "NAME": "ZEESHAN ANSARI",
-        "ROLE": "BOWLER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
+        "NAME": "RASHID KHAN",
+        "TEAM": "GT",
+        "ROLE": "Bowler",
+        "NATION": "Afghanistan",
+        "BASE_PRICE": 2.5,
+        "PLAYER_STYLE": "Right-arm legbreak",
+        "PLAYER_TYPE": "Wrist Spinner",
+        "BEST": "4/24",
         "STATS": {
             "Bowling": {
-                "M": 4,
-                "I": 4,
-                "W": 3,
-                "Avg": 44.33,
-                "Econ": 8.86
+                "M": 118,
+                "I": 118,
+                "W": 153,
+                "Avg": 21.11,
+                "Econ": 6.74,
+                "4W": 3,
+                "5W": 1
             }
-        },
-        "Base_Price": 0.5
+        }
     },
-    {
-        "NAME": "JAYDEV UNADKAT",
-        "ROLE": "BOWLER",
-        "TEAM": "SRH",
-        "NATION": "INDIA",
-        "STATS": {
-            "Bowling": {
-                "M": 9,
-                "I": 9,
-                "W": 8,
-                "Avg": 39.12,
-                "Econ": 9.35
-            }
-        },
-        "Base_Price": 1.0
-    },
-    {
-        "NAME": "ESHAN MALLINGA",
-        "ROLE": "BOWLER",
-        "TEAM": "SRH",
-        "NATION": "SRI LANKA",
-        "STATS": {
-            "Bowling": {
-                "M": 5,
-                "I": 5,
-                "W": 4,
-                "Avg": 42.25,
-                "Econ": 9.38
-            }
-        },
-        "Base_Price": 0.5
+{
+    "NAME": "AJINKYA RAHANE",
+    "TEAM": "KKR",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "105",
+    "STATS": {
+        "Batting": {
+            "M": 14,
+            "I": 14,
+            "R": 398,
+            "Avg": 33.16,
+            "SR": 142.85,
+            "50": 3,
+            "100": 1
+        }
     }
-]
+},
+{
+    "NAME": "RINKU SINGH",
+    "TEAM": "KKR",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Finisher",
+    "BEST": "67",
+    "STATS": {
+        "Batting": {
+            "M": 16,
+            "I": 15,
+            "R": 467,
+            "Avg": 46.7,
+            "SR": 152.28,
+            "50": 4,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "QUINTON DE KOCK",
+    "TEAM": "KKR",
+    "ROLE": "WK-Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "140",
+    "STATS": {
+        "Batting": {
+            "M": 15,
+            "I": 15,
+            "R": 512,
+            "Avg": 36.57,
+            "SR": 138.37,
+            "50": 4,
+            "100": 1
+        }
+    }
+},
+{
+    "NAME": "RAHMANULLAH GURBAZ",
+    "TEAM": "KKR",
+    "ROLE": "WK-Batter",
+    "NATION": "Afghanistan",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "81",
+    "STATS": {
+        "Batting": {
+            "M": 8,
+            "I": 8,
+            "R": 187,
+            "Avg": 26.71,
+            "SR": 145.31,
+            "50": 1,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "ANGKRISH RAGHUVANSHI",
+    "TEAM": "KKR",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "54",
+    "STATS": {
+        "Batting": {
+            "M": 6,
+            "I": 5,
+            "R": 134,
+            "Avg": 26.8,
+            "SR": 142.55,
+            "50": 1,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "MANISH PANDEY",
+    "TEAM": "KKR",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "114",
+    "STATS": {
+        "Batting": {
+            "M": 7,
+            "I": 6,
+            "R": 145,
+            "Avg": 24.16,
+            "SR": 128.31,
+            "50": 1,
+            "100": 1
+        }
+    }
+},
+{
+    "NAME": "LUVNITH SISODIA",
+    "TEAM": "KKR",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "18",
+    "STATS": {
+        "Batting": {
+            "M": 3,
+            "I": 2,
+            "R": 28,
+            "Avg": 14.0,
+            "SR": 116.66,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "VENKATESH IYER",
+    "TEAM": "KKR",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "104",
+    "BEST_BOWLING": "3/29",
+    "STATS": {
+        "Batting": {
+            "M": 15,
+            "I": 14,
+            "R": 387,
+            "Avg": 29.76,
+            "SR": 144.77,
+            "50": 2,
+            "100": 1
+        },
+        "Bowling": {
+            "I": 6,
+            "W": 4,
+            "Avg": 46.25,
+            "Econ": 9.25,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "ANUKUL ROY",
+    "TEAM": "KKR",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "20",
+    "BEST_BOWLING": "2/28",
+    "STATS": {
+        "Batting": {
+            "M": 5,
+            "I": 4,
+            "R": 45,
+            "Avg": 11.25,
+            "SR": 115.38,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 4,
+            "W": 3,
+            "Avg": 41.33,
+            "Econ": 8.26,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "MOEEN ALI",
+    "TEAM": "KKR",
+    "ROLE": "All-Rounder",
+    "NATION": "England",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "93",
+    "BEST_BOWLING": "4/26",
+    "STATS": {
+        "Batting": {
+            "M": 12,
+            "I": 11,
+            "R": 234,
+            "Avg": 23.4,
+            "SR": 142.68,
+            "50": 1,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 10,
+            "W": 9,
+            "Avg": 32.44,
+            "Econ": 8.11,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "RAMANDEEP SINGH",
+    "TEAM": "KKR",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Emerging",
+    "BEST_BATTING": "18",
+    "BEST_BOWLING": "1/32",
+    "STATS": {
+        "Batting": {
+            "M": 4,
+            "I": 3,
+            "R": 38,
+            "Avg": 12.66,
+            "SR": 118.75,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 3,
+            "W": 2,
+            "Avg": 44.5,
+            "Econ": 8.9,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "ANDRE RUSSEL",
+    "TEAM": "KKR",
+    "ROLE": "All-Rounder",
+    "NATION": "West Indies",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "88",
+    "BEST_BOWLING": "5/15",
+    "STATS": {
+        "Batting": {
+            "M": 16,
+            "I": 14,
+            "R": 345,
+            "Avg": 31.36,
+            "SR": 158.25,
+            "50": 2,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 14,
+            "W": 16,
+            "Avg": 26.18,
+            "Econ": 9.35,
+            "4W": 0,
+            "5W": 1
+        }
+    }
+},
+{
+    "NAME": "ANRICH NORTJE",
+    "TEAM": "KKR",
+    "ROLE": "Bowler",
+    "NATION": "South Africa",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/33",
+    "STATS": {
+        "Bowling": {
+            "M": 12,
+            "I": 12,
+            "W": 15,
+            "Avg": 27.13,
+            "Econ": 8.85,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "VAIBHAV ARORA",
+    "TEAM": "KKR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm medium-fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/27",
+    "STATS": {
+        "Bowling": {
+            "M": 10,
+            "I": 10,
+            "W": 12,
+            "Avg": 29.41,
+            "Econ": 8.82,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "MAYANK MARKANDE",
+    "TEAM": "KKR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Wrist Spinner",
+    "BEST": "4/23",
+    "STATS": {
+        "Bowling": {
+            "M": 9,
+            "I": 9,
+            "W": 10,
+            "Avg": 31.8,
+            "Econ": 8.44,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "SPENCER JOHNSON",
+    "TEAM": "KKR",
+    "ROLE": "Bowler",
+    "NATION": "Australia",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/25",
+    "STATS": {
+        "Bowling": {
+            "M": 8,
+            "I": 8,
+            "W": 9,
+            "Avg": 33.22,
+            "Econ": 9.15,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "HARSHIT RANA",
+    "TEAM": "KKR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/24",
+    "STATS": {
+        "Bowling": {
+            "M": 11,
+            "I": 11,
+            "W": 13,
+            "Avg": 28.69,
+            "Econ": 9.1,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "SUNIL NARINE",
+    "TEAM": "KKR",
+    "ROLE": "Bowler",
+    "NATION": "West Indies",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Mystery Spinner",
+    "BEST": "4/19",
+    "STATS": {
+        "Bowling": {
+            "M": 16,
+            "I": 16,
+            "W": 18,
+            "Avg": 24.72,
+            "Econ": 7.85,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "VARUN CHAKARAVARTHY",
+    "TEAM": "KKR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Mystery Spinner",
+    "BEST": "4/15",
+    "STATS": {
+        "Bowling": {
+            "M": 15,
+            "I": 15,
+            "W": 17,
+            "Avg": 26.47,
+            "Econ": 8.25,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "CHETAN SAKARIYA",
+    "TEAM": "KKR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-arm medium-fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/31",
+    "STATS": {
+        "Bowling": {
+            "M": 7,
+            "I": 7,
+            "W": 6,
+            "Avg": 38.33,
+            "Econ": 9.58,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "RISHABH PANT",
+    "TEAM": "LSG",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "128",
+    "STATS": {
+        "Batting": {
+            "M": 16,
+            "I": 16,
+            "R": 523,
+            "Avg": 40.23,
+            "SR": 146.5,
+            "50": 4,
+            "100": 1
+        }
+    }
+},
+{
+    "NAME": "DAVID MILLER",
+    "TEAM": "LSG",
+    "ROLE": "Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Finisher",
+    "BEST": "101",
+    "STATS": {
+        "Batting": {
+            "M": 14,
+            "I": 13,
+            "R": 387,
+            "Avg": 35.18,
+            "SR": 142.85,
+            "50": 2,
+            "100": 1
+        }
+    }
+},
+{
+    "NAME": "AIDEN MARKRAM",
+    "TEAM": "LSG",
+    "ROLE": "Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "68",
+    "STATS": {
+        "Batting": {
+            "M": 12,
+            "I": 12,
+            "R": 345,
+            "Avg": 31.36,
+            "SR": 135.29,
+            "50": 3,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "ARYAN JUYAL",
+    "TEAM": "LSG",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "22",
+    "STATS": {
+        "Batting": {
+            "M": 4,
+            "I": 3,
+            "R": 48,
+            "Avg": 16.0,
+            "SR": 114.28,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "HIMMAT SINGH",
+    "TEAM": "LSG",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "35",
+    "STATS": {
+        "Batting": {
+            "M": 5,
+            "I": 4,
+            "R": 67,
+            "Avg": 16.75,
+            "SR": 121.81,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "MATTHEW BREETZKE",
+    "TEAM": "LSG",
+    "ROLE": "Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "18",
+    "STATS": {
+        "Batting": {
+            "M": 3,
+            "I": 2,
+            "R": 32,
+            "Avg": 16.0,
+            "SR": 118.51,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "NICHOLAS POORAN",
+    "TEAM": "LSG",
+    "ROLE": "WK-Batter",
+    "NATION": "West Indies",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "77",
+    "STATS": {
+        "Batting": {
+            "M": 15,
+            "I": 14,
+            "R": 412,
+            "Avg": 34.33,
+            "SR": 158.46,
+            "50": 4,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "MITCHELL MARSH",
+    "TEAM": "LSG",
+    "ROLE": "All-Rounder",
+    "NATION": "Australia",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "89",
+    "BEST_BOWLING": "3/24",
+    "STATS": {
+        "Batting": {
+            "M": 10,
+            "I": 9,
+            "R": 245,
+            "Avg": 30.62,
+            "SR": 145.23,
+            "50": 2,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 8,
+            "W": 9,
+            "Avg": 28.44,
+            "Econ": 8.85,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "ABDUL SAMAD",
+    "TEAM": "LSG",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm legbreak",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "35",
+    "BEST_BOWLING": "1/28",
+    "STATS": {
+        "Batting": {
+            "M": 8,
+            "I": 7,
+            "R": 134,
+            "Avg": 19.14,
+            "SR": 148.88,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 3,
+            "W": 2,
+            "Avg": 46.5,
+            "Econ": 9.3,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "SHAHBAZ AHAMAD",
+    "TEAM": "LSG",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "32",
+    "BEST_BOWLING": "2/26",
+    "STATS": {
+        "Batting": {
+            "M": 7,
+            "I": 6,
+            "R": 98,
+            "Avg": 19.6,
+            "SR": 122.5,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 5,
+            "W": 4,
+            "Avg": 38.75,
+            "Econ": 8.61,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "YUVARAJ CHAUDHARY",
+    "TEAM": "LSG",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Emerging",
+    "BEST_BATTING": "16",
+    "BEST_BOWLING": "1/32",
+    "STATS": {
+        "Batting": {
+            "M": 3,
+            "I": 2,
+            "R": 25,
+            "Avg": 12.5,
+            "SR": 113.63,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 2,
+            "W": 1,
+            "Avg": 54.0,
+            "Econ": 9.0,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "RAJVARDHAN HANGARGEKAR",
+    "TEAM": "LSG",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium-fast",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "18",
+    "BEST_BOWLING": "2/35",
+    "STATS": {
+        "Batting": {
+            "M": 5,
+            "I": 4,
+            "R": 42,
+            "Avg": 10.5,
+            "SR": 127.27,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 4,
+            "W": 3,
+            "Avg": 44.33,
+            "Econ": 9.85,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "ARSHIN KULKARNI",
+    "TEAM": "LSG",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Emerging",
+    "BEST_BATTING": "18",
+    "BEST_BOWLING": "1/28",
+    "STATS": {
+        "Batting": {
+            "M": 4,
+            "I": 3,
+            "R": 38,
+            "Avg": 12.66,
+            "SR": 118.75,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 2,
+            "W": 1,
+            "Avg": 52.0,
+            "Econ": 8.66,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "AYUSH BADONI",
+    "TEAM": "LSG",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "41",
+    "BEST_BOWLING": "1/42",
+    "STATS": {
+        "Batting": {
+            "M": 9,
+            "I": 8,
+            "R": 156,
+            "Avg": 22.28,
+            "SR": 132.2,
+            "50": 0,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 2,
+            "W": 1,
+            "Avg": 56.0,
+            "Econ": 9.33,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "SHARDUL THAKUR",
+    "TEAM": "LSG",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "68",
+    "BEST_BOWLING": "4/36",
+    "STATS": {
+        "Batting": {
+            "M": 11,
+            "I": 9,
+            "R": 134,
+            "Avg": 16.75,
+            "SR": 128.84,
+            "50": 1,
+            "100": 0
+        },
+        "Bowling": {
+            "I": 11,
+            "W": 12,
+            "Avg": 32.08,
+            "Econ": 9.15,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "AVESH KHAN",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/24",
+    "STATS": {
+        "Bowling": {
+            "M": 13,
+            "I": 13,
+            "W": 15,
+            "Avg": 28.13,
+            "Econ": 8.65,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "AKASH DEEP",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/25",
+    "STATS": {
+        "Bowling": {
+            "M": 9,
+            "I": 9,
+            "W": 10,
+            "Avg": 31.8,
+            "Econ": 9.1,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "M. SIDDHARTH",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-arm orthodox",
+    "PLAYER_TYPE": "Finger Spinner",
+    "BEST": "2/28",
+    "STATS": {
+        "Bowling": {
+            "M": 6,
+            "I": 6,
+            "W": 5,
+            "Avg": 42.6,
+            "Econ": 8.52,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "DIGVESH SINGH",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm medium-fast",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "1/32",
+    "STATS": {
+        "Bowling": {
+            "M": 3,
+            "I": 3,
+            "W": 2,
+            "Avg": 48.5,
+            "Econ": 9.7,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "AKASH SINGH",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-arm medium-fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/35",
+    "STATS": {
+        "Bowling": {
+            "M": 4,
+            "I": 4,
+            "W": 3,
+            "Avg": 44.33,
+            "Econ": 8.86,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "SHAMAR JOSEPH",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "West Indies",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/28",
+    "STATS": {
+        "Bowling": {
+            "M": 7,
+            "I": 7,
+            "W": 8,
+            "Avg": 32.12,
+            "Econ": 8.9,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "PRINCE YADAV",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "1/42",
+    "STATS": {
+        "Bowling": {
+            "M": 2,
+            "I": 2,
+            "W": 1,
+            "Avg": 58.0,
+            "Econ": 9.66,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "WILLIAM O'ROURKE",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "New Zealand",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/38",
+    "STATS": {
+        "Bowling": {
+            "M": 5,
+            "I": 5,
+            "W": 4,
+            "Avg": 41.25,
+            "Econ": 9.16,
+            "4W": 0,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "RAVI BISHNOI",
+    "TEAM": "LSG",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Wrist Spinner",
+    "BEST": "4/25",
+    "STATS": {
+        "Bowling": {
+            "M": 15,
+            "I": 15,
+            "W": 16,
+            "Avg": 27.81,
+            "Econ": 8.25,
+            "4W": 1,
+            "5W": 0
+        }
+    }
+},
+{
+    "NAME": "ROBIN MINZ",
+    "TEAM": "MI",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "32",
+    "STATS": {
+        "Batting": {
+            "M": 6,
+            "I": 5,
+            "R": 98,
+            "Avg": 19.6,
+            "SR": 132.43,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+{
+    "NAME": "SHRIJITH KRISHNAN",
+    "TEAM": "MI",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Emerging",
+    "BEST": "18",
+    "STATS": {
+        "Batting": {
+            "M": 3,
+            "I": 2,
+            "R": 32,
+            "Avg": 16.0,
+            "SR": 118.51,
+            "50": 0,
+            "100": 0
+        }
+    }
+},
+  {
+    "NAME": "BEVON JACOBS",
+    "TEAM": "MI",
+    "ROLE": "Batter",
+    "NATION": "New zeland",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "38",
+    "STATS": {
+      "Batting": {
+        "M": 7,
+        "I": 6,
+        "R": 145,
+        "Avg": 24.16,
+        "SR": 128.31,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "JONNY BAIRSTOW",
+    "TEAM": "MI",
+    "ROLE": "WK-Batter",
+    "NATION": "England",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "114*",
+    "STATS": {
+      "Batting": {
+        "M": 48,
+        "I": 47,
+        "R": 1441,
+        "Avg": 34.30,
+        "SR": 147.25,
+        "50": 8,
+        "100": 2
+      }
+    }
+  },
+  {
+    "NAME": "N. TILAK VARMA",
+    "TEAM": "MI",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "84*",
+    "STATS": {
+      "Batting": {
+        "M": 37,
+        "I": 35,
+        "R": 950,
+        "Avg": 32.75,
+        "SR": 143.50,
+        "50": 5,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "HARDIK PANDYA",
+    "TEAM": "MI",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "91",
+    "BEST_BOWLING": "3/17",
+    "STATS": {
+      "Batting": {
+        "M": 123,
+        "I": 108,
+        "R": 2308,
+        "Avg": 30.37,
+        "SR": 145.86,
+        "50": 10,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 107,
+        "W": 53,
+        "Avg": 33.09,
+        "Econ": 8.56,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "NAMAN DHIR",
+    "TEAM": "MI",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "62",
+    "BEST_BOWLING": "1/12",
+    "STATS": {
+      "Batting": {
+        "M": 8,
+        "I": 7,
+        "R": 134,
+        "Avg": 19.14,
+        "SR": 135.35,
+        "50": 1,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 3,
+        "W": 2,
+        "Avg": 46.50,
+        "Econ": 9.30,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MITCHELL SANTNER",
+    "TEAM": "MI",
+    "ROLE": "All-Rounder",
+    "NATION": "New Zealand",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "22*",
+    "BEST_BOWLING": "2/13",
+    "STATS": {
+      "Batting": {
+        "M": 15,
+        "I": 9,
+        "R": 105,
+        "Avg": 21.00,
+        "SR": 118.64,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 14,
+        "W": 13,
+        "Avg": 25.23,
+        "Econ": 7.45,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "RAJ ANGAD BAWA",
+    "TEAM": "MI",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "22",
+    "BEST_BOWLING": "2/28",
+    "STATS": {
+      "Batting": {
+        "M": 4,
+        "I": 3,
+        "R": 45,
+        "Avg": 15.00,
+        "SR": 122.72,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 3,
+        "W": 2,
+        "Avg": 44.50,
+        "Econ": 8.90,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "TRENT BOULT",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "New Zealand",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Left-arm fast-medium",
+    "PLAYER_TYPE": "Swing Bowler",
+    "BEST": "4/18",
+    "STATS": {
+      "Bowling": {
+        "M": 88,
+        "I": 88,
+        "W": 105,
+        "Avg": 27.59,
+        "Econ": 8.32,
+        "4W": 3,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "KARN SHARMA",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Leg Spinner",
+    "BEST": "4/38",
+    "STATS": {
+      "Bowling": {
+        "M": 78,
+        "I": 71,
+        "W": 69,
+        "Avg": 32.97,
+        "Econ": 8.32,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "DEEPAK CHAHAR",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Swing Bowler",
+    "BEST": "4/13",
+    "STATS": {
+      "Bowling": {
+        "M": 73,
+        "I": 73,
+        "W": 72,
+        "Avg": 31.60,
+        "Econ": 7.96,
+        "4W": 2,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "ASHWANI KUMAR",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/32",
+    "STATS": {
+      "Bowling": {
+        "M": 5,
+        "I": 5,
+        "W": 4,
+        "Avg": 42.25,
+        "Econ": 9.38,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "REECE TOPLEY",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "England",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/27",
+    "STATS": {
+      "Bowling": {
+        "M": 8,
+        "I": 8,
+        "W": 9,
+        "Avg": 33.22,
+        "Econ": 9.15,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "V. SATYANARAYANA PENMETSA",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "1/25",
+    "STATS": {
+      "Bowling": {
+        "M": 3,
+        "I": 3,
+        "W": 2,
+        "Avg": 48.50,
+        "Econ": 9.70,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "ARJUN TENDULKAR",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "1/14",
+    "STATS": {
+      "Bowling": {
+        "M": 4,
+        "I": 4,
+        "W": 3,
+        "Avg": 44.33,
+        "Econ": 8.86,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MUJEEB-UR-RAHMAN",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "Afghanistan",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm offbreak",
+    "PLAYER_TYPE": "Mystery Spinner",
+    "BEST": "3/20",
+    "STATS": {
+      "Bowling": {
+        "M": 21,
+        "I": 21,
+        "W": 19,
+        "Avg": 33.47,
+        "Econ": 7.86,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "RAGHU SHARMA",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-arm orthodox",
+    "PLAYER_TYPE": "Left-arm Spinner",
+    "BEST": "1/28",
+    "STATS": {
+      "Bowling": {
+        "M": 2,
+        "I": 2,
+        "W": 1,
+        "Avg": 56.00,
+        "Econ": 9.33,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "CHARITH ASALANKA",
+    "TEAM": "MI",
+    "ROLE": "Batter",
+    "NATION": "Sri Lanka",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "44",
+    "STATS": {
+      "Batting": {
+        "M": 6,
+        "I": 6,
+        "R": 179,
+        "Avg": 29.83,
+        "SR": 138.76,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "RICHARD GLEESON",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "England",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/33",
+    "STATS": {
+      "Bowling": {
+        "M": 5,
+        "I": 5,
+        "W": 4,
+        "Avg": 41.25,
+        "Econ": 9.16,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "RYAN RICKELTON",
+    "TEAM": "MI",
+    "ROLE": "Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "94*",
+    "STATS": {
+      "Batting": {
+        "M": 6,
+        "I": 6,
+        "R": 198,
+        "Avg": 39.60,
+        "SR": 148.87,
+        "50": 1,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "Will Jacks",
+    "TEAM": "MI",
+    "ROLE": "All-Rounder",
+    "NATION": "England",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm off break",
+    "PLAYER_TYPE": "Explosive / Impact",
+    "BEST_BATTING": "100*",
+    "BEST_BOWLING": "2/14",
+    "STATS": {
+      "Batting": {
+        "M": 21,
+        "I": 19,
+        "R": 463,
+        "Avg": 27.24,
+        "SR": 152.81,
+        "50": 2,
+        "100": 1
+      },
+      "Bowling": {
+        "I": 13,  
+        "W": 8,
+        "Avg": 27.50,
+        "Econ": 9.57,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "ROHIT SHARMA",
+    "TEAM": "MI",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "109*",
+    "STATS": {
+      "Batting": {
+        "M": 247,
+        "I": 238,
+        "R": 6522,
+        "Avg": 29.91,
+        "SR": 130.98,
+        "50": 42,
+        "100": 2
+      }
+    }
+  },
+  {
+    "NAME": "SURYAKUMAR YADAV",
+    "TEAM": "MI",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "103",
+    "STATS": {
+      "Batting": {
+        "M": 143,
+        "I": 131,
+        "R": 3249,
+        "Avg": 31.85,
+        "SR": 143.32,
+        "50": 21,
+        "100": 1
+      }
+    }
+  },
+  {
+    "NAME": "JASPRIT BUMRAH",
+    "TEAM": "MI",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "5/10",
+    "STATS": {
+      "Bowling": {
+        "M": 120,
+        "I": 120,
+        "W": 145,
+        "Avg": 23.30,
+        "Econ": 7.39,
+        "4W": 3,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "GLENN MAXWELL",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "Australia",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "95",
+    "BEST_BOWLING": "4/40",
+    "STATS": {
+      "Batting": {
+        "M": 124,
+        "I": 114,
+        "R": 2719,
+        "Avg": 26.99,
+        "SR": 157.62,
+        "50": 17,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 72,
+        "W": 31,
+        "Avg": 35.80,
+        "Econ": 8.06,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "SHREYAS IYER",
+    "TEAM": "PBKS",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "96",
+    "STATS": {
+      "Batting": {
+        "M": 101,
+        "I": 95,
+        "R": 2776,
+        "Avg": 31.55,
+        "SR": 125.38,
+        "50": 19,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "NEHAL WADHERA",
+    "TEAM": "PBKS",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "64",
+    "STATS": {
+      "Batting": {
+        "M": 8,
+        "I": 7,
+        "R": 167,
+        "Avg": 27.83,
+        "SR": 132.53,
+        "50": 1,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "VISHNU VINOD",
+    "TEAM": "PBKS",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "28",
+    "STATS": {
+      "Batting": {
+        "M": 7,
+        "I": 5,
+        "R": 89,
+        "Avg": 17.80,
+        "SR": 118.67,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "JOSH INGLIS",
+    "TEAM": "PBKS",
+    "ROLE": "WK-Batter",
+    "NATION": "Australia",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "68",
+    "STATS": {
+      "Batting": {
+        "M": 12,
+        "I": 11,
+        "R": 298,
+        "Avg": 29.80,
+        "SR": 142.58,
+        "50": 1,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "HARNOOR PANNU",
+    "TEAM": "PBKS",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "21",
+    "STATS": {
+      "Batting": {
+        "M": 3,
+        "I": 2,
+        "R": 32,
+        "Avg": 16.00,
+        "SR": 118.51,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "PYLA AVINASH",
+    "TEAM": "PBKS",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "18",
+    "STATS": {
+      "Batting": {
+        "M": 2,
+        "I": 1,
+        "R": 18,
+        "Avg": 18.00,
+        "SR": 112.50,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "PRABHSIMRAN SINGH",
+    "TEAM": "PBKS",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "103",
+    "STATS": {
+      "Batting": {
+        "M": 33,
+        "I": 31,
+        "R": 678,
+        "Avg": 24.21,
+        "SR": 152.02,
+        "50": 3,
+        "100": 1
+      }
+    }
+  },
+  {
+    "NAME": "SHASHANK SINGH",
+    "TEAM": "PBKS",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "46*",
+    "STATS": {
+      "Batting": {
+        "M": 15,
+        "I": 12,
+        "R": 256,
+        "Avg": 32.00,
+        "SR": 148.83,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "MARCUS STOINIS",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "Australia",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "89*",
+    "BEST_BOWLING": "4/15",
+    "STATS": {
+      "Batting": {
+        "M": 70,
+        "I": 62,
+        "R": 1184,
+        "Avg": 26.91,
+        "SR": 136.56,
+        "50": 4,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 46,
+        "W": 33,
+        "Avg": 32.36,
+        "Econ": 9.05,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "HARPREET BRAR",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "47",
+    "BEST_BOWLING": "4/30",
+    "STATS": {
+      "Batting": {
+        "M": 31,
+        "I": 20,
+        "R": 234,
+        "Avg": 18.00,
+        "SR": 122.51,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 29,
+        "W": 21,
+        "Avg": 34.47,
+        "Econ": 7.85,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MARCO JANSEN",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "South Africa",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm fast",
+    "PLAYER_TYPE": "Pace All-rounder",
+    "BEST_BATTING": "38*",
+    "BEST_BOWLING": "3/38",
+    "STATS": {
+      "Batting": {
+        "M": 15,
+        "I": 11,
+        "R": 156,
+        "Avg": 19.50,
+        "SR": 138.05,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 15,
+        "W": 19,
+        "Avg": 25.21,
+        "Econ": 9.12,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "AZMATULLAH OMARZAI",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "Afghanistan",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+    "PLAYER_TYPE": "Pace All-rounder",
+    "BEST_BATTING": "33",
+    "BEST_BOWLING": "2/32",
+    "STATS": {
+      "Batting": {
+        "M": 7,
+        "I": 6,
+        "R": 112,
+        "Avg": 22.40,
+        "SR": 135.13,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 6,
+        "W": 5,
+        "Avg": 38.80,
+        "Econ": 9.15,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "PRIYANSH ARYA",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "18",
+    "BEST_BOWLING": "1/26",
+    "STATS": {
+      "Batting": {
+        "M": 3,
+        "I": 2,
+        "R": 28,
+        "Avg": 14.00,
+        "SR": 116.66,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 2,
+        "W": 1,
+        "Avg": 52.00,
+        "Econ": 8.66,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "AARON HARDIE",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "Australia",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Pace All-rounder",
+    "BEST_BATTING": "45",
+    "BEST_BOWLING": "2/15",
+    "STATS": {
+      "Batting": {
+        "M": 8,
+        "I": 7,
+        "R": 156,
+        "Avg": 26.00,
+        "SR": 132.20,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 6,
+        "W": 5,
+        "Avg": 36.40,
+        "Econ": 8.65,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MUSHEER KHAN",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "20",
+    "BEST_BOWLING": "1/27",
+    "STATS": {
+      "Batting": {
+        "M": 4,
+        "I": 3,
+        "R": 45,
+        "Avg": 15.00,
+        "SR": 122.72,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 2,
+        "W": 1,
+        "Avg": 54.00,
+        "Econ": 9.00,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "SURYANSH SHEDGE",
+    "TEAM": "PBKS",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "18",
+    "BEST_BOWLING": "0/8",
+    "STATS": {
+      "Batting": {
+        "M": 2,
+        "I": 1,
+        "R": 18,
+        "Avg": 18.00,
+        "SR": 112.50,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 1,
+        "W": 0,
+        "Avg": 0,
+        "Econ": 8.20,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MITCH OWEN",
+    "TEAM": "PBKS",
+    "ROLE": "Batter",
+    "NATION": "Australia",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "19",
+    "STATS": {
+      "Batting": {
+        "M": 3,
+        "I": 2,
+        "R": 32,
+        "Avg": 16.00,
+        "SR": 118.51,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "ARSHDEEP SINGH",
+    "TEAM": "PBKS",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "5/32",
+    "STATS": {
+      "Bowling": {
+        "M": 69,
+        "I": 69,
+        "W": 69,
+        "Avg": 32.78,
+        "Econ": 9.02,
+        "4W": 1,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "YUZVENDRA CHAHAL",
+    "TEAM": "PBKS",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Leg Spinner",
+    "BEST": "5/40",
+    "STATS": {
+      "Bowling": {
+        "M": 145,
+        "I": 144,
+        "W": 187,
+        "Avg": 21.68,
+        "Econ": 7.75,
+        "4W": 5,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "VYSHAK VIJAYKUMAR",
+    "TEAM": "PBKS",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/20",
+    "STATS": {
+      "Bowling": {
+        "M": 15,
+        "I": 15,
+        "W": 17,
+        "Avg": 26.35,
+        "Econ": 9.23,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "YASH THAKUR",
+    "TEAM": "PBKS",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "5/30",
+    "STATS": {
+      "Bowling": {
+        "M": 24,
+        "I": 24,
+        "W": 25,
+        "Avg": 32.56,
+        "Econ": 9.45,
+        "4W": 0,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "KULDEEP SEN",
+    "TEAM": "PBKS",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/23",
+    "STATS": {
+      "Bowling": {
+        "M": 14,
+        "I": 14,
+        "W": 13,
+        "Avg": 33.23,
+        "Econ": 9.72,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "XAVIER BARTLETT",
+    "TEAM": "PBKS",
+    "ROLE": "Bowler",
+    "NATION": "Australia",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/37",
+    "STATS": {
+      "Bowling": {
+        "M": 6,
+        "I": 6,
+        "W": 5,
+        "Avg": 42.60,
+        "Econ": 8.52,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "PRAVIN DUBEY",
+    "TEAM": "PBKS",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Leg Spinner",
+    "BEST": "2/19",
+    "STATS": {
+      "Bowling": {
+        "M": 7,
+        "I": 7,
+        "W": 5,
+        "Avg": 42.20,
+        "Econ": 8.44,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "KYLE JAMIESON",
+    "TEAM": "PBKS",
+    "ROLE": "Bowler",
+    "NATION": "New Zealand",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/14",
+    "STATS": {
+      "Bowling": {
+        "M": 9,
+        "I": 9,
+        "W": 9,
+        "Avg": 35.66,
+        "Econ": 9.55,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "Cameron Green",
+    "TEAM": "RCB",
+    "ROLE": "All-Rounder",
+    "NATION": "Australia",
+    "BASE_PRICE":2.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast medium",
+    "PLAYER_TYPE": "Power Hitter / Seam All-Rounder",
+    "BEST_BATTING": "100*",
+    "BEST_BOWLING": "2/12",
+    "STATS": {
+      "Batting": {
+        "M": 29,
+        "I": 28,
+        "R": 707,
+        "Avg": 41.59,
+        "SR": 153.70,
+        "50": 2,
+        "100": 1
+      },
+      "Bowling": {
+        "I": 29,
+        "W": 16,
+        "Avg": 41.50,
+        "Econ": 9.08,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "FINN ALLEN",
+    "TEAM": "RCB",
+    "ROLE": "Batter",
+    "NATION": "New Zealand",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "75",
+    "STATS": {
+      "Batting": {
+        "M": 10,
+        "I": 10,
+        "R": 186,
+        "Avg": 18.60,
+        "SR": 165.17,
+        "50": 1,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "RAJAT PATIDAR",
+    "TEAM": "RCB",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "112*",
+    "STATS": {
+      "Batting": {
+        "M": 27,
+        "I": 25,
+        "R": 679,
+        "Avg": 33.95,
+        "SR": 152.24,
+        "50": 3,
+        "100": 1
+      }
+    }
+  },
+  {
+    "NAME": "VIRAT KOHLI",
+    "TEAM": "RCB",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "113",
+    "STATS": {
+      "Batting": {
+        "M": 242,
+        "I": 234,
+        "R": 7627,
+        "Avg": 37.98,
+        "SR": 130.61,
+        "50": 52,
+        "100": 8
+      }
+    }
+  },
+  {
+    "NAME": "PHIL SALT",
+    "TEAM": "RCB",
+    "ROLE": "WK-Batter",
+    "NATION": "England",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "87",
+    "STATS": {
+      "Batting": {
+        "M": 15,
+        "I": 15,
+        "R": 523,
+        "Avg": 40.23,
+        "SR": 148.58,
+        "50": 4,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "JITESH SHARMA",
+    "TEAM": "RCB",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "62*",
+    "STATS": {
+      "Batting": {
+        "M": 34,
+        "I": 29,
+        "R": 646,
+        "Avg": 25.84,
+        "SR": 154.16,
+        "50": 2,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "SWASTIK CHHIKARA",
+    "TEAM": "RCB",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "22",
+    "STATS": {
+      "Batting": {
+        "M": 4,
+        "I": 3,
+        "R": 48,
+        "Avg": 16.00,
+        "SR": 118.51,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "TIM SEIFERT",
+    "TEAM": "RCB",
+    "ROLE": "WK-Batter",
+    "NATION": "New Zealand",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "48",
+    "STATS": {
+      "Batting": {
+        "M": 15,
+        "I": 13,
+        "R": 238,
+        "Avg": 19.83,
+        "SR": 128.64,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "MAYANK AGARWAL",
+    "TEAM": "RCB",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Anchor",
+    "BEST": "111*",
+    "STATS": {
+      "Batting": {
+        "M": 132,
+        "I": 127,
+        "R": 2817,
+        "Avg": 25.15,
+        "SR": 133.16,
+        "50": 17,
+        "100": 1
+      }
+    }
+  },
+  {
+    "NAME": "LIAM LIVINGSTONE",
+    "TEAM": "RCB",
+    "ROLE": "All-Rounder",
+    "NATION": "England",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm legbreak",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "94",
+    "BEST_BOWLING": "3/27",
+    "STATS": {
+      "Batting": {
+        "M": 28,
+        "I": 26,
+        "R": 628,
+        "Avg": 26.16,
+        "SR": 163.54,
+        "50": 3,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 20,
+        "W": 12,
+        "Avg": 38.75,
+        "Econ": 9.25,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "KRUNAL PANDYA",
+    "TEAM": "RCB",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "86",
+    "BEST_BOWLING": "3/14",
+    "STATS": {
+      "Batting": {
+        "M": 119,
+        "I": 95,
+        "R": 1531,
+        "Avg": 22.51,
+        "SR": 128.88,
+        "50": 5,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 106,
+        "W": 66,
+        "Avg": 35.19,
+        "Econ": 7.41,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "SWAPNIL SINGH",
+    "TEAM": "RCB",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "16",
+    "BEST_BOWLING": "2/28",
+    "STATS": {
+      "Batting": {
+        "M": 8,
+        "I": 5,
+        "R": 52,
+        "Avg": 13.00,
+        "SR": 118.18,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 7,
+        "W": 5,
+        "Avg": 36.40,
+        "Econ": 8.65,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "TIM DAVID",
+    "TEAM": "RCB",
+    "ROLE": "All-Rounder",
+    "NATION": "Australia",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "46*",
+    "BEST_BOWLING": "1/18",
+    "STATS": {
+      "Batting": {
+        "M": 25,
+        "I": 22,
+        "R": 452,
+        "Avg": 25.11,
+        "SR": 158.59,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 5,
+        "W": 2,
+        "Avg": 48.50,
+        "Econ": 9.70,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "ROMARIO SHEPHERD",
+    "TEAM": "RCB",
+    "ROLE": "All-Rounder",
+    "NATION": "West Indies",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+    "PLAYER_TYPE": "Powerful",
+    "BEST_BATTING": "39*",
+    "BEST_BOWLING": "2/22",
+    "STATS": {
+      "Batting": {
+        "M": 10,
+        "I": 8,
+        "R": 156,
+        "Avg": 26.00,
+        "SR": 148.57,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 8,
+        "W": 7,
+        "Avg": 36.28,
+        "Econ": 10.15,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MANOJ BHANDAGE",
+    "TEAM": "RCB",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "16",
+    "BEST_BOWLING": "1/26",
+    "STATS": {
+      "Batting": {
+        "M": 3,
+        "I": 2,
+        "R": 28,
+        "Avg": 14.00,
+        "SR": 116.66,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 2,
+        "W": 1,
+        "Avg": 52.00,
+        "Econ": 8.66,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "BLESSING MUZARABANI",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "Zimbabwe",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/18",
+    "STATS": {
+      "Bowling": {
+        "M": 7,
+        "I": 7,
+        "W": 8,
+        "Avg": 32.12,
+        "Econ": 8.90,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "JOSH HAZLEWOOD",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "Australia",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/25",
+    "STATS": {
+      "Bowling": {
+        "M": 27,
+        "I": 27,
+        "W": 35,
+        "Avg": 20.40,
+        "Econ": 8.03,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "RASIKH DAR",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/29",
+    "STATS": {
+      "Bowling": {
+        "M": 7,
+        "I": 7,
+        "W": 5,
+        "Avg": 47.20,
+        "Econ": 9.44,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "SUYASH SHARMA",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Leg Spinner",
+    "BEST": "3/30",
+    "STATS": {
+      "Bowling": {
+        "M": 14,
+        "I": 14,
+        "W": 12,
+        "Avg": 42.58,
+        "Econ": 9.12,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "BHUVNESHWAR KUMAR",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm fast-medium",
+    "PLAYER_TYPE": "Swing Bowler",
+    "BEST": "5/19",
+    "STATS": {
+      "Bowling": {
+        "M": 169,
+        "I": 168,
+        "W": 174,
+        "Avg": 29.49,
+        "Econ": 7.54,
+        "4W": 4,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "NUWAN THUSHARA",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "Sri Lanka",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/28",
+    "STATS": {
+      "Bowling": {
+        "M": 8,
+        "I": 8,
+        "W": 9,
+        "Avg": 34.22,
+        "Econ": 9.25,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "LUNGISANI NGIDI",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "South Africa",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/10",
+    "STATS": {
+      "Bowling": {
+        "M": 14,
+        "I": 14,
+        "W": 25,
+        "Avg": 17.92,
+        "Econ": 8.54,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "ABHINANDAN SINGH",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "1/28",
+    "STATS": {
+      "Bowling": {
+        "M": 2,
+        "I": 2,
+        "W": 1,
+        "Avg": 56.00,
+        "Econ": 9.33,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MOHIT RATHEE",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "1/25",
+    "STATS": {
+      "Bowling": {
+        "M": 3,
+        "I": 3,
+        "W": 2,
+        "Avg": 48.50,
+        "Econ": 9.70,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "YASH DAYAL",
+    "TEAM": "RCB",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/20",
+    "STATS": {
+      "Bowling": {
+        "M": 21,
+        "I": 21,
+        "W": 20,
+        "Avg": 37.85,
+        "Econ": 9.65,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "SANJU SAMSON",
+    "TEAM": "RR",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "119",
+    "STATS": {
+      "Batting": {
+        "M": 152,
+        "I": 143,
+        "R": 3888,
+        "Avg": 29.00,
+        "SR": 137.19,
+        "50": 20,
+        "100": 3
+      }
+    }
+  },
+  {
+    "NAME": "SHUBHAM DUBEY",
+    "TEAM": "RR",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "33",
+    "STATS": {
+      "Batting": {
+        "M": 5,
+        "I": 4,
+        "R": 67,
+        "Avg": 16.75,
+        "SR": 121.81,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "VAIBHAV SURYAVANSHI",
+    "TEAM": "RR",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "19",
+    "STATS": {
+      "Batting": {
+        "M": 3,
+        "I": 2,
+        "R": 32,
+        "Avg": 16.00,
+        "SR": 118.51,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "KUNAL RATHORE",
+    "TEAM": "RR",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "18",
+    "STATS": {
+      "Batting": {
+        "M": 4,
+        "I": 3,
+        "R": 45,
+        "Avg": 15.00,
+        "SR": 115.38,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "LUHAN-DRE-PRETORIUS",
+    "TEAM": "RR",
+    "ROLE": "Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "25",
+    "STATS": {
+      "Batting": {
+        "M": 6,
+        "I": 5,
+        "R": 98,
+        "Avg": 19.60,
+        "SR": 132.43,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "SHIMRON HETMYER",
+    "TEAM": "RR",
+    "ROLE": "Batter",
+    "NATION": "West Indies",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Finisher",
+    "BEST": "75",
+    "STATS": {
+      "Batting": {
+        "M": 60,
+        "I": 53,
+        "R": 1157,
+        "Avg": 30.44,
+        "SR": 151.83,
+        "50": 6,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "YASHASVI JAISWAL",
+    "TEAM": "RR",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "124",
+    "STATS": {
+      "Batting": {
+        "M": 37,
+        "I": 37,
+        "R": 1172,
+        "Avg": 33.48,
+        "SR": 148.73,
+        "50": 8,
+        "100": 1
+      }
+    }
+  },
+  {
+    "NAME": "DHRUV JUREL",
+    "TEAM": "RR",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "52*",
+    "STATS": {
+      "Batting": {
+        "M": 21,
+        "I": 16,
+        "R": 344,
+        "Avg": 26.46,
+        "SR": 142.85,
+        "50": 1,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "RIYAN PARAG",
+    "TEAM": "RR",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "84*",
+    "STATS": {
+      "Batting": {
+        "M": 62,
+        "I": 47,
+        "R": 835,
+        "Avg": 20.87,
+        "SR": 138.46,
+        "50": 3,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "YUDHVIR SINGH CHARAK",
+    "TEAM": "RR",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "15",
+    "BEST_BOWLING": "2/19",
+    "STATS": {
+      "Batting": {
+        "M": 6,
+        "I": 4,
+        "R": 45,
+        "Avg": 11.25,
+        "SR": 115.38,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 5,
+        "W": 4,
+        "Avg": 38.25,
+        "Econ": 9.56,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "JOFRA ARCHER",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "England",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/15",
+    "STATS": {
+      "Bowling": {
+        "M": 42,
+        "I": 42,
+        "W": 53,
+        "Avg": 25.77,
+        "Econ": 7.84,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MAHEESH THEEKSHANA",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "Sri Lanka",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm offbreak",
+    "PLAYER_TYPE": "Off Spinner",
+    "BEST": "4/20",
+    "STATS": {
+      "Bowling": {
+        "M": 10,
+        "I": 10,
+        "W": 11,
+        "Avg": 31.81,
+        "Econ": 8.05,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "WANINDU HASARANGA",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "Sri Lanka",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Leg Spinner",
+    "BEST": "5/18",
+    "STATS": {
+      "Bowling": {
+        "M": 24,
+        "I": 24,
+        "W": 35,
+        "Avg": 20.77,
+        "Econ": 8.01,
+        "4W": 0,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "AKASH MADHWAL",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "5/5",
+    "STATS": {
+      "Bowling": {
+        "M": 14,
+        "I": 14,
+        "W": 18,
+        "Avg": 23.72,
+        "Econ": 9.45,
+        "4W": 0,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "KUMAR KARTIKEYA SINGH",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-arm orthodox",
+    "PLAYER_TYPE": "Left-arm Spinner",
+    "BEST": "3/19",
+    "STATS": {
+      "Bowling": {
+        "M": 14,
+        "I": 14,
+        "W": 13,
+        "Avg": 35.15,
+        "Econ": 8.38,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "TUSHAR DESHPANDE",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/33",
+    "STATS": {
+      "Bowling": {
+        "M": 33,
+        "I": 33,
+        "W": 35,
+        "Avg": 34.97,
+        "Econ": 9.72,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "FAZALHAQ FAROOQI",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "Afghanistan",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-arm fast-medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/20",
+    "STATS": {
+      "Bowling": {
+        "M": 13,
+        "I": 13,
+        "W": 13,
+        "Avg": 36.38,
+        "Econ": 9.11,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "KWENA MAPHAKA",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "South Africa",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/32",
+    "STATS": {
+      "Bowling": {
+        "M": 4,
+        "I": 4,
+        "W": 3,
+        "Avg": 44.33,
+        "Econ": 8.86,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "ASHOK SHARMA",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "1/25",
+    "STATS": {
+      "Bowling": {
+        "M": 3,
+        "I": 3,
+        "W": 2,
+        "Avg": 48.50,
+        "Econ": 9.70,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "NANDRE BURGER",
+    "TEAM": "RR",
+    "ROLE": "Bowler",
+    "NATION": "South Africa",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/29",
+    "STATS": {
+      "Bowling": {
+        "M": 6,
+        "I": 6,
+        "W": 5,
+        "Avg": 42.60,
+        "Econ": 8.52,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+  "NAME": "Brydon Carse",
+  "TEAM": "SRH",
+  "ROLE": "Bowling All-Rounder",
+  "NATION": "England",
+  "BASE_PRICE": 1.0,
+  "PLAYER_STYLE": "Right-arm fast, Right-hand bat",
+  "PLAYER_TYPE": "Pace / Lower-order hitter",
+  "BEST_BOWLING": "3/23",
+  "STATS": {
+    "Bowling": {
+      "M": 0,
+      "W": 0,
+      "Avg": 0,
+      "Econ": 0,
+      "4W": 0,
+      "5W": 0
+    },
+    "Batting": {
+      "M": 0,
+      "R": 0,
+      "Avg": 0,
+      "SR": 0,
+      "50": 0,
+      "100": 0
+    }
+  }
+},
+  {
+    "NAME": "ISHAN KISHAN",
+    "TEAM": "SRH",
+    "ROLE": "WK-Batter",
+    "NATION": "India",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "99",
+    "STATS": {
+      "Batting": {
+        "M": 91,
+        "I": 85,
+        "R": 2072,
+        "Avg": 27.62,
+        "SR": 133.16,
+        "50": 13,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "ATHARVA TAIDE",
+    "TEAM": "SRH",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "45",
+    "STATS": {
+      "Batting": {
+        "M": 8,
+        "I": 7,
+        "R": 167,
+        "Avg": 27.83,
+        "SR": 128.46,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "ABHINAV MANOHAR",
+    "TEAM": "SRH",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "35",
+    "STATS": {
+      "Batting": {
+        "M": 12,
+        "I": 10,
+        "R": 178,
+        "Avg": 19.77,
+        "SR": 131.85,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "ANIKET VARMA",
+    "TEAM": "SRH",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "16",
+    "STATS": {
+      "Batting": {
+        "M": 3,
+        "I": 2,
+        "R": 28,
+        "Avg": 14.00,
+        "SR": 116.66,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "SACHIN BABY",
+    "TEAM": "SRH",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "24",
+    "STATS": {
+      "Batting": {
+        "M": 13,
+        "I": 9,
+        "R": 98,
+        "Avg": 12.25,
+        "SR": 113.95,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "SMARAN RAVICHANDRAN",
+    "TEAM": "SRH",
+    "ROLE": "Batter",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Utility",
+    "BEST": "18",
+    "STATS": {
+      "Batting": {
+        "M": 2,
+        "I": 1,
+        "R": 18,
+        "Avg": 18.00,
+        "SR": 112.50,
+        "50": 0,
+        "100": 0
+      }
+    }
+  },
+  {
+    "NAME": "HENRICH KLAASEN",
+    "TEAM": "SRH",
+    "ROLE": "WK-Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Powerful",
+    "BEST": "104",
+    "STATS": {
+      "Batting": {
+        "M": 47,
+        "I": 43,
+        "R": 1280,
+        "Avg": 34.59,
+        "SR": 171.55,
+        "50": 7,
+        "100": 1
+      }
+    }
+  },
+  {
+    "NAME": "TRAVIS HEAD",
+    "TEAM": "SRH",
+    "ROLE": "Batter",
+    "NATION": "Australia",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST": "102",
+    "STATS": {
+      "Batting": {
+        "M": 14,
+        "I": 14,
+        "R": 533,
+        "Avg": 41.00,
+        "SR": 167.08,
+        "50": 4,
+        "100": 1
+      }
+    }
+  },
+  {
+    "NAME": "HARSHAL PATEL",
+    "TEAM": "SRH",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Pace All-rounder",
+    "BEST_BATTING": "36*",
+    "BEST_BOWLING": "5/27",
+    "STATS": {
+      "Batting": {
+        "M": 98,
+        "I": 51,
+        "R": 402,
+        "Avg": 14.35,
+        "SR": 133.77,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 97,
+        "W": 111,
+        "Avg": 23.21,
+        "Econ": 8.59,
+        "4W": 2,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "KAMINDU MENDIS",
+    "TEAM": "SRH",
+    "ROLE": "All-Rounder",
+    "NATION": "Sri Lanka",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "22",
+    "BEST_BOWLING": "1/15",
+    "STATS": {
+      "Batting": {
+        "M": 5,
+        "I": 4,
+        "R": 67,
+        "Avg": 16.75,
+        "SR": 121.81,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 3,
+        "W": 2,
+        "Avg": 44.50,
+        "Econ": 8.90,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "WIAAN MULDER",
+    "TEAM": "SRH",
+    "ROLE": "All-Rounder",
+    "NATION": "South Africa",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+    "PLAYER_TYPE": "Pace All-rounder",
+    "BEST_BATTING": "36*",
+    "BEST_BOWLING": "2/25",
+    "STATS": {
+      "Batting": {
+        "M": 7,
+        "I": 6,
+        "R": 112,
+        "Avg": 22.40,
+        "SR": 135.13,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 6,
+        "W": 5,
+        "Avg": 38.80,
+        "Econ": 9.15,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "HARSH DUBEY",
+    "TEAM": "SRH",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+    "PLAYER_TYPE": "Utility",
+    "BEST_BATTING": "14",
+    "BEST_BOWLING": "1/26",
+    "STATS": {
+      "Batting": {
+        "M": 3,
+        "I": 2,
+        "R": 25,
+        "Avg": 12.50,
+        "SR": 113.63,
+        "50": 0,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 2,
+        "W": 1,
+        "Avg": 52.00,
+        "Econ": 8.66,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "ABHISHEK SHARMA",
+    "TEAM": "SRH",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Left-hand bat, Right-arm offbreak",
+    "PLAYER_TYPE": "Aggressive",
+    "BEST_BATTING": "112",
+    "BEST_BOWLING": "2/7",
+    "STATS": {
+      "Batting": {
+        "M": 52,
+        "I": 49,
+        "R": 1039,
+        "Avg": 23.61,
+        "SR": 151.02,
+        "50": 6,
+        "100": 1
+      },
+      "Bowling": {
+        "I": 19,
+        "W": 10,
+        "Avg": 45.90,
+        "Econ": 9.75,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "NITISH KUMAR REDDY",
+    "TEAM": "SRH",
+    "ROLE": "All-Rounder",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+    "PLAYER_TYPE": "Pace All-rounder",
+    "BEST_BATTING": "76*",
+    "BEST_BOWLING": "2/17",
+    "STATS": {
+      "Batting": {
+        "M": 8,
+        "I": 7,
+        "R": 156,
+        "Avg": 26.00,
+        "SR": 132.20,
+        "50": 1,
+        "100": 0
+      },
+      "Bowling": {
+        "I": 5,
+        "W": 4,
+        "Avg": 41.25,
+        "Econ": 9.16,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "PAT CUMMINS",
+    "TEAM": "SRH",
+    "ROLE": "Bowler",
+    "NATION": "Australia",
+    "BASE_PRICE": 3.0,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "3/24",
+    "STATS": {
+      "Bowling": {
+        "M": 25,
+        "I": 25,
+        "W": 28,
+        "Avg": 29.42,
+        "Econ": 8.54,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "MOHAMMAD SHAMI",
+    "TEAM": "SRH",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 2.5,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/11",
+    "STATS": {
+      "Bowling": {
+        "M": 110,
+        "I": 109,
+        "W": 127,
+        "Avg": 27.02,
+        "Econ": 8.39,
+        "4W": 4,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "RAHUL CHAHAR",
+    "TEAM": "SRH",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.5,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Leg Spinner",
+    "BEST": "4/27",
+    "STATS": {
+      "Bowling": {
+        "M": 75,
+        "I": 73,
+        "W": 72,
+        "Avg": 32.65,
+        "Econ": 7.87,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "SIMARJEET SINGH",
+    "TEAM": "SRH",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "4/24",
+    "STATS": {
+      "Bowling": {
+        "M": 12,
+        "I": 12,
+        "W": 11,
+        "Avg": 38.18,
+        "Econ": 9.54,
+        "4W": 1,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "ZEESHAN ANSARI",
+    "TEAM": "SRH",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm legbreak",
+    "PLAYER_TYPE": "Leg Spinner",
+    "BEST": "2/20",
+    "STATS": {
+      "Bowling": {
+        "M": 4,
+        "I": 4,
+        "W": 3,
+        "Avg": 44.33,
+        "Econ": 8.86,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  },
+  {
+    "NAME": "JAYDEV UNADKAT",
+    "TEAM": "SRH",
+    "ROLE": "Bowler",
+    "NATION": "India",
+    "BASE_PRICE": 1.0,
+    "PLAYER_STYLE": "Left-arm medium",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "5/25",
+    "STATS": {
+      "Bowling": {
+        "M": 95,
+        "I": 92,
+        "W": 91,
+        "Avg": 37.89,
+        "Econ": 8.82,
+        "4W": 1,
+        "5W": 1
+      }
+    }
+  },
+  {
+    "NAME": "ESHAN MALLINGA",
+    "TEAM": "SRH",
+    "ROLE": "Bowler",
+    "NATION": "Sri Lanka",
+    "BASE_PRICE": 0.5,
+    "PLAYER_STYLE": "Right-arm fast",
+    "PLAYER_TYPE": "Pace",
+    "BEST": "2/31",
+    "STATS": {
+      "Bowling": {
+        "M": 5,
+        "I": 5,
+        "W": 4,
+        "Avg": 42.25,
+        "Econ": 9.38,
+        "4W": 0,
+        "5W": 0
+      }
+    }
+  }
 ]

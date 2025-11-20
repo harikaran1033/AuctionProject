@@ -1,18 +1,25 @@
+/* eslint-disable no-empty */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+// import { useNavigate, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
 import socket from "../socket";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
+import { BadgeDollarSign } from "lucide-react";
 import AnimateBid from "../components/AnimateBid";
 import PlayerCard from "../components/PlayerCard";
 import AnimateBudget from "../components/AnimateBudget";
-import { Toaster } from "react-hot-toast";
-import ToastListener from "../components/ToastListener.jsx";
 import ChatBox from "../components/ChatBox.jsx";
 import { MessageSquare, Users2, Wallet } from "lucide-react";
 import PlayerStats from "../components/PlayerStats.jsx";
+import OtherBudgetsModal from "../components/OtherBudgetsModal.jsx";
+import AllTeamsModal from "../components/AllTeamsModal";
+import SquadDrawer from "../components/SquadDrawer.jsx";
+import TopPaidModal from "../components/TopPaidModal";
+import LiveBidBox from "../components/LiveBidBox.jsx";
 
 function AuctionRoom() {
   const { roomCode } = useParams();
@@ -30,16 +37,69 @@ function AuctionRoom() {
   const [messages, setMessages] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [topPlayers, setTopPlayers] = useState([]);
+  const [passDisabled, setPassDisabled] = useState(false);
+  const [passDisableRemaining, setPassDisableRemaining] = useState(0); // seconds remaining
+  const passTimerRef = useRef(null); // interval id
+  const soldTimerRef = useRef(null);
+  const [soldInfo, setSoldInfo] = useState(null); // { name, winner, price, expiresAt }
+  const [pendingNextPlayer, setPendingNextPlayer] = useState(null);
+  const SOLD_DISPLAY_MS = 2200;
+  const soldTimeoutRef = useRef(null);
+  const allTeamsModalRef = useRef(null);
   const navigate = useNavigate();
+
+  // const navigate = useNavigate();
+  const [playerName, setPlayerName] = useState(
+    localStorage.getItem("playerName") || ""
+  );
   const showChatRef = useRef(showChat);
   const lastSeenCountRef = useRef(0);
 
-  const playerName = localStorage.getItem("name");
+  // helper normalization (put once at top of file where handlers live)
+  // put near your other helpers (top of file)
+  const normalizePlayer = (p) => {
+    if (!p) return null;
+    const player = { ...p };
+
+    // stats: accept STATS | stats | Stats
+    player.stats = player.stats ?? player.STATS ?? player.Stats ?? {};
+
+    // canonical best fields
+    player.best = player.best ?? player.BEST ?? player.Best ?? null;
+    player.bestBatting =
+      player.bestBatting ?? player.BEST_BATTING ?? player.BestBatting ?? null;
+    player.bestBowling =
+      player.bestBowling ?? player.BEST_BOWLING ?? player.BestBowling ?? null;
+
+    // other canonical fields
+    player.playerStyle = player.playerStyle ?? player.PLAYER_STYLE ?? null;
+    player.playerType = player.playerType ?? player.PLAYER_TYPE ?? null;
+    player.basePrice = player.basePrice ?? player.BASE_PRICE ?? 0;
+    player.price = player.price ?? player.PRICE ?? player.basePrice ?? 0;
+
+    player.name = String(player.name ?? player.NAME ?? "");
+    player.role = player.role ?? player.ROLE ?? "";
+    player.nation = player.nation ?? player.NATION ?? "";
+
+    return player;
+  };
+
+  useEffect(() => {
+    if (playerName) {
+      localStorage.setItem("playerName", playerName);
+    }
+  }, [playerName]);
+
+  useEffect(() => {
+    // console.log("💰 Remaining Budget:", remainingBudget);
+    // console.log("👥 Total Players Per Team:", totalPlayersPerTeam);
+  }, [remainingBudget, totalPlayersPerTeam]);
 
   const fetchTeam = () => {
     axios
       .get(`${API_BASE_URL}/api/room/${roomCode}`)
       .then((res) => {
+        // console.log("✅ Response received:", res.data);
         const roomData = res.data;
         setRoom(roomData); // ✅ Store full room object
         if (!roomData || !Array.isArray(roomData.players)) {
@@ -49,8 +109,12 @@ function AuctionRoom() {
         }
 
         const myPlayer = roomData.players.find(
-          (p) => p.name.toLowerCase() === playerName.toLowerCase()
+          (p) => p.name.trim().toLowerCase() === playerName.trim().toLowerCase()
         );
+
+        // console.log("📦 Room Data:", roomData);
+        // console.log("📦 Players:", roomData.players);
+        // console.log("🙍‍♂️ My Player Name:", playerName);
 
         if (!myPlayer) {
           setTeam([]);
@@ -59,10 +123,12 @@ function AuctionRoom() {
         }
 
         setTeam(Array.isArray(myPlayer.team) ? myPlayer.team : []);
-        setRemainingBudget(Number(myPlayer.budget) || 0);
-        setTotalPlayersPerTeam(roomData.totalPlayersPerTeam || null);
+        setRemainingBudget(Number(myPlayer?.budget ?? roomData.budget ?? 0));
+        setTotalPlayersPerTeam(Number(roomData?.totalPlayersPerTeam ?? 0));
+        // console.log(myPlayer);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("❌ fetchTeam error:", err);
         setTeam([]);
         setRemainingBudget(0);
       });
@@ -132,15 +198,69 @@ function AuctionRoom() {
     fetchTeam();
     fetchAuctionState();
 
-    const handleTeamData = (team) => {
-      setTeam(Array.isArray(team) ? team : []);
+    const handleTeamData = (payload) => {
+      // Support both old array-only payload and new { team, budget } payload
+      if (Array.isArray(payload)) {
+        setTeam(payload);
+        // no budget provided — keep existing remainingBudget
+        return;
+      }
+      if (payload && typeof payload === "object") {
+        setTeam(Array.isArray(payload.team) ? payload.team : []);
+        setRemainingBudget(Number(payload.budget) || 0);
+        // console.log("🔁 team-data received:", payload);
+      }
     };
 
-    const handleNewPlayer = ({ player, bid, bidder, timer }) => {
-      setPlayer(player);
-      setBid(bid);
-      setBidder(bidder);
-      setTimer(timer);
+    // NEW handleNewPlayer — replaces your existing handler
+    const handleNewPlayer = ({
+      player: nextPlayer,
+      bid: nextBid,
+      bidder: nextBidder,
+      timer: nextTimer,
+    }) => {
+      const normPlayer = normalizePlayer(nextPlayer);
+
+      // debug: inspect incoming shape (remove in production)
+      // console.log("socket -> new-player payload:", {
+      //   nextPlayer,
+      //   normPlayer,
+      //   nextBid,
+      //   nextBidder,
+      //   nextTimer,
+      // });
+
+      // if a sold badge is currently being shown, queue this nextPlayer
+      if (soldInfo) {
+        // replace any previously queued player (only one at a time needed)
+        setPendingNextPlayer({
+          player: normPlayer,
+          bid: nextBid,
+          bidder: nextBidder,
+          timer: nextTimer,
+        });
+        // console.log(
+        //   "Queued next player because soldInfo active:",
+        //   normPlayer?.name
+        // );
+        return;
+      }
+
+      // otherwise show immediately
+      setPlayer(normPlayer);
+      setBid(nextBid ?? 0);
+      setBidder(nextBidder ?? null);
+      setTimer(nextTimer ?? 20);
+
+      // persist a small auction snapshot (optional)
+      saveAuctionState({
+        player: normPlayer,
+        bid: nextBid ?? 0,
+        bidder: nextBidder ?? null,
+        timer: nextTimer ?? 20,
+      });
+
+      // console.log("Showing new player immediately:", normPlayer?.name);
     };
 
     const handleBidUpdate = ({ bid, bidder, timer }) => {
@@ -151,44 +271,123 @@ function AuctionRoom() {
       saveAuctionState({ ...saved, bid, bidder, timer });
     };
 
-    const handlePlayerSold = ({ player, winner }) => {
-      if (!player || !player.name) return;
+    // put these near top of component (you already have them)
 
-      // ❌ Skip unsold players
-      if (
-        !winner ||
-        ["no one", "unsold", ""].includes(winner.trim().toLowerCase())
-      )
+    // inside your useEffect where you wire socket handlers:
+    const handlePlayerSold = ({ player: soldPlayer, winner }) => {
+      // defensive guards
+      if (!soldPlayer || !soldPlayer.name) {
+        // console.warn("handlePlayerSold: invalid payload", soldPlayer, winner);
         return;
-
-      // ✅ Update team if you won
-      if (winner?.toLowerCase() === playerName.toLowerCase()) {
-        setTimeout(() => {
-          fetchTeam();
-        }, 500);
       }
 
-      // ✅ Track only sold players
-      setTopPlayers((prev) => {
-        // Remove existing entry if same player is already in the list
-        const filtered = prev.filter((p) => p.name !== player.name);
+      // PASS disable logic (your existing behavior)
+      const DISABLE_MS = 2000;
+      setPassDisabled(true);
+      setPassDisableRemaining(Math.ceil(DISABLE_MS / 1000));
+      if (passTimerRef.current) {
+        clearTimeout(passTimerRef.current);
+        passTimerRef.current = null;
+      }
+      passTimerRef.current = setTimeout(() => {
+        setPassDisabled(false);
+        setPassDisableRemaining(0);
+        passTimerRef.current = null;
+      }, DISABLE_MS);
 
-        const updated = [
-          ...filtered,
-          {
-            name: player.name,
-            nation: player.nation || "Unknown",
-            price: Number(player.price) || 0,
-            team: winner,
-          },
-        ];
+      // normalize winner & determine unsold
+      const winnerNormalized =
+        typeof winner === "string" ? winner.trim() : winner;
+      const isUnsold =
+        !winnerNormalized ||
+        String(winnerNormalized).trim().length === 0 ||
+        ["no one", "unsold"].includes(String(winnerNormalized).toLowerCase());
 
-        // Sort by price (highest first) and keep top 10
-        updated.sort((a, b) => b.price - a.price);
-        return updated.slice(0, 10);
-      });
+      const soldTo = isUnsold ? "No one" : winnerNormalized;
+      const price = soldPlayer.price ?? null;
+      const name = String(soldPlayer.name).trim();
 
+      // Show sold badge immediately by setting soldInfo
+      setSoldInfo({ name, winner: soldTo, price, ts: Date.now() });
+
+      // Clear any previously scheduled sold timer
+      if (soldTimerRef.current) {
+        clearTimeout(soldTimerRef.current);
+        soldTimerRef.current = null;
+      }
+
+      // Keep badge visible for SOLD_DISPLAY_MS, then clear and show queued next player
+      soldTimerRef.current = setTimeout(() => {
+        setSoldInfo(null);
+        soldTimerRef.current = null;
+
+        // If parent queued a next player while sold badge was visible, dequeue it now
+        if (pendingNextPlayer) {
+          setPlayer(normalizePlayer(pendingNextPlayer.player) ?? null);
+          setBid(pendingNextPlayer.bid ?? 0);
+          setBidder(pendingNextPlayer.bidder ?? null);
+          setTimer(pendingNextPlayer.timer ?? 20);
+          setPendingNextPlayer(null);
+        }
+      }, SOLD_DISPLAY_MS);
+
+      // Update topPlayers / team only for *actually sold* players (not unsold)
+      if (!isUnsold) {
+        // If I won, refetch team shortly so UI updates quickly
+        if (String(soldTo).toLowerCase() === playerName.toLowerCase()) {
+          setTimeout(() => fetchTeam(), 250); // slight delay so DB has updated
+        }
+
+        setTopPlayers((prev) => {
+          const filtered = prev.filter((p) => p.name !== name);
+          const updated = [
+            ...filtered,
+            {
+              name,
+              nation: soldPlayer.nation || "Unknown",
+              price: Number(price) || 0,
+              team: soldTo,
+            },
+          ];
+          updated.sort((a, b) => b.price - a.price);
+          return updated.slice(0, 10);
+        });
+      }
+
+      // persist cleanup of auctionState if needed
       localStorage.removeItem("auctionState");
+    };
+
+    // ensure trades update this client's team & room when others execute a swap
+    const onTradeExecutedRoom = (payload) => {
+      // payload may include an authoritative room — prefer that
+      if (payload?.room) {
+        setRoom(payload.room);
+        const myPlayer = payload.room.players?.find(
+          (p) =>
+            (p.name || "").toLowerCase() === (playerName || "").toLowerCase()
+        );
+        if (myPlayer) {
+          setTeam(Array.isArray(myPlayer.team) ? myPlayer.team : []);
+          setRemainingBudget(
+            Number(myPlayer?.budget ?? payload.room.budget ?? 0)
+          );
+        }
+      } else {
+        // fallback: poll the server for authoritative room state
+        fetchTeam();
+      }
+
+      // show a small sold-like banner for user feedback (optional)
+      setSoldInfo({
+        name:
+          payload?.trade?.playerRequested?.name ||
+          payload?.trade?.player?.name ||
+          "Player",
+        winner: payload?.trade?.to || payload?.trade?.winner || "Updated",
+        price: payload?.trade?.cashOffered ?? payload?.trade?.price ?? null,
+        ts: Date.now(),
+      });
     };
 
     //handleMessages
@@ -230,22 +429,41 @@ function AuctionRoom() {
       setTimer(0);
       localStorage.removeItem("auctionState");
     };
-    const handleAuctionState = ({ currentPlayer, bid, bidder, timer }) => {
-      // console.log(
-      //   "🧠 Restoring auction state:",
-      //   currentPlayer,
+    // NEW handleAuctionState — accepts either currentPlayer or player
+    const handleAuctionState = ({
+      currentPlayer,
+      player: altPlayer,
+      bid,
+      bidder,
+      timer,
+    }) => {
+      // server may send currentPlayer (your code) or player (older code) — prefer currentPlayer if present
+      const raw = currentPlayer ?? altPlayer ?? null;
+      const normPlayer = normalizePlayer(raw);
+
+      // console.log("socket -> auction-state:", {
+      //   raw,
+      //   normPlayer,
       //   bid,
       //   bidder,
-      //   timer
-      // );
-      setPlayer(currentPlayer);
-      setBid(bid);
-      setBidder(bidder);
-      setTimer(timer);
-      saveAuctionState({ player: currentPlayer, bid, bidder, timer });
+      //   timer,
+      // });
+
+      setPlayer(normPlayer);
+      setBid(bid ?? 0);
+      setBidder(bidder ?? null);
+      setTimer(timer ?? 20);
+
+      saveAuctionState({
+        player: normPlayer,
+        bid: bid ?? 0,
+        bidder: bidder ?? null,
+        timer: timer ?? 20,
+      });
     };
 
     socket.on("new-player", handleNewPlayer);
+    socket.on("trade-executed", onTradeExecutedRoom);
     socket.on("bid-update", handleBidUpdate);
     socket.on("team-data", handleTeamData);
     socket.on("auction-state", handleAuctionState);
@@ -260,14 +478,6 @@ function AuctionRoom() {
       alert(`Bid rejected: ${reason}`);
     });
 
-    // 🔹 Wait for socket reconnect before rejoining
-    // socket.once("connect", () => {
-    //   console.log("🔁 Socket connected, rejoining room...");
-    //   if (roomCode && playerName) {
-    //     socket.emit("rejoin-room", { roomCode, playerName });
-    //   }
-    // });
-
     return () => {
       socket.off("new-player", handleNewPlayer);
       socket.off("bid-update", handleBidUpdate);
@@ -278,9 +488,69 @@ function AuctionRoom() {
       socket.off("timer-update");
       socket.off("auction-incomplete");
       socket.off("auction-ended", handleAuctionEnd);
+      socket.off("trade-executed", onTradeExecutedRoom);
       socket.off("bid-rejected");
     };
   }, [roomCode, playerName]);
+
+  // ensure modal opens when auction ends and cannot be closed by ESC / backdrop
+  useEffect(() => {
+    const modal =
+      allTeamsModalRef.current || document.getElementById("allTeamsModal");
+    if (!modal) return;
+
+    // Prevent ESC / cancel from closing dialog
+    const onCancel = (e) => {
+      e.preventDefault();
+      // keep it open
+      try {
+        if (!modal.open) modal.showModal();
+      } catch (err) {}
+    };
+
+    // Prevent clicking backdrop from closing: if click target is the dialog itself, re-open / stop propagation
+    const onClick = (e) => {
+      if (e.target === modal) {
+        e.stopPropagation();
+        // re-open to ensure it stays
+        try {
+          if (!modal.open) modal.showModal();
+        } catch (err) {}
+      }
+    };
+
+    modal.addEventListener("cancel", onCancel);
+    modal.addEventListener("click", onClick);
+
+    // Open when auctionEnded becomes true; close when auction restarts (safety)
+    if (auctionEnded) {
+      try {
+        if (!modal.open) modal.showModal();
+      } catch (err) {}
+    } else {
+      try {
+        if (modal.open) modal.close();
+      } catch (err) {}
+    }
+
+    return () => {
+      modal.removeEventListener("cancel", onCancel);
+      modal.removeEventListener("click", onClick);
+    };
+  }, [auctionEnded]);
+
+  // ensure AllTeamsModal opens and stays open after auction ends
+  useEffect(() => {
+    if (!auctionEnded) return;
+    try {
+      const dlg = document.getElementById("allTeamsModal");
+      if (dlg && !dlg.open) {
+        dlg.showModal();
+      }
+    } catch (err) {
+      // ignore older browsers or failures
+    }
+  }, [auctionEnded]);
 
   useEffect(() => {
     fetchTeam();
@@ -326,11 +596,32 @@ function AuctionRoom() {
     socket.emit("not-interested", { roomCode, playerName });
   };
 
+  // client: robust isForeign (trim + case-insensitive)
   const isForeign = (dataset, nation) => {
-    if (dataset === "ipl") return nation !== "INDIA";
-    if (dataset === "hundred") return nation !== "England";
+    if (!nation) return false;
+    if (!dataset) return false;
+
+    const ds = String(dataset).trim().toLowerCase();
+    const n = String(nation).trim().toLowerCase();
+
+    if (ds === "ipl") return n !== "india";
+    if (ds === "hundred") return n !== "england";
+    if (ds === "sa20") return n !== "south africa";
+    if (ds === "cpl") return n !== "west indies";
+    if (ds === "bbl") return n !== "australia";
+    if (ds === "mlc") return n !== "usa";
+    if (ds === "test") return n !== "india";
+    if (ds === "odi") return n !== "india";
     return false;
   };
+
+  // returns minimum increment based on current bid (same logic used in server)
+  const getIncrement = (currentBid) => {
+    if (currentBid >= 20) return 2;
+    if (currentBid >= 10) return 1;
+    return 0.5;
+  };
+
   const isCurrentPlayerForeign = isForeign(room?.dataset, player?.nation);
   const foreignCount = team.filter((p) =>
     isForeign(room?.dataset, p.nation)
@@ -353,273 +644,380 @@ function AuctionRoom() {
     typeof remainingBudget !== "number" ||
     remainingBudget < bid + 0.5 ||
     (isCurrentPlayerForeign && foreignLimitReached) ||
-    (bidder && bidder.toLowerCase() === playerName.toLowerCase()); // ✅ Disable if you are current highest bidder
-
-  useEffect(() => {
-    if (auctionEnded) {
-      const timer = setTimeout(() => {
-        navigate("/team"); // 👈 this must match your route path
-      }, 2000); // 2 seconds delay before redirect
-      return () => clearTimeout(timer);
-    }
-  }, [auctionEnded, navigate]);
-
-  if (auctionEnded) {
-    return (
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h2>Auction Completed 🎉</h2>
-        <p>Redirecting to your Team Squad...</p>
-      </div>
-    );
-  }
-
-  if (auctionEnded) {
-    return (
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h2>Auction Completed 🎉</h2>
-        <p>Check your team squad to see the players you won!</p>
-      </div>
-    );
-  }
+    (bidder && bidder.toLowerCase() === playerName.toLowerCase()); //
 
   return (
-    <div className=" min-h-screen bg-aucBG text-font   p-4">
-      <Toaster position="top-center" reverseOrder={false} />
-      <ToastListener />
-      <h1 className="text-xl sm:text-2xl md:text-2xl font-text font-bold  p-1">
-        AuctionPlay
-      </h1>
-
-      <div className="flex flex-col justify-center items-center">
-        <div className="absolute right-4 top-4 font-body font-semibold drawer z-50">
-          <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
-
-          {/* Open Button */}
-
-          {/* Drawer Side */}
-          <div className="drawer-side">
-            <label htmlFor="my-drawer-1" className="drawer-overlay"></label>
-
-            <div className="menu bg-aucBG text-font min-h-full w-80 p-4 border-l border-border relative">
-              {/* Header */}
-              <div className="flex justify-between items-center mb-3 border-b border-border pb-2">
-                <h4 className="text-lg font-semibold text-role uppercase tracking-wide">
-                  Your Squad
-                </h4>
-                <label
-                  htmlFor="my-drawer-1"
-                  className="cursor-pointer hover:text-playerName transition-colors text-base"
-                >
-                  ✕
-                </label>
-              </div>
-
-              {/* Scrollable Content */}
-              <div className="max-h-[68vh] overflow-y-auto pr-1 custom-scrollbar space-y-2">
-                {["Batter", "Bowler", "All-Rounder", "WK-Batter"].map(
-                  (role) => {
-                    const playersByRole = team.filter(
-                      (p) => p.role.toLowerCase() === role.toLowerCase()
-                    );
-                    if (playersByRole.length === 0) return null;
-
-                    return (
-                      <div
-                        key={role}
-                        className="bg-card rounded-lg p-2 border border-border/60 hover:border-role/60 transition-all duration-200"
-                      >
-                        {/* Role Header */}
-                        <div className="flex justify-between items-center mb-1">
-                          <h5 className="text-role font-semibold text-[11px] uppercase tracking-wide">
-                            {role}s
-                          </h5>
-                          <span className="text-[10px] text-mute">
-                            {playersByRole.length}
-                          </span>
-                        </div>
-
-                        {/* Player List */}
-                        <ul className="divide-y divide-border/40 text-[13px] font-medium">
-                          {playersByRole.map((p, i) => {
-                            const foreign = isForeign(room.dataset, p.nation);
-                            const formattedName = p.name
-                              .toLowerCase()
-                              .replace(/\b\w/g, (c) => c.toUpperCase());
-
-                            return (
-                              <li
-                                key={i}
-                                className="flex justify-between items-center py-1 flex-row"
-                              >
-                                <div className="flex items-center gap-1">
-                                  <span className="text-font">
-                                    {formattedName}
-                                  </span>
-                                  {foreign && (
-                                    <span
-                                      className="text-font text-[11px]"
-                                      title={`${p.nation} Player`}
-                                    >
-                                      ✈
-                                    </span>
-                                  )}
-                                </div>
-                                <span className="text-bid font-semibold text-[12px]">
-                                  ₹{p.price} Cr
-                                </span>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    );
-                  }
-                )}
-              </div>
-
-              {/* Footer Summary */}
-              <div className="absolute bottom-5 left-4 right-4 bg-card rounded-lg p-3 border border-border/70">
-                <p className="text-sm text-mute">
-                  Remaining Budget:{" "}
-                  <span className="text-role font-semibold">
-                   ₹{Number(remainingBudget).toFixed(2)}
-                  </span>{" "}
-                  Cr
-                </p>
-                <p className="text-sm text-mute">
-                  Spots Filled:{" "}
-                  <span className="text-playerName font-semibold">
-                    {team.length}
-                  </span>{" "}
-                  / {totalPlayersPerTeam}
-                </p>
-                <button
-                  onClick={fetchTeam}
-                  className="btn bg-currentBid hover:bg-playerName text-black font-bold border-none w-full mt-2 py-2 rounded-md transition-all"
-                >
-                  Refresh Squad
-                </button>
-              </div>
-            </div>
+    <div className="min-h-screen bg-gradient-to-b from-[#071426] via-[#071C2A] to-[#071426] text-font p-4 pb-24">
+      {/* Header */}
+      <header className="max-w-5xl mx-auto w-full flex items-center justify-between gap-4 py-4">
+        <div className="flex items-center gap-3">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-text font-bold text-white">
+              AuctionPlay
+            </h1>
+            <p className="text-xs text-slate-300">
+              Live auction room — be quick!
+            </p>
           </div>
         </div>
 
-        <div className="font-text font-semibold flex justify-between   rounded-md p-2 mt-10 gap-20 max-w-xl w-full text-sm">
-          <p>Room Code: {roomCode}</p>
-          <p>Player: {playerName}</p>
+        <div className="flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2 bg-black/30 px-3 py-2 rounded-md text-sm text-white">
+            <span className="font-semibold">Room</span>
+            <span className="px-2 py-1 bg-white/10 rounded-md font-mono">
+              {roomCode}
+            </span>
+          </div>
+
+          <div className="hidden sm:flex items-center gap-2 bg-black/30 px-3 py-2 rounded-md text-sm text-white">
+            <span className="font-semibold">You</span>
+            <span className="px-2 py-1 bg-white/10 rounded-md font-mono">
+              {playerName}
+            </span>
+          </div>
+
+          <button
+            onClick={() => {
+              setShowChat(true);
+              lastSeenCountRef.current = messages.length;
+              setUnreadCount(0);
+            }}
+            className="relative inline-flex items-center justify-center rounded-md px-3 py-2 bg-amber-600 hover:bg-amber-500 text-white shadow-sm"
+            aria-label="Open chat"
+          >
+            CHAT
+            {unreadCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {unreadCount > 9 ? "9+" : unreadCount}
+              </span>
+            )}
+          </button>
         </div>
+      </header>
 
-        {player?.name ? (
-          <div className="rounded-lg max-w-xl w-full  shadow-md shadow-black">
-            <div className="bg-bg p-2 rounded-tr-md rounded-tl-md">
-              <div className="flex justify-between items-center">
-                <p className="text-xl flex items-center gap-2">
-                  <span>Timer:</span>
+      {/* Main content */}
+      <main className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Left: Player + Timer + Stats */}
+        <section className="lg:col-span-7 col-span-1 flex flex-col gap-4">
+          <div className="bg-black/40 rounded-2xl p-4 shadow-xl border border-white/5">
+            <div className="flex items-center justify-between gap-4 mb-3">
+              <div className="flex items-center gap-3 justify-between w-full">
+                <div className="flex flex-col text-sm">
+                  <span className="text-xs text-slate-300 uppercase">
+                    Remaining
+                  </span>
+                  <span className="text-2xl font-extrabold tabular-nums text-gold">
+                    {timer}s
+                  </span>
+                </div>
 
-                  <span className="text-org">{timer}</span>
-                </p>
-
-                <AnimateBudget budget={remainingBudget} label="Remaining" />
+                <div className="">
+                  <AnimateBudget budget={remainingBudget} label="Remaining" />
+                </div>
               </div>
 
-              <PlayerCard player={player} />
+       
+            </div>
 
-              <div className="flex flex-col justify-center items-center font-text  gap-2 rounded-md bg-black p-2">
-                <div className="flex gap-2 items-center justify-center">
-                  <div className="inline-grid *:[grid-area:1/1]">
-                    <div className="status status-error animate-ping"></div>
-                    <div className="status status-error"></div>
-                  </div>
-                  <span className="text-red-500 text-lg font-semibold">
-                    Live -{" "}
-                  </span>
-                  <AnimateBid highestBidder={bidder} highestBid={bid} />
+            {/* Player card */}
+            <div className="w-full">
+              <PlayerCard
+                player={player}
+                soldInfo={soldInfo}
+                soldDisplayMs={SOLD_DISPLAY_MS}
+                isForeign={isCurrentPlayerForeign}
+              />
+            </div>
+
+            {/* Live bid */}
+            <div className="mt-4">
+              <LiveBidBox
+                bid={bid}
+                bidder={bidder}
+                ownerName={playerName}
+                socket={socket}
+              />
+            </div>
+          </div>
+
+          {/* Stats card */}
+          <div className="bg-auc rounded-2xl p-2 shadow-inner border border-white/5">
+            <PlayerStats player={player} />
+          </div>
+
+          {/* Mobile: replace inline top-paid cards with a compact PAID button that opens modal */}
+          <div className="bg-black/30 rounded-2xl p-4 flex items-center justify-between gap-3 md:hidden">
+            <div>
+              <h3 className="text-sm font-bold text-white">Top Paid</h3>
+              <p className="text-xs text-slate-400">
+                Tap to view top 10 paid players
+              </p>
+            </div>
+            <button
+              className="btn btn-sm btn-primary"
+              onClick={() =>
+                document.getElementById("topPaidModal")?.showModal?.()(true)
+              }
+              aria-haspopup="dialog"
+            >
+              PAID
+            </button>
+          </div>
+        </section>
+
+        {/* Right: Controls, Utilities, Other Teams */}
+        <aside className="lg:col-span-5 col-span-1 flex flex-col gap-4">
+          <div className="bg-black/40 rounded-2xl p-4 shadow-xl border border-white/5 flex flex-col gap-4">
+            {/* Budget summary */}
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="text-xs text-slate-300">Remaining Budget</div>
+                <div className="text-lg font-extrabold">
+                  ₹{Math.round(remainingBudget ?? 0)}
+                </div>
+              </div>
+
+              <div className="text-right">
+                <div className="text-xs text-slate-300">Team Size</div>
+                <div className="text-lg font-extrabold">
+                  {team.length}/{totalPlayersPerTeam ?? 0}
                 </div>
               </div>
             </div>
 
-            <div className="bg-card2 p-2 rounded-br-md rounded-bl-md">
-              <PlayerStats player={player} />
+            {/* Primary actions (desktop/tablet) */}
+            <div className="hidden md:grid grid-cols-2 gap-3">
+              <button
+                onClick={handleBid}
+                disabled={bidDisabled}
+                className={`h-12 rounded-lg text-base font-bold transition p-2 ${
+                  bidDisabled
+                    ? "bg-primary/40 text-white cursor-not-allowed"
+                    : "bg-player text-white hover:bg-primary/90"
+                }`}
+              >
+                Place Bid
+              </button>
 
-              {/* ✅ Bid and Pass Buttons */}
-              {/* ✅ Main Bid Controls */}
-              <div className="flex gap-3 justify-center items-center mt-5 font-text font-semibold">
-                <button
-                  onClick={handleBid}
-                  disabled={bidDisabled}
-                  className={`btn btn-primary flex-1 text-lg font-bold h-12 ${
-                    bidDisabled ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
-                >
-                  Bid
-                </button>
+              <button
+                onClick={handlePass}
+                disabled={
+                  passDisabled ||
+                  bidder?.toLowerCase() === playerName.toLowerCase() ||
+                  (isCurrentPlayerForeign && foreignLimitReached)
+                }
+                className={`h-12 rounded-lg text-base font-bold transition p-2 ${
+                  passDisabled ||
+                  bidder?.toLowerCase() === playerName.toLowerCase() ||
+                  (isCurrentPlayerForeign && foreignLimitReached)
+                    ? "bg-amber-400/40 text-amber-900 cursor-not-allowed"
+                    : "bg-amber-600 text-white hover:bg-amber-500"
+                }`}
+                title={
+                  isCurrentPlayerForeign && foreignLimitReached
+                    ? "You have reached your foreign player limit — you cannot participate in this auction"
+                    : undefined
+                }
+              >
+                {passDisabled
+                  ? `Pass (${passDisableRemaining}s)`
+                  : isCurrentPlayerForeign && foreignLimitReached
+                  ? "Locked"
+                  : "Skip Player"}
+              </button>
+            </div>
 
-                <button
-                  onClick={handlePass}
-                  disabled={bidder?.toLowerCase() === playerName.toLowerCase()} // ✅ Disable pass too
-                  className={`btn btn-warning flex-1 text-lg font-bold h-12 ${
-                    bidder?.toLowerCase() === playerName.toLowerCase()
-                      ? "opacity-50 cursor-not-allowed"
-                      : ""
-                  }`}
-                >
-                  Pass
-                </button>
+            {/* Increment / Bid info */}
+            <div className="text-sm text-slate-300">
+              <div>
+                Current bid: <span className="font-semibold">₹{bid}</span>
               </div>
-
-              {/* ⚙️ Utility Buttons — smaller, subtle */}
-              <div className="mt-3 flex gap-2 justify-center font-text  w-full">
-                <button
-                  className="btn btn-sm bg-playerName hover:bg-playerName/80 text-white rounded-md text-xs flex-1 indicator"
-                  onClick={() => {
-                    setShowChat(true);
-                    lastSeenCountRef.current = messages.length;
-                    setUnreadCount(0);
-                  }}
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  Chat
-                  {unreadCount > 0 && (
-                    <span className="ml-1 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center indicator-item badge-secondary">
-                      {unreadCount > 9 ? "9+" : unreadCount}
-                    </span>
-                  )}
-                </button>
-
-                <label
-                  htmlFor="my-drawer-1"
-                  className="btn btn-sm bg-amber-500 hover:bg-amber-600 text-white border-none flex-1 rounded-md text-xs"
-                >
-                  <Users2 className="w-4 h-4" />
-                  Squad
-                </label>
-
-                <button
-                  className="btn btn-sm bg-currentBid hover:bg-playerName text-white border-none flex-1 rounded-md text-xs"
-                  onClick={() =>
-                    document.getElementById("otherBudgetsModal").showModal()
-                  }
-                >
-                  <Wallet className="w-4 h-4" />
-                  Budgets
-                </button>
+              <div>
+                Highest bidder:{" "}
+                <span className="font-semibold">{bidder ?? "—"}</span>
+              </div>
+              <div className="mt-2 text-xs text-slate-400">
+                Minimum increment:{" "}
+                <span className="font-medium">{getIncrement(bid)}</span>
               </div>
             </div>
           </div>
-        ) : (
-          <p>Waiting for next player...</p>
-        )}
+
+          {/* Utility grid */}
+          <div className="grid grid-cols-3 gap-3">
+            <button
+              className="rounded-lg p-3 text-xs font-semibold bg-neutral btn btn-neutral btn-outline hover:bg-neutral text-accent"
+              onClick={() =>
+                document.getElementById("allTeamsModal")?.showModal()
+              }
+              title="View all teams / trade"
+            >
+              TRADE
+            </button>
+
+            <label
+              htmlFor="my-drawer-1"
+              className="rounded-lg p-3 text-xs font-semibold cursor-pointer btn  btn-primary hover:bg-primary/80"
+            >
+              SQUAD
+            </label>
+
+            {/* BUDS button: small-screen only (inline panel shows on md+) */}
+            <button
+              className="rounded-lg p-3 text-xs font-semibold btn btn-secondary btn-outline hover:bg-neutral hover:btn-neutral text-secondary"
+              onClick={() =>
+                document.getElementById("otherBudgetsModal")?.showModal()
+              }
+            >
+              BUDS
+            </button>
+          </div>
+
+          {/* Other teams list */}
+          <div className="bg-black/30 rounded-2xl p-4">
+            <h4 className="text-sm font-bold text-white mb-2">Other Teams</h4>
+            <div className="max-h-48 overflow-y-auto space-y-2">
+              {otherTeams?.length ? (
+                otherTeams.map((p) => (
+                  <div
+                    key={p.name}
+                    className="flex items-center justify-between bg-white/5 p-2 rounded-md"
+                  >
+                    <div className="text-sm font-medium truncate">{p.name}</div>
+                    <div className="text-xs text-slate-300">
+                      Budget: ₹{Math.round(p?.budget ?? room?.budget ?? 0)}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-xs text-slate-400">
+                  No other teams yet.
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Desktop: PAID button (opens TopPaidModal) */}
+          <div className="hidden lg:block">
+            <div className="bg-black/30 rounded-2xl p-4 flex items-center justify-between">
+              <div>
+                <h4 className="text-sm font-bold text-white mb-1">
+                  Top Paid (Top 10)
+                </h4>
+                <p className="text-xs text-slate-400">
+                  Open full top-paid list
+                </p>
+              </div>
+
+              <button
+                className="btn btn-sm btn-primary"
+                onClick={() =>
+                  document.getElementById("topPaidModal")?.showModal?.()(true)
+                }
+              >
+                PAID
+              </button>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      {/* Fixed bottom bar for small screens (floating Place Bid area).
+        It's intentionally below typical dialog overlays (z-40) so modals can appear above it (z-50+). */}
+      <div className="md:hidden fixed left-0 right-0 bottom-3 z-40 bg-linear-to-t from-black/80 to-black/60 border-t border-white/5 p-3 backdrop-blur-sm">
+        <div className="max-w-5xl mx-auto flex items-center gap-3">
+          <div className="flex-1">
+            <div className="text-xs text-slate-300">Current bid</div>
+            <div className="text-lg font-extrabold">
+              ₹{bid}{" "}
+              <span className="text-sm font-normal text-slate-400">
+                by {bidder ?? "—"}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex gap-2">
+             <button
+              onClick={handleBid}
+              disabled={bidDisabled}
+              className={`flex-1 h-12 rounded-lg text-base font-bold transition p-2  min-w-30 ${
+                bidDisabled
+                  ? "bg-primary/40 text-white cursor-not-allowed"
+                  : "bg-player text-white"
+              }`}
+            >
+              Bid
+            </button>
+            <button
+              onClick={handlePass}
+              disabled={
+                passDisabled ||
+                bidder?.toLowerCase() === playerName.toLowerCase() ||
+                (isCurrentPlayerForeign && foreignLimitReached)
+              }
+              className={`flex-1 h-12 rounded-lg text-base font-bold transition p-2 min-w-30  ${
+                passDisabled ||
+                bidder?.toLowerCase() === playerName.toLowerCase() ||
+                (isCurrentPlayerForeign && foreignLimitReached)
+                  ? "bg-amber-400/40 text-amber-900 cursor-not-allowed"
+                  : "bg-amber-600 text-white"
+              }`}
+              title={
+                isCurrentPlayerForeign && foreignLimitReached
+                  ? "You have reached your foreign player limit — you cannot participate in this auction"
+                  : undefined
+              }
+            >
+              {passDisabled ? `Pass (${passDisableRemaining}s)` : "Skip"}
+            </button>
+
+           
+          </div>
+        </div>
       </div>
 
-      {/* ChatBox */}
+      {/* Other Modals / Panels */}
+      <AllTeamsModal
+        room={room}
+        totalPlayersPerTeam={totalPlayersPerTeam}
+        playerName={playerName}
+        socket={socket}
+        preventClose={auctionEnded}
+        onClose={() => {
+          if (auctionEnded) {
+            navigate("/");
+            return;
+          }
+        }}
+      />
+
+      {/* Small-screen Budgets dialog is already handled inside OtherBudgetsModal component */}
+      <OtherBudgetsModal
+        room={room}
+        playerName={playerName}
+        totalPlayersPerTeam={totalPlayersPerTeam}
+      />
+
+      {/* TopPaidModal instance — open it from any PAID button above.
+        This assumes TopPaidModal is implemented as a dialog/modal that appears when rendered,
+        or it responds to document.getElementById('topPaidModal')?.showModal() if it uses native dialog.
+    */}
+      <TopPaidModal
+        topPlayers={topPlayers}
+        onClose={() => {
+          /* noop or setShowTopPaid(false) if you wire local state */
+        }}
+      />
+
+      {/* Chat overlay (kept interactive / high z-index so it covers bottom bar) */}
       {showChat && (
         <div
-          className="fixed inset-0 z-30 bg-black/70 flex justify-center items-center"
-          onClick={() => setShowChat(false)} // click outside closes chat
+          className="fixed inset-0 z-50 bg-black/70 flex justify-center items-end sm:items-center p-4"
+          onClick={() => setShowChat(false)}
         >
           <div
-            className="w-80 h-96 relative"
-            onClick={(e) => e.stopPropagation()} // click inside doesn't close
+            className="w-full max-w-md h-96 bg-gradient-to-b from-white/5 to-white/3 rounded-2xl shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
           >
             <ChatBox
               roomId={roomCode}
@@ -628,120 +1026,18 @@ function AuctionRoom() {
               setMessages={setMessages}
               closeChat={() => setShowChat(false)}
             />
-
-            <button
-              className="btn btn-sm btn-circle btn-ghost absolute top-2 right-2 text-white"
-              onClick={() => setShowChat(false)}
-            >
-              ✕
-            </button>
           </div>
         </div>
       )}
 
-      <dialog id="otherBudgetsModal" className="modal">
-        <div className="modal-box bg-aucBG text-font border border-border rounded-lg">
-          <h3 className="text-playerName text-lg font-bold mb-3 text-center">
-            Other Teams’ Budgets
-          </h3>
-
-          <ul className="divide-y divide-border/60">
-            {room?.players
-              ?.filter((p) => p.name.toLowerCase() !== playerName.toLowerCase())
-              .map((p) => (
-                <li
-                  key={p.name}
-                  className="flex justify-between items-center py-2 font-text text-sm"
-                >
-                  <span className="font-semibold">{p.name}</span>
-                  <span className="text-role">
-                    ₹{Number(p.budget).toFixed(2)} Cr
-                  </span>
-                  <span>
-                    {p.team.length}/{totalPlayersPerTeam}
-                  </span>
-                </li>
-              ))}
-          </ul>
-        </div>
-
-        {/* Click outside or ESC closes modal */}
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
-
-      {/* //top paid */}
-      <div className="flex flex-col justify-center items-center">
-        {topPlayers.length > 0 && (
-          <div className="max-w-xl w-full bg-card border border-border rounded-xl p-4 mt-6 shadow-md">
-            <h3 className="text-lg font-bold text-role mb-3 flex items-center gap-2">
-              Top 10 Highest-Paid Players
-            </h3>
-
-            <ul className="space-y-2">
-              {topPlayers.map((p, i) => (
-                <li
-                  key={i}
-                  className={`flex justify-between items-center py-3 px-2 rounded-lg transition-all
-        ${
-          i === 0
-            ? "bg-linear-to-r from-yellow-400/20 to-yellow-600/10 border border-yellow-400/40 shadow-md scale-[1.02]"
-            : "hover:bg-card/60"
-        }`}
-                >
-                  {/* Rank */}
-                  <div className="flex items-center gap-3 w-1/6">
-                    <div
-                      className={`text-4xl font-thin tabular-nums ${
-                        i === 0
-                          ? "text-yellow-400 drop-shadow-[0_0_4px_rgba(250,204,21,0.5)]"
-                          : "opacity-30"
-                      }`}
-                    >
-                      {i + 1 === 1 ? "👑" : i + 1}
-                    </div>
-                  </div>
-
-                  {/* Player Info */}
-                  <div className="flex flex-col w-2/5">
-                    <p
-                      className={`font-semibold ${
-                        i === 0 ? "text-yellow-300" : "text-font"
-                      }`}
-                    >
-                      {p.name}
-                    </p>
-                    <p className="text-xs text-mute">{p.nation}</p>
-                  </div>
-
-                  {/* Team */}
-                  <div
-                    className={`text-xs uppercase font-semibold w-1/5 text-center ${
-                      i === 0 ? "text-yellow-400" : "text-role"
-                    }`}
-                  >
-                    {p.team || p.winner || "—"}
-                  </div>
-
-                  {/* Price */}
-                  <div className="flex justify-end w-1/5">
-                    <button
-                      className={`btn btn-sm border-none rounded-md px-3 font-bold ${
-                        i === 0
-                          ? "bg-yellow-500 hover:bg-yellow-600 text-black"
-                          : "bg-green-600 hover:bg-green-700 text-white"
-                      }`}
-                    >
-                      ₹{p.price} Cr
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
+      <SquadDrawer
+        team={team}
+        room={room}
+        remainingBudget={remainingBudget}
+        totalPlayersPerTeam={totalPlayersPerTeam}
+        bid={bid}
+        bidder={bidder}
+      />
     </div>
   );
 }

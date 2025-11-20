@@ -1,50 +1,48 @@
 /* eslint-disable no-unused-vars */
+// Simple working AnimateBudget — no progress bar, no "View" button.
+// Just a clean wallet badge + smoothly animated number.
 import { useEffect, useState } from "react";
 import { useSpring, motion } from "framer-motion";
 import { Wallet } from "lucide-react";
 
-/**
- * AnimateBudget
- * Smoothly animates a numeric budget value with safety checks.
- * Props:
- *  - budget: number | string
- *  - label: string (optional)
- */
-const AnimateBudget = ({ budget = 0, label = "Remaining" }) => {
-  // 🧮 Convert budget safely to number
-  const safeBudget = Number(budget) || 0;
+const AnimateBudget = ({ budget = 0, label = "Budget" }) => {
+  const safe = Math.max(0, Number(budget) || 0);
+  const spring = useSpring(safe, { stiffness: 140, damping: 20 });
+  const [display, setDisplay] = useState(safe.toFixed(2));
 
-  // Create spring for smooth transition
-  const springBudget = useSpring(safeBudget, { stiffness: 120, damping: 18 });
-
-  // State to show formatted display
-  const [displayBudget, setDisplayBudget] = useState(safeBudget.toFixed(2));
-
-  // Listen for spring changes
   useEffect(() => {
-    const unsubscribe = springBudget.on("change", (v) => {
-      if (!isNaN(v)) setDisplayBudget(v.toFixed(2));
+    const unsub = spring.on("change", (v) => {
+      if (!isNaN(v)) setDisplay(Number(v).toFixed(2));
     });
-    return () => unsubscribe();
-  }, [springBudget]);
-
-  // Trigger animation whenever budget changes
-  useEffect(() => {
-    springBudget.set(safeBudget);
-  }, [safeBudget, springBudget]);
+    spring.set(safe);
+    return () => unsub();
+  }, [safe, spring]);
 
   return (
     <motion.div
-      className="flex items-center gap-2 text-white font-semibold text-base"
-      initial={{ scale: 1 }}
-      animate={{ scale: [1, 1.05, 1] }}
-      transition={{ duration: 0.4 }}
+      role="status"
+      aria-live="polite"
+      className="inline-flex items-center gap-3 px-3 py-2 rounded-lg  backdrop-blur-sm border border-white/6"
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 24 }}
+      title={`${label}: ${display} Cr`}
     >
-      <Wallet className="w-4 h-4 text-success" />
+      <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-tr from-yellow-200/20 to-cyan-200/12 border border-white/6">
+        <Wallet className="w-4 h-4" />
+      </div>
 
-      <span className="text-text text-sm font-text">
-        {displayBudget} Cr
-      </span>
+      <div className="flex flex-col leading-tight">
+        <span className="text-[10px] uppercase text-font text-muted">{label}</span>
+        <motion.span
+          className={`text-sm font-extrabold tabular-nums ${safe <= 5 ? "text-red-500" : "text-btn1"}`}
+          key={display}
+          initial={{ scale: 0.98 }}
+          animate={{ scale: [1, 1.02, 1] }}
+          transition={{ duration: 0.45 }}
+        >
+          {display} <span className="text-xs text-font">Cr</span>
+        </motion.span>
+      </div>
     </motion.div>
   );
 };

@@ -19,12 +19,25 @@ function shuffleArray(array) {
 }
 
 function setupSocket(server) {
-  const io = new Server(server, {
+ const allowedEnv = (process.env.ALLOWED_ORIGINS || "")
+    .split(",")
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  const io = new Server(httpServer, {
     cors: {
-      origin: ["http://localhost:5173", "http://127.0.0.1:5173"], // add your dev origin(s)
+      origin: (origin, cb) => {
+        // allow non-browser requests (no origin)
+        if (!origin) return cb(null, true);
+        if (allowedEnv.includes(origin) || origin.endsWith(".vercel.app")) return cb(null, true);
+        return cb(new Error("CORS not allowed"), false);
+      },
       methods: ["GET", "POST"],
       credentials: true,
+      allowedHeaders: ["Content-Type", "Authorization"]
     },
+    transports: ["websocket", "polling"],
+    allowEIO3: true // optional: if older clients require it
   });
 
   function normalizeName(n) {

@@ -28,12 +28,26 @@ const server = http.createServer(app);
 
 
 
+// CORS setup (replace previous app.use(cors(...)))
+const allowedEnv = (process.env.ALLOWED_ORIGINS || '')
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean);
+
 app.use(express.json());
+
 app.use(
   cors({
-    origin: "*", // or specify your frontend origin
-    methods: ["GET", "POST"],
+    origin: function(origin, callback) {
+      // allow non-browser tools like curl/postman (no origin)
+      if (!origin) return callback(null, true);
+      // allow if in ALLOWED_ORIGINS or any vercel preview
+      if (allowedEnv.includes(origin) || origin.endsWith('.vercel.app')) return callback(null, true);
+      return callback(new Error('Not allowed by CORS'), false);
+    },
+    methods: ['GET','POST','PUT','DELETE','OPTIONS'],
     credentials: true,
+    allowedHeaders: ['Content-Type','Authorization']
   })
 );
 

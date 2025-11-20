@@ -18,13 +18,13 @@ function shuffleArray(array) {
   return array;
 }
 
-function setupSocket(httpServer) {
+function setupSocket(server) {
  const allowedEnv = (process.env.ALLOWED_ORIGINS || "")
     .split(",")
     .map(s => s.trim())
     .filter(Boolean);
 
-  const io = new Server(httpServer, {
+  const io = new Server(server, {
     cors: {
       origin: (origin, cb) => {
         // allow non-browser requests (no origin)

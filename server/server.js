@@ -216,6 +216,8 @@ app.get("/api/room/:roomCode/state", async (req, res) => {
 // ------------------------------
 // 🧩 Database + Socket Setup
 // ------------------------------
+const PORT = process.env.PORT
+
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -223,7 +225,7 @@ mongoose
   })
   .then(() => {
     console.log("✅ MongoDB connected");
-    server.listen(5000, "0.0.0.0", () => {
+    server.listen(PORT, "0.0.0.0", () => {
       // console.log("🚀 Server running on port 5000");
     });
     setupSocket(server);

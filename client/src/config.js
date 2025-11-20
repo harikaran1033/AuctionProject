@@ -1,2 +1,2 @@
-export const API_BASE_URL = 'http://localhost:5000';
+export const API_BASE_URL = 'https://auctionplay.onrender.com';
 // https://deformable-notarial-landry.ngrok-free.dev

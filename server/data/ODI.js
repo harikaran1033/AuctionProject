@@ -3023,5 +3023,1193 @@ export default
             "5W": 0
         }
     }
-}
+},
+    {
+        "NAME": "Babar Azam",
+        "TEAM": "PAK",
+        "ROLE": "Batter",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 2.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Anchor",
+        "BEST": "158",
+        "STATS": {
+            "Batting": {
+                "M": 117,
+                "I": 114,
+                "R": 5729,
+                "Avg": 56.92,
+                "SR": 88.74,
+                "50": 37,
+                "100": 19
+            }
+        }
+    },
+    {
+        "NAME": "Fakhar Zaman",
+        "TEAM": "PAK",
+        "ROLE": "Batter",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Aggressive",
+        "BEST": "210*",
+        "STATS": {
+            "Batting": {
+                "M": 82,
+                "I": 82,
+                "R": 3493,
+                "Avg": 44.21,
+                "SR": 92.08,
+                "50": 20,
+                "100": 11
+            }
+        }
+    },
+    {
+        "NAME": "Mohammad Rizwan",
+        "TEAM": "PAK",
+        "ROLE": "WK-Batter",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Wicketkeeper",
+        "BEST": "131*",
+        "STATS": {
+            "Batting": {
+                "M": 79,
+                "I": 71,
+                "R": 2629,
+                "Avg": 48.68,
+                "SR": 89.53,
+                "50": 19,
+                "100": 3
+            }
+        }
+    },
+    {
+        "NAME": "Shaheen Shah Afridi",
+        "TEAM": "PAK",
+        "ROLE": "Bowler",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.8,
+        "PLAYER_STYLE": "Left-arm fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "6/35",
+        "STATS": {
+            "Bowling": {
+                "M": 48,
+                "I": 48,
+                "W": 94,
+                "Avg": 23.12,
+                "Econ": 5.50,
+                "4W": 4,
+                "5W": 3
+            }
+        }
+    },
+    {
+        "NAME": "Haris Rauf",
+        "TEAM": "PAK",
+        "ROLE": "Bowler",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "5/18",
+        "STATS": {
+            "Bowling": {
+                "M": 37,
+                "I": 36,
+                "W": 72,
+                "Avg": 25.68,
+                "Econ": 5.87,
+                "4W": 2,
+                "5W": 1
+            }
+        }
+    },
+    {
+        "NAME": "Naseem Shah",
+        "TEAM": "PAK",
+        "ROLE": "Bowler",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "5/33",
+        "STATS": {
+            "Bowling": {
+                "M": 14,
+                "I": 14,
+                "W": 32,
+                "Avg": 16.56,
+                "Econ": 4.47,
+                "4W": 1,
+                "5W": 1
+            }
+        }
+    },
+    {
+        "NAME": "Mohammad Nawaz",
+        "TEAM": "PAK",
+        "ROLE": "All-Rounder",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Spin",
+        "BEST_BATTING": "53",
+        "BEST_BOWLING": "4/42",
+        "STATS": {
+            "Batting": {
+                "M": 28,
+                "I": 22,
+                "R": 416,
+                "Avg": 20.80,
+                "SR": 82.70,
+                "50": 1,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 27,
+                "W": 31,
+                "Avg": 33.12,
+                "Econ": 4.89,
+                "4W": 1,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Salman Ali Agha",
+        "TEAM": "PAK",
+        "ROLE": "All-Rounder",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm off-break",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "103",
+        "BEST_BOWLING": "3/56",
+        "STATS": {
+            "Batting": {
+                "M": 25,
+                "I": 22,
+                "R": 815,
+                "Avg": 40.75,
+                "SR": 88.58,
+                "50": 5,
+                "100": 2
+            },
+            "Bowling": {
+                "I": 17,
+                "W": 12,
+                "Avg": 41.25,
+                "Econ": 5.25,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Mohammad Wasim Jr.",
+        "TEAM": "PAK",
+        "ROLE": "All-Rounder",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST_BATTING": "26*",
+        "BEST_BOWLING": "4/36",
+        "STATS": {
+            "Batting": {
+                "M": 16,
+                "I": 11,
+                "R": 134,
+                "Avg": 19.14,
+                "SR": 93.05,
+                "50": 0,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 16,
+                "W": 24,
+                "Avg": 25.70,
+                "Econ": 5.62,
+                "4W": 1,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Faheem Ashraf",
+        "TEAM": "PAK",
+        "ROLE": "All-Rounder",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST_BATTING": "64",
+        "BEST_BOWLING": "3/28",
+        "STATS": {
+            "Batting": {
+                "M": 25,
+                "I": 19,
+                "R": 365,
+                "Avg": 22.81,
+                "SR": 85.68,
+                "50": 1,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 24,
+                "W": 24,
+                "Avg": 41.12,
+                "Econ": 5.72,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Abrar Ahmed",
+        "TEAM": "PAK",
+        "ROLE": "Bowler",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-arm leg-break",
+        "PLAYER_TYPE": "Spin",
+        "BEST": "3/45",
+        "STATS": {
+            "Bowling": {
+                "M": 2,
+                "I": 2,
+                "W": 3,
+                "Avg": 38.00,
+                "Econ": 5.43,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Haseebullah",
+        "TEAM": "PAK",
+        "ROLE": "WK-Batter",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Wicketkeeper",
+        "BEST": "27",
+        "STATS": {
+            "Batting": {
+                "M": 1,
+                "I": 1,
+                "R": 27,
+                "Avg": 27.00,
+                "SR": 84.37,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Saim Ayub",
+        "TEAM": "PAK",
+        "ROLE": "Batter",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Aggressive",
+        "BEST": "59",
+        "STATS": {
+            "Batting": {
+                "M": 8,
+                "I": 8,
+                "R": 157,
+                "Avg": 19.62,
+                "SR": 91.81,
+                "50": 1,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Hussain Talat",
+        "TEAM": "PAK",
+        "ROLE": "All-Rounder",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat, Right-arm medium",
+        "PLAYER_TYPE": "Utility",
+        "BEST_BATTING": "31",
+        "BEST_BOWLING": "1/17",
+        "STATS": {
+            "Batting": {
+                "M": 6,
+                "I": 5,
+                "R": 83,
+                "Avg": 16.60,
+                "SR": 78.30,
+                "50": 0,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 3,
+                "W": 1,
+                "Avg": 67.00,
+                "Econ": 5.15,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Faisal Akram",
+        "TEAM": "PAK",
+        "ROLE": "Bowler",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-arm wrist-spin",
+        "PLAYER_TYPE": "Spin",
+        "BEST": "N/A",
+        "STATS": {
+            "Bowling": {
+                "M": 0,
+                "I": 0,
+                "W": 0,
+                "Avg": 0,
+                "Econ": 0,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Hasan Nawaz",
+        "TEAM": "PAK",
+        "ROLE": "Batter",
+        "NATION": "Pakistan",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Top Order",
+        "BEST": "N/A",
+        "STATS": {
+            "Batting": {
+                "M": 0,
+                "I": 0,
+                "R": 0,
+                "Avg": 0,
+                "SR": 0,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Scott Edwards",
+        "TEAM": "NED",
+        "ROLE": "WK-Batter",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Wicketkeeper",
+        "BEST": "86",
+        "STATS": {
+            "Batting": {
+                "M": 42,
+                "I": 37,
+                "R": 1197,
+                "Avg": 39.90,
+                "SR": 89.53,
+                "50": 9,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Bas de Leede",
+        "TEAM": "NED",
+        "ROLE": "All-Rounder",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.5,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST_BATTING": "123",
+        "BEST_BOWLING": "4/62",
+        "STATS": {
+            "Batting": {
+                "M": 36,
+                "I": 33,
+                "R": 1009,
+                "Avg": 31.53,
+                "SR": 85.67,
+                "50": 5,
+                "100": 1
+            },
+            "Bowling": {
+                "I": 33,
+                "W": 41,
+                "Avg": 29.63,
+                "Econ": 5.72,
+                "4W": 2,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Max O'Dowd",
+        "TEAM": "NED",
+        "ROLE": "Batter",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Top Order",
+        "BEST": "133*",
+        "STATS": {
+            "Batting": {
+                "M": 37,
+                "I": 37,
+                "R": 1192,
+                "Avg": 32.21,
+                "SR": 77.66,
+                "50": 8,
+                "100": 2
+            }
+        }
+    },
+    {
+        "NAME": "Vikramjit Singh",
+        "TEAM": "NED",
+        "ROLE": "Batter",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Opener",
+        "BEST": "110",
+        "STATS": {
+            "Batting": {
+                "M": 31,
+                "I": 31,
+                "R": 856,
+                "Avg": 27.61,
+                "SR": 76.36,
+                "50": 3,
+                "100": 1
+            }
+        }
+    },
+    {
+        "NAME": "Teja Nidamanuru",
+        "TEAM": "NED",
+        "ROLE": "Batter",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Middle Order",
+        "BEST": "111*",
+        "STATS": {
+            "Batting": {
+                "M": 21,
+                "I": 19,
+                "R": 552,
+                "Avg": 34.50,
+                "SR": 94.04,
+                "50": 2,
+                "100": 1
+            }
+        }
+    },
+    {
+        "NAME": "Paul van Meekeren",
+        "TEAM": "NED",
+        "ROLE": "Bowler",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Right-arm fast",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "4/23",
+        "STATS": {
+            "Bowling": {
+                "M": 41,
+                "I": 40,
+                "W": 53,
+                "Avg": 30.64,
+                "Econ": 5.67,
+                "4W": 1,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Roelof van der Merwe",
+        "TEAM": "NED",
+        "ROLE": "All-Rounder",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Spin",
+        "BEST_BATTING": "33",
+        "BEST_BOWLING": "4/35",
+        "STATS": {
+            "Batting": {
+                "M": 21,
+                "I": 16,
+                "R": 202,
+                "Avg": 18.36,
+                "SR": 97.58,
+                "50": 0,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 20,
+                "W": 24,
+                "Avg": 27.70,
+                "Econ": 4.89,
+                "4W": 1,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Aryan Dutt",
+        "TEAM": "NED",
+        "ROLE": "Bowler",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-arm off-break",
+        "PLAYER_TYPE": "Spin",
+        "BEST": "4/55",
+        "STATS": {
+            "Bowling": {
+                "M": 25,
+                "I": 24,
+                "W": 30,
+                "Avg": 32.76,
+                "Econ": 5.42,
+                "4W": 1,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Logan van Beek",
+        "TEAM": "NED",
+        "ROLE": "All-Rounder",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST_BATTING": "28*",
+        "BEST_BOWLING": "4/24",
+        "STATS": {
+            "Batting": {
+                "M": 19,
+                "I": 14,
+                "R": 173,
+                "Avg": 19.22,
+                "SR": 91.53,
+                "50": 0,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 19,
+                "W": 24,
+                "Avg": 31.12,
+                "Econ": 5.82,
+                "4W": 1,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Wesley Barresi",
+        "TEAM": "NED",
+        "ROLE": "Batter",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Top Order",
+        "BEST": "137",
+        "STATS": {
+            "Batting": {
+                "M": 45,
+                "I": 43,
+                "R": 1194,
+                "Avg": 28.42,
+                "SR": 77.23,
+                "50": 5,
+                "100": 2
+            }
+        }
+    },
+    {
+        "NAME": "Colin Ackermann",
+        "TEAM": "NED",
+        "ROLE": "All-Rounder",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm off-break",
+        "PLAYER_TYPE": "Spin",
+        "BEST_BATTING": "81*",
+        "BEST_BOWLING": "3/39",
+        "STATS": {
+            "Batting": {
+                "M": 18,
+                "I": 17,
+                "R": 522,
+                "Avg": 34.80,
+                "SR": 83.12,
+                "50": 3,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 14,
+                "W": 12,
+                "Avg": 41.58,
+                "Econ": 5.12,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Ryan Klein",
+        "TEAM": "NED",
+        "ROLE": "Bowler",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "2/34",
+        "STATS": {
+            "Bowling": {
+                "M": 5,
+                "I": 5,
+                "W": 6,
+                "Avg": 33.16,
+                "Econ": 5.89,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Vivian Kingma",
+        "TEAM": "NED",
+        "ROLE": "Bowler",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "4/47",
+        "STATS": {
+            "Bowling": {
+                "M": 15,
+                "I": 15,
+                "W": 18,
+                "Avg": 35.11,
+                "Econ": 5.72,
+                "4W": 1,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Fred Klaassen",
+        "TEAM": "NED",
+        "ROLE": "Bowler",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "3/36",
+        "STATS": {
+            "Bowling": {
+                "M": 10,
+                "I": 10,
+                "W": 11,
+                "Avg": 38.45,
+                "Econ": 5.82,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Shariz Ahmad",
+        "TEAM": "NED",
+        "ROLE": "Bowler",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-arm leg-break",
+        "PLAYER_TYPE": "Spin",
+        "BEST": "2/42",
+        "STATS": {
+            "Bowling": {
+                "M": 8,
+                "I": 8,
+                "W": 9,
+                "Avg": 40.11,
+                "Econ": 5.89,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Michael Levitt",
+        "TEAM": "NED",
+        "ROLE": "Batter",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat",
+        "PLAYER_TYPE": "Top Order",
+        "BEST": "N/A",
+        "STATS": {
+            "Batting": {
+                "M": 0,
+                "I": 0,
+                "R": 0,
+                "Avg": 0,
+                "SR": 0,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Noah Croes",
+        "TEAM": "NED",
+        "ROLE": "Batter",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Middle Order",
+        "BEST": "N/A",
+        "STATS": {
+            "Batting": {
+                "M": 0,
+                "I": 0,
+                "R": 0,
+                "Avg": 0,
+                "SR": 0,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Zachary Lion-Cachet",
+        "TEAM": "NED",
+        "ROLE": "Batter",
+        "NATION": "Netherlands",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Middle Order",
+        "BEST": "N/A",
+        "STATS": {
+            "Batting": {
+                "M": 0,
+                "I": 0,
+                "R": 0,
+                "Avg": 0,
+                "SR": 0,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Monank Patel",
+        "TEAM": "USA",
+        "ROLE": "WK-Batter",
+        "NATION": "USA",
+        "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Wicketkeeper",
+        "BEST": "107",
+        "STATS": {
+            "Batting": {
+                "M": 28,
+                "I": 27,
+                "R": 842,
+                "Avg": 33.68,
+                "SR": 78.25,
+                "50": 5,
+                "100": 1
+            }
+        }
+    },
+    {
+        "NAME": "Saurabh Netravalkar",
+        "TEAM": "USA",
+        "ROLE": "Bowler",
+        "NATION": "USA",
+        "BASE_PRICE": 1.2,
+        "PLAYER_STYLE": "Left-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "4/33",
+        "STATS": {
+            "Bowling": {
+                "M": 27,
+                "I": 27,
+                "W": 39,
+                "Avg": 25.64,
+                "Econ": 4.32,
+                "4W": 2,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Andries Gous",
+        "TEAM": "USA",
+        "ROLE": "Batter",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Top Order",
+        "BEST": "52",
+        "STATS": {
+            "Batting": {
+                "M": 8,
+                "I": 8,
+                "R": 256,
+                "Avg": 32.00,
+                "SR": 85.05,
+                "50": 1,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Aaron Jones",
+        "TEAM": "USA",
+        "ROLE": "Batter",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Middle Order",
+        "BEST": "95*",
+        "STATS": {
+            "Batting": {
+                "M": 26,
+                "I": 25,
+                "R": 810,
+                "Avg": 38.57,
+                "SR": 79.80,
+                "50": 5,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Steven Taylor",
+        "TEAM": "USA",
+        "ROLE": "All-Rounder",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat, Right-arm off-break",
+        "PLAYER_TYPE": "Spin",
+        "BEST_BATTING": "71",
+        "BEST_BOWLING": "3/25",
+        "STATS": {
+            "Batting": {
+                "M": 32,
+                "I": 31,
+                "R": 806,
+                "Avg": 26.86,
+                "SR": 72.45,
+                "50": 4,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 22,
+                "W": 18,
+                "Avg": 34.11,
+                "Econ": 4.56,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Nosthush Kenjige",
+        "TEAM": "USA",
+        "ROLE": "Bowler",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-arm orthodox",
+        "PLAYER_TYPE": "Spin",
+        "BEST": "4/30",
+        "STATS": {
+            "Bowling": {
+                "M": 21,
+                "I": 20,
+                "W": 24,
+                "Avg": 28.45,
+                "Econ": 4.35,
+                "4W": 1,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Jessy Singh",
+        "TEAM": "USA",
+        "ROLE": "Bowler",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "3/28",
+        "STATS": {
+            "Bowling": {
+                "M": 18,
+                "I": 17,
+                "W": 19,
+                "Avg": 31.26,
+                "Econ": 4.89,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Harmeet Singh",
+        "TEAM": "USA",
+        "ROLE": "All-Rounder",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Left-hand bat, Left-arm orthodox",
+        "PLAYER_TYPE": "Spin",
+        "BEST_BATTING": "36",
+        "BEST_BOWLING": "3/42",
+        "STATS": {
+            "Batting": {
+                "M": 12,
+                "I": 10,
+                "R": 145,
+                "Avg": 18.12,
+                "SR": 75.52,
+                "50": 0,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 11,
+                "W": 13,
+                "Avg": 26.15,
+                "Econ": 4.45,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Shayan Jahangir",
+        "TEAM": "USA",
+        "ROLE": "Batter",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Middle Order",
+        "BEST": "58",
+        "STATS": {
+            "Batting": {
+                "M": 15,
+                "I": 14,
+                "R": 324,
+                "Avg": 27.00,
+                "SR": 71.68,
+                "50": 1,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Milind Kumar",
+        "TEAM": "USA",
+        "ROLE": "Batter",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Middle Order",
+        "BEST": "41",
+        "STATS": {
+            "Batting": {
+                "M": 8,
+                "I": 7,
+                "R": 156,
+                "Avg": 22.28,
+                "SR": 69.03,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Smit Patel",
+        "TEAM": "USA",
+        "ROLE": "WK-Batter",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Wicketkeeper",
+        "BEST": "35",
+        "STATS": {
+            "Batting": {
+                "M": 6,
+                "I": 6,
+                "R": 98,
+                "Avg": 16.33,
+                "SR": 65.33,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Yasir Mohammad",
+        "TEAM": "USA",
+        "ROLE": "All-Rounder",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm leg-break",
+        "PLAYER_TYPE": "Spin",
+        "BEST_BATTING": "29",
+        "BEST_BOWLING": "2/38",
+        "STATS": {
+            "Batting": {
+                "M": 7,
+                "I": 6,
+                "R": 87,
+                "Avg": 14.50,
+                "SR": 68.50,
+                "50": 0,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 6,
+                "W": 5,
+                "Avg": 32.40,
+                "Econ": 4.72,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Shubham Ranjane",
+        "TEAM": "USA",
+        "ROLE": "All-Rounder",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat, Right-arm medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST_BATTING": "22",
+        "BEST_BOWLING": "1/25",
+        "STATS": {
+            "Batting": {
+                "M": 4,
+                "I": 3,
+                "R": 38,
+                "Avg": 12.66,
+                "SR": 67.85,
+                "50": 0,
+                "100": 0
+            },
+            "Bowling": {
+                "I": 3,
+                "W": 2,
+                "Avg": 28.50,
+                "Econ": 4.75,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Saiteja Mukkamalla",
+        "TEAM": "USA",
+        "ROLE": "Batter",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Top Order",
+        "BEST": "N/A",
+        "STATS": {
+            "Batting": {
+                "M": 0,
+                "I": 0,
+                "R": 0,
+                "Avg": 0,
+                "SR": 0,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Rushil Ugarkar",
+        "TEAM": "USA",
+        "ROLE": "Bowler",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-arm fast-medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "N/A",
+        "STATS": {
+            "Bowling": {
+                "M": 0,
+                "I": 0,
+                "W": 0,
+                "Avg": 0,
+                "Econ": 0,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    },
+    {
+        "NAME": "Sanjay Krishnamurthi",
+        "TEAM": "USA",
+        "ROLE": "Batter",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-hand bat",
+        "PLAYER_TYPE": "Middle Order",
+        "BEST": "N/A",
+        "STATS": {
+            "Batting": {
+                "M": 0,
+                "I": 0,
+                "R": 0,
+                "Avg": 0,
+                "SR": 0,
+                "50": 0,
+                "100": 0
+            }
+        }
+    },
+    {
+        "NAME": "Juanoy Drysdale",
+        "TEAM": "USA",
+        "ROLE": "Bowler",
+        "NATION": "USA",
+        "BASE_PRICE": 1.0,
+        "PLAYER_STYLE": "Right-arm medium",
+        "PLAYER_TYPE": "Pace",
+        "BEST": "N/A",
+        "STATS": {
+            "Bowling": {
+                "M": 0,
+                "I": 0,
+                "W": 0,
+                "Avg": 0,
+                "Econ": 0,
+                "4W": 0,
+                "5W": 0
+            }
+        }
+    }
 ]

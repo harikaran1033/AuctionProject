@@ -845,6 +845,7 @@ function AuctionRoom() {
 
           {/* Utility grid */}
           <div className="grid grid-cols-3 gap-3">
+            
             <button
               className="rounded-lg p-3 text-xs font-semibold bg-neutral btn btn-neutral btn-outline hover:bg-neutral text-accent"
               onClick={() =>

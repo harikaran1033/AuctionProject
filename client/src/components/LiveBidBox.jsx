@@ -1,17 +1,18 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { motion, AnimatePresence, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useSpring, useMotionValue, animate } from "framer-motion";
 
 /**
- * LiveBidBox — rising-only stems + roomy spacing + modern UI polish
- * - shows vertical stems only for points that increased vs previous point
- * - uses roomy spacing between stems for clarity
- * - modernized visuals: softer gradients, rounded card, subtle shadow, micro-animations
+ * LiveBidBox — Compact Futuristic v3 (adjusted)
+ * - Removed volume (no "Vol" badge)
+ * - Stats row made stretchy so elements keep nicer spacing and the sparkline stays visible on small screens
+ * - All functions wired so the component works out-of-the-box
  */
 
-function AnimatedNumber({ value = 0, decimals = 2 }) {
-  const spring = useSpring(Number(value) || 0, { stiffness: 200, damping: 28 });
+function AnimatedNumber({ value = 0, decimals = 2, className = "" }) {
+  const spring = useSpring(Number(value) || 0, { stiffness: 260, damping: 36 });
   const [display, setDisplay] = useState(Number(value) || 0);
 
   useEffect(() => {
@@ -31,15 +32,15 @@ function AnimatedNumber({ value = 0, decimals = 2 }) {
       }),
     [decimals]
   );
-  return <>{nf.format(display)}</>;
+  return <span className={className}>{nf.format(display)}</span>;
 }
 
-const TYPE_ACCENT = {
-  request: "from-amber-400",
-  declined: "from-rose-400",
-  accepted: "from-emerald-300",
-  executed: "from-sky-300",
-  updated: "from-zinc-400",
+const TYPE_STYLE = {
+  request: { bg: "linear-gradient(90deg,#F59E0B66,#F9731666)", text: "#111" },
+  declined: { bg: "linear-gradient(90deg,#FB718566,#F43F5E66)", text: "#111" },
+  accepted: { bg: "linear-gradient(90deg,#34D39966,#06B6D466)", text: "#041014" },
+  executed: { bg: "linear-gradient(90deg,#60A5FA66,#06B6D466)", text: "#041014" },
+  updated: { bg: "linear-gradient(90deg,#9CA3AF66,#6B728066)", text: "#041014" },
 };
 
 export default function LiveBidBox({
@@ -51,10 +52,18 @@ export default function LiveBidBox({
   socket = null,
   onOpenTrades = () => {},
   roomId = null,
-  step = 0.5, // value grid step
+  step = 0.5,
 }) {
   const storageKey = roomId ? `livebid_history::${roomId}` : `livebid_history::global`;
 
+  // friendly bidder name resolver
+  const bidderName = useMemo(() => {
+    if (!bidder) return "—"; // clear visible placeholder
+    if (typeof bidder === "string") return bidder;
+    return bidder?.name || bidder?.username || "—";
+  }, [bidder]);
+
+  // history
   const [history, setHistory] = useState(() => {
     const start = Array.isArray(initialHistory) ? initialHistory.slice(-maxPoints) : [];
     if (start.length) return start;
@@ -69,61 +78,62 @@ export default function LiveBidBox({
     return [];
   });
 
-  const prevRoomRef = useRef(roomId);
   useEffect(() => {
-    if (roomId && prevRoomRef.current !== roomId) {
-      setHistory((_) => (typeof bid === "number" ? [bid] : []));
-      prevRoomRef.current = roomId;
-    }
-  }, [roomId, bid]);
+    // keep localStorage synced even if roomId changes
+    try {
+      if (history && history.length) localStorage.setItem(storageKey, JSON.stringify(history.slice(-maxPoints)));
+    } catch (e) {}
+  }, [history, maxPoints, storageKey]);
 
   const prevBidRef = useRef(bid);
   const [delta, setDelta] = useState(0);
   const [showDelta, setShowDelta] = useState(false);
+  const [lastUpdatedTs, setLastUpdatedTs] = useState(Date.now());
+
+  // motion value for percent change and visible pct state
+  const pctMv = useMotionValue(0);
+  const [pctLabel, setPctLabel] = useState("0.00%");
+
+  useEffect(() => {
+    const unsubscribe = pctMv.on("change", (v) => {
+      setPctLabel(`${Number(v || 0).toFixed(2)}%`);
+    });
+    return () => unsubscribe && unsubscribe();
+  }, [pctMv]);
 
   useEffect(() => {
     const prev = prevBidRef.current ?? 0;
     if (typeof bid !== "number") return;
-    if (bid > prev) {
+    if (bid !== prev) {
       const inc = +(bid - prev).toFixed(2);
-      setDelta(inc);
-      setShowDelta(true);
-      setHistory((h) => [...h.slice(-maxPoints + 1), bid]);
-      const t = setTimeout(() => setShowDelta(false), 900);
+      setDelta(inc > 0 ? inc : 0);
+      setShowDelta(inc > 0);
+      setLastUpdatedTs(Date.now());
+
+      // update history
+      setHistory((h) => {
+        const next = [...h.slice(-maxPoints + 1), bid];
+        return next;
+      });
+
+      // animate percent change
+      const pct = prev === 0 ? 0 : ((bid - prev) / Math.abs(prev)) * 100;
+      const anim = animate(pctMv, pct, { duration: 0.9, ease: [0.2, 0.8, 0.2, 1] });
+
+      const t = setTimeout(() => setShowDelta(false), 1600);
       prevBidRef.current = bid;
-      return () => clearTimeout(t);
+      return () => {
+        anim.stop();
+        clearTimeout(t);
+      };
     }
     prevBidRef.current = bid;
-  }, [bid, maxPoints]);
+  }, [bid, maxPoints, pctMv]);
 
-  useEffect(() => {
-    if (!history.length && typeof bid === "number") setHistory([bid]);
-  }, []);
+  // compact sparkline dims
+  const svgW = 140;
+  const svgH = 36;
 
-  useEffect(() => {
-    try {
-      if (history && history.length)
-        localStorage.setItem(storageKey, JSON.stringify(history.slice(-maxPoints)));
-    } catch (e) {}
-  }, [history, maxPoints, storageKey]);
-
-  useEffect(() => {
-    if (typeof bid === "number") {
-      const last = history[history.length - 1];
-      if (last !== bid) {
-        const fillCount = Math.min(maxPoints, Math.max(2, Math.floor(maxPoints / 6)));
-        const newHist = new Array(fillCount).fill(bid);
-        setHistory((h) => [...h.slice(-maxPoints + newHist.length), ...newHist]);
-        prevBidRef.current = bid;
-      }
-    }
-  }, [bid]);
-
-  // bigger SVG with roomy spacing between stems
-  const svgW = 220;
-  const svgH = 48;
-
-  // map history to points; we intentionally put points in roomy slots
   const pts = useMemo(() => {
     if (!history.length) return [];
     const arr = history.slice(-maxPoints);
@@ -133,53 +143,16 @@ export default function LiveBidBox({
     const max = maxV + pad;
     const min = Math.max(0, minV - pad);
     const valueRange = max === min ? 1 : max - min;
-
-    // Friendly spacing: compute slotWidth and center points in each slot
     const slotCount = arr.length;
     const slotWidth = slotCount > 1 ? svgW / slotCount : svgW;
-
     return arr.map((v, i) => {
-      const x = slotWidth * i + slotWidth / 2; // centered in its slot
-      const y = ((max - v) / valueRange) * (svgH - 18) + 10; // leave margins
-      // determine if this point is a rise vs previous value
+      const x = slotWidth * i + slotWidth / 2;
+      const y = ((max - v) / valueRange) * (svgH - 12) + 6;
       const prev = i > 0 ? arr[i - 1] : null;
       const isRise = prev !== null ? v > prev : false;
       return { x, y, v, isRise };
     });
   }, [history, maxPoints, svgW, svgH, step, bid]);
-
-  // grid lines
-  const grid = useMemo(() => {
-    if (!pts.length) return { lines: [], min: 0, max: 0 };
-    const values = pts.map((p) => p.v);
-    const maxV = Math.max(...values, bid);
-    const minV = Math.min(...values, bid);
-    const pad = Math.max(step * 2, (maxV - minV) * 0.06 || step * 2);
-    let top = Math.ceil((maxV + pad) / step) * step;
-    let bottom = Math.floor(Math.max(0, minV - pad) / step) * step;
-    if (bottom === top) {
-      top = top + step * 2;
-      bottom = Math.max(0, bottom - step);
-    }
-    const lines = [];
-    for (let v = bottom; v <= top + 1e-9; v = Math.round((v + step) * 100) / 100) {
-      lines.push(v);
-      if (lines.length > 200) break;
-    }
-    return { lines, min: bottom, max: top };
-  }, [pts, step, bid]);
-
-  function valueToY(value) {
-    if (!pts.length) return svgH / 2;
-    const vals = pts.map((p) => p.v);
-    const maxV = Math.max(...vals, bid);
-    const minV = Math.min(...vals, bid);
-    const pad = Math.max(step * 2, (maxV - minV) * 0.06 || step * 2);
-    const max = maxV + pad;
-    const min = Math.max(0, minV - pad);
-    const valueRange = max === min ? 1 : max - min;
-    return ((max - value) / valueRange) * (svgH - 18) + 10;
-  }
 
   function buildSmoothPath(points) {
     if (!points.length) return "";
@@ -201,22 +174,9 @@ export default function LiveBidBox({
   }
 
   const pathD = useMemo(() => buildSmoothPath(pts), [pts]);
-  const lastPoint = pts.length ? pts[pts.length - 1] : { x: 0, y: svgH / 2, v: bid };
-  const dotX = useSpring(lastPoint.x, { stiffness: 200, damping: 30 });
-  const dotY = useSpring(lastPoint.y, { stiffness: 200, damping: 30 });
-  const [dotPos, setDotPos] = useState({ x: lastPoint.x, y: lastPoint.y });
-  useEffect(() => {
-    const ux = dotX.on("change", (x) => setDotPos((p) => ({ ...p, x })));
-    const uy = dotY.on("change", (y) => setDotPos((p) => ({ ...p, y })));
-    dotX.set(lastPoint.x);
-    dotY.set(lastPoint.y);
-    return () => {
-      ux && ux();
-      uy && uy();
-    };
-  }, [lastPoint.x, lastPoint.y, dotX, dotY]);
+  const lastPoint = pts.length ? pts[pts.length - 1] : { x: svgW - 6, y: svgH / 2, v: bid };
 
-  // ticker (unchanged)
+  // notice queue and animation variants for smooth warning
   const queueRef = useRef([]);
   const [activeNotice, setActiveNotice] = useState(null);
   const activeTimerRef = useRef(null);
@@ -232,7 +192,7 @@ export default function LiveBidBox({
     }
     const next = queueRef.current.shift();
     setActiveNotice(next);
-    const dur = 1200;
+    const dur = 2200;
     if (activeTimerRef.current) {
       clearTimeout(activeTimerRef.current);
       activeTimerRef.current = null;
@@ -242,7 +202,7 @@ export default function LiveBidBox({
       activeTimerRef.current = null;
       setTimeout(() => {
         if (queueRef.current.length) dequeueAndShow();
-      }, 60);
+      }, 120);
     }, dur);
   };
 
@@ -257,11 +217,11 @@ export default function LiveBidBox({
     const type = noticeObj.type || noticeObj.eventType || (noticeObj.status === "accepted" ? "accepted" : "request");
     const message =
       noticeObj.message ||
-      (type === "accepted" && `${fromName} accepted the trade.`) ||
-      (type === "declined" && `${fromName} declined the trade.`) ||
-      (type === "executed" && `${fromName} executed a trade.`) ||
-      (type === "request" && (playerRequestedName ? `${fromName} requested ${playerRequestedName}` : `${fromName} sent a trade request`)) ||
-      `${fromName} sent a trade update`;
+      (type === "accepted" && `${fromName} accepted`) ||
+      (type === "declined" && `${fromName} declined`) ||
+      (type === "executed" && `${fromName} executed`) ||
+      (type === "request" && (playerRequestedName ? `${fromName} → ${playerRequestedName}` : `${fromName} requested`)) ||
+      `${fromName} updated`;
 
     const payload = {
       raw: noticeObj,
@@ -322,130 +282,144 @@ export default function LiveBidBox({
     } catch (err) {}
   };
 
+  // formatted time-since-update
+  const timeSince = useMemo(() => {
+    const s = Math.round((Date.now() - lastUpdatedTs) / 1000);
+    if (s < 5) return "just now";
+    if (s < 60) return `${s}s`;
+    const m = Math.round(s / 60);
+    if (m < 60) return `${m}m`;
+    const h = Math.round(m / 60);
+    return `${h}h`;
+  }, [lastUpdatedTs]);
+
   return (
-    <div className="w-full flex flex-col sm:flex-row md:flex-row items-center justify-between gap-3 p-3 rounded-2xl bg-linear-to-b from-black/50 via-white/2 to-black/60 border border-white/6 shadow-lg backdrop-blur-md" role="status" aria-live="polite">
-      {/* Left */}
-      <div className="flex items-center gap-3 min-w-0">
-        <div className="flex items-center gap-2">
-          <div className="inline-grid *:[grid-area:1/1]">
-            <div className="status status-error animate-ping bg-red-500"></div>
-            <div className="status status-error bg-red-500"></div>
-          </div>
-          <div className="text-xs font-semibold text-red-500 uppercase tracking-wide">Live</div>
-        </div>
-
+    <div
+      className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-xl w-full max-w-[720px] bg-[linear-gradient(90deg,#061018dd,rgba(6,10,16,0.6))] border border-white/6 shadow-[0_8px_30px_rgba(2,6,23,0.65)] backdrop-blur-md"
+      role="status"
+      aria-live="polite"
+    >
+      {/* Left: Live + fused notice */}
+      <div className="flex items-center gap-3 min-w-0" style={{ flex: "0 0 auto" }}>
         <div className="min-w-0">
-          <div className="text-sm font-extrabold text-white/90">
-            <AnimatedNumber value={bid} decimals={2} /> cr
+          <div className="flex items-center gap-2">
+            <div className="text-xs font-semibold tracking-wide text-red-500 uppercase">Live</div>
+
+            <div className="min-w-0">
+              <AnimatePresence>
+                {activeNotice ? (
+                  <motion.button
+                    key={activeNotice.id}
+                    initial={{ opacity: 0, x: 8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -8 }}
+                    transition={{ duration: 0.36 }}
+                    onClick={openTrades}
+                    className="ml-1 inline-flex items-center gap-2 text-[12px] px-3 py-1 rounded-full font-semibold"
+                    aria-label={`Trade notice: ${activeNotice.message}`}
+                    style={{
+                      background: TYPE_STYLE[activeNotice.type]?.bg || TYPE_STYLE.request.bg,
+                      color: TYPE_STYLE[activeNotice.type]?.text || "#001",
+                      boxShadow: "0 6px 22px rgba(34,211,238,0.08)",
+                      transformOrigin: "left center",
+                      maxWidth: '14rem',
+                    }}
+                  >
+                    <motion.span
+                      className="w-3 h-3 rounded-full"
+                      layout
+                      initial={{ scale: 0.8, opacity: 0.9 }}
+                      animate={{ scale: [1, 0.9, 1.05], opacity: [0.9, 0.6, 0.9] }}
+                      transition={{ duration: 1.2, repeat: Infinity }}
+                      style={{ background: "rgba(255,255,255,0.18)" }}
+                    />
+                    <span className="truncate">{activeNotice.message}</span>
+                  </motion.button>
+                ) : (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.28 }}>
+                    <div className="text-[12px] text-white/40">No recent trades</div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
-          {bidder ? <div className="text-[12px] text-zinc-400 truncate max-w-[14rem]">{bidder}</div> : <p className="text-xs text-muted">BP</p>}
-        </div>
-      </div>
 
-      {/* Center: roomy grid + rising-only stems */}
-      <div className="flex-1 flex items-center justify-center min-w-0 px-2">
-        <div className="w-full max-w-[360px] rounded-lg p-1.5 bg-gradient-to-b from-white/3 to-black/5 border border-white/4 backdrop-blur-sm shadow-inner relative">
-          <svg className="w-full h-[54px]" viewBox={`0 0 ${svgW} ${svgH}`} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-            {/* background subtle gradient */}
-            <defs>
-              <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stopOpacity="0.02" stopColor="#fff" />
-                <stop offset="100%" stopOpacity="0.00" stopColor="#000" />
-              </linearGradient>
-            </defs>
-            <rect x="0" y="0" width={svgW} height={svgH} fill="url(#g1)" rx="8" />
+          {/* primary stats row (responsive - now stretchy) */}
+          <div className="flex items-center gap-3 mt-1 w-full min-w-0">
+            <div className="flex-1 min-w-0 flex items-center gap-3">
+              <div className="text-sm font-extrabold text-white/95 leading-none"><AnimatedNumber value={bid} decimals={2} /> cr</div>
+              <div className="text-[12px] text-zinc-400 truncate">{bidderName}</div>
+            </div>
 
-            {/* horizontal grid */}
-            {grid.lines.map((val, idx) => {
-              const y = valueToY(val);
-              const isMajor = Math.abs((val / step) % 2) < 1e-6 || Math.abs(Math.round(val) - val) < 1e-6;
-              return (
-                <g key={`g-${idx}`}>
-                  <line x1={8} y1={y} x2={svgW - 8} y2={y} stroke={isMajor ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.03)'} strokeWidth={isMajor ? 1 : 0.6} />
-                  {isMajor && <text x={10} y={y - 4} fontSize={10} fill="rgba(255,255,255,0.75)">{val}</text>}
-                </g>
-              );
-            })}
-
-            {/* rising-only stems (animated) */}
-            {pts.map((p, i) => {
-              if (!p.isRise) return null; // only show rises
-              const baselineY = valueToY(Math.max(0, grid.min));
-              const stemTopY = p.y;
-              const stemX = p.x;
-
-              return (
-                <motion.g key={`r-${i}`} initial={{ opacity: 0, translateY: 6 }} animate={{ opacity: 1, translateY: 0 }} transition={{ duration: 0.36, delay: i * 0.03 }}>
-                  {/* stem */}
-                  <line x1={stemX} y1={stemTopY} x2={stemX} y2={baselineY} stroke={'rgba(52,211,153,0.98)'} strokeWidth={2} strokeLinecap="round" opacity={0.98} />
-
-                  {/* major ticks along stem for readability */}
-                  {grid.lines.map((gv, gi) => {
-                    const ty = valueToY(gv);
-                    if (ty < stemTopY - 0.5 || ty > baselineY + 0.5) return null;
-                    const isMajorTick = Math.abs((gv / step) % 2) < 1e-6;
-                    return <line key={`t-${i}-${gi}`} x1={stemX - (isMajorTick ? 6 : 3)} y1={ty} x2={stemX + (isMajorTick ? 6 : 3)} y2={ty} stroke={'rgba(52,211,153,0.98)'} strokeWidth={isMajorTick ? 1 : 0.7} />;
-                  })}
-
-                  {/* point */}
-                  <circle cx={p.x} cy={p.y} r={4} fill={'#10b981'} stroke={'rgba(255,255,255,0.08)'} strokeWidth={0.6} />
-
-                  {/* small label above point */}
-                  <text x={p.x} y={p.y - 8} fontSize={11} textAnchor="middle" fill="#e6fffa" style={{ fontWeight: 600 }}>{p.v.toFixed(2)}</text>
-                </motion.g>
-              );
-            })}
-
-            {/* smooth sparkline lightly on top for context */}
-            {pts.length > 1 && (
-              <path d={`${pathD}`} stroke={'rgba(14,165,233,0.9)'} strokeWidth={1.6} strokeLinecap={'round'} strokeLinejoin={'round'} fill={'none'} opacity={0.95} />
-            )}
-
-            {/* animated lead dot for latest */}
-            <motion.circle cx={dotPos.x} cy={dotPos.y} r={4} fill={'#38bdf8'} initial={{ scale: 0.9 }} animate={{ scale: [1.02, 0.96, 1] }} transition={{ duration: 0.9, repeat: Infinity }} />
-          </svg>
-
-          {/* delta badge */}
-          <div className="absolute bottom-3 right-3">
-            <AnimatePresence>
-              {showDelta && delta > 0 && (
-                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.38 }}>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-400/95 to-cyan-300/80 px-3 py-1 text-sm font-semibold text-black shadow-md">+{delta.toFixed(2)}</div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-      </div>
-
-      {/* Right: compact ticker */}
-      <div className="shrink-0 min-w-[10.5rem] relative h-14">
-        <div className="absolute left-2 right-2 top-1/2 transform -translate-y-1/2">
-          <div className="w-full overflow-hidden rounded-md px-2 py-1 bg-linear-to-b from-white/3 to-black/3 backdrop-blur-sm border border-white/6 cursor-pointer" onClick={openTrades} role="button" aria-label="Open trades">
-            <div className="flex items-center gap-2">
-              <div className={`h-1 w-8 rounded-full bg-linear-to-r ${TYPE_ACCENT[activeNotice?.type ?? 'request'] || 'from-cyan-300'}`} />
-              <div className="min-w-0">
-                <AnimatePresence>
-                  {activeNotice ? (
-                    <motion.div key={activeNotice.id} initial={{ opacity: 0, x: 6 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -6 }} transition={{ duration: 0.16 }}>
-                      <div className="text-[12px] text-white/90 truncate">{activeNotice.message}</div>
-                    </motion.div>
-                  ) : (
-                    <motion.div key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.16 }}>
-                      <div className="text-[12px] text-white/60 truncate">No recent trade activity</div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+            {/* right-side compact badges */}
+            <div className="flex items-center gap-2" style={{ flex: '0 0 auto' }}>
+              <div className="text-[12px] font-medium px-2 py-0.5 rounded-md" style={{ background: 'rgba(255,255,255,0.02)', color: '#9ae6ff' }}>
+                {pctLabel}
               </div>
+
+              <div className="text-[11px] text-white/40 px-2 py-0.5 rounded-md bg-[rgba(255,255,255,0.02)]">{timeSince}</div>
+
+              {/* delta badge */}
+              <AnimatePresence>
+                {showDelta && delta > 0 && (
+                  <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.36 }}>
+                    <div className="ml-1 text-[12px] font-semibold px-2 py-0.5 rounded-md text-black" style={{ background: 'linear-gradient(90deg,#34D399,#06B6D4)' }}>+{delta.toFixed(2)}</div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
       </div>
 
-      <span className="sr-only" aria-live="assertive">Live auction. Highest bid {Number(bid).toFixed(2)} by {bidder}.</span>
+      {/* Center/Right: sparkline only (no round bar) and responsive visibility */}
+      <div className="flex-1 flex items-center justify-end min-w-0" style={{ flexBasis: 0 }}>
+        <div className="w-[190px] sm:w-[220px] h-10 rounded-md px-2 py-1 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),transparent)] border border-white/5 flex items-center gap-3" onClick={openTrades} role="button" aria-label="Open trades">
+          <div className="flex-1 h-full flex items-center">
+            <svg className="w-full h-full" viewBox={`0 0 ${svgW} ${svgH}`} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+              <defs>
+                <linearGradient id="gFut2" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor="#fff" stopOpacity="0.04" />
+                  <stop offset="100%" stopColor="#000" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width={svgW} height={svgH} fill="url(#gFut2)" rx="6" />
+
+              {/* neon rising bars only (thin) */}
+              {pts.map((p, i) => {
+                if (!p.isRise) return null;
+                const baselineY = svgH - 6;
+                const stemTopY = p.y;
+                const stemX = p.x;
+                const barH = Math.max(2, baselineY - stemTopY);
+                return (
+                  <g key={`c-${i}`}>
+                    <rect x={stemX - 1.2} y={stemTopY} width={2.4} height={barH} rx={1.2} fill="#06b6d4" opacity={0.95} />
+                  </g>
+                );
+              })}
+
+              {/* sparkline path for context */}
+              {pts.length > 1 && (
+                <path d={`${pathD}`} stroke={'rgba(96,165,250,0.95)'} strokeWidth={1.2} fill={'none'} opacity={0.95} strokeLinecap={'round'} strokeLinejoin={'round'} />
+              )}
+
+              {/* lead dot with subtle breathing */}
+              <motion.circle cx={lastPoint.x} cy={lastPoint.y} r={3} fill={'#60a5fa'} stroke={'rgba(255,255,255,0.06)'} strokeWidth={0.6} initial={{ scale: 0.9 }} animate={{ scale: [1, 0.92, 1] }} transition={{ duration: 1.6, repeat: Infinity }} />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <span className="sr-only" aria-live="assertive">Live auction. Highest bid {Number(bid).toFixed(2)} by {bidderName}.</span>
 
       <style>{`
-        .animate-pulse { animation: pulse 1.6s linear infinite; }
+        .pulse { animation: pulse 1.6s linear infinite; }
+        @media (max-width: 520px) {
+          /* mobile: stack stats and keep sparkline visible */
+          .flex\:items-center { align-items: center; }
+        }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1 } 70% { transform: scale(1.4); opacity: 0.18 } 100% { transform: scale(1.8); opacity: 0 } }
       `}</style>
     </div>
   );

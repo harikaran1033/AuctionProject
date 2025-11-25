@@ -39,9 +39,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: function(origin, callback) {
-      // allow non-browser tools like curl/postman (no origin)
       if (!origin) return callback(null, true);
-      // allow if in ALLOWED_ORIGINS or any vercel preview
       if (allowedEnv.includes(origin) || origin.endsWith('.vercel.app')) return callback(null, true);
       return callback(new Error('Not allowed by CORS'), false);
     },
@@ -50,6 +48,7 @@ app.use(
     allowedHeaders: ['Content-Type','Authorization']
   })
 );
+
 
 
 

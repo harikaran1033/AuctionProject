@@ -647,158 +647,444 @@ function AuctionRoom() {
     (bidder && bidder.toLowerCase() === playerName.toLowerCase()); //
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#071426] via-[#071C2A] to-[#071426] text-font p-4 pb-24">
-      {/* Header */}
-      <header className="max-w-5xl mx-auto w-full flex items-center justify-between gap-4 py-4">
-        <div className="flex items-center gap-3">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-text font-bold text-white">
-              AuctionPlay
-            </h1>
-            <p className="text-xs text-slate-300">
-              Live auction room — be quick!
-            </p>
-          </div>
-        </div>
+    <div className="min-h-screen bg-slate-950 text-slate-50 relative overflow-hidden">
+      {/* subtle stadium glow */}
+      <div className="pointer-events-none absolute inset-0 opacity-40">
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-[-200px] left-8 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-3xl" />
+      </div>
 
-        <div className="flex items-center gap-3">
-          <div className="hidden sm:flex items-center gap-2 bg-black/30 px-3 py-2 rounded-md text-sm text-white">
-            <span className="font-semibold">Room</span>
-            <span className="px-2 py-1 bg-white/10 rounded-md font-mono">
-              {roomCode}
-            </span>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-2 bg-black/30 px-3 py-2 rounded-md text-sm text-white">
-            <span className="font-semibold">You</span>
-            <span className="px-2 py-1 bg-white/10 rounded-md font-mono">
-              {playerName}
-            </span>
-          </div>
-
-          <button
-            onClick={() => {
-              setShowChat(true);
-              lastSeenCountRef.current = messages.length;
-              setUnreadCount(0);
-            }}
-            className="relative inline-flex items-center justify-center rounded-md px-3 py-2 bg-amber-600 hover:bg-amber-500 text-white shadow-sm"
-            aria-label="Open chat"
-          >
-            CHAT
-            {unreadCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                {unreadCount > 9 ? "9+" : unreadCount}
-              </span>
-            )}
-          </button>
-        </div>
-      </header>
-
-      {/* Main content */}
-      <main className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left: Player + Timer + Stats */}
-        <section className="lg:col-span-7 col-span-1 flex flex-col gap-4">
-          <div className="bg-black/40 rounded-2xl p-4 shadow-xl border border-white/5">
-            <div className="flex items-center justify-between gap-4 mb-3">
-              <div className="flex items-center gap-3 justify-between w-full">
-                <div className="flex flex-col text-sm">
-                  <span className="text-xs text-slate-300 uppercase">
-                    Remaining
-                  </span>
-                  <span className="text-2xl font-extrabold tabular-nums text-gold">
-                    {timer}s
-                  </span>
-                </div>
-
-                <div className="">
-                  <AnimateBudget budget={remainingBudget} label="Remaining" />
-                </div>
-              </div>
-
-       
-            </div>
-
-            {/* Player card */}
-            <div className="w-full">
-              <PlayerCard
-                player={player}
-                soldInfo={soldInfo}
-                soldDisplayMs={SOLD_DISPLAY_MS}
-                isForeign={isCurrentPlayerForeign}
-              />
-            </div>
-
-            {/* Live bid */}
-            <div className="mt-4">
-              <LiveBidBox
-                bid={bid}
-                bidder={bidder}
-                ownerName={playerName}
-                socket={socket}
-              />
-            </div>
-          </div>
-
-          {/* Stats card */}
-          <div className="bg-auc rounded-2xl p-2 shadow-inner border border-white/5">
-            <PlayerStats player={player} />
-          </div>
-
-          {/* Mobile: replace inline top-paid cards with a compact PAID button that opens modal */}
-          <div className="bg-black/30 rounded-2xl p-4 flex items-center justify-between gap-3 md:hidden">
+      <div className="relative z-10 px-3 pb-28">
+        {/* Header */}
+        <header className="max-w-6xl mx-auto w-full flex items-center justify-between gap-4 py-4">
+          <div className="flex items-center gap-3">
+     
             <div>
-              <h3 className="text-sm font-bold text-white">Top Paid</h3>
-              <p className="text-xs text-slate-400">
-                Tap to view top 10 paid players
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
+                AuctionPlay
+              </h1>
+              <p className="text-xs text-slate-400 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Live Cricket Auction Room
               </p>
             </div>
+          </div>
+
+          <div className="flex items-center gap-3 text-xs sm:text-sm">
+            <div className="hidden sm:flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-xl px-3 py-2">
+              <span className="uppercase text-slate-400 text-[11px]">Room</span>
+              <span className="px-2 py-1 rounded-lg bg-slate-800 font-mono text-[12px]">
+                {roomCode}
+              </span>
+            </div>
+
+            <div className="hidden sm:flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-xl px-3 py-2">
+              <span className="uppercase text-slate-400 text-[11px]">
+                Owner
+              </span>
+              <span className="px-2 py-1 rounded-lg bg-slate-800 font-mono text-[12px]">
+                {playerName}
+              </span>
+            </div>
+
             <button
-              className="btn btn-sm btn-primary"
-              onClick={() =>
-                document.getElementById("topPaidModal")?.showModal?.()(true)
-              }
-              aria-haspopup="dialog"
+              onClick={() => {
+                setShowChat(true);
+                lastSeenCountRef.current = messages.length;
+                setUnreadCount(0);
+              }}
+              className="relative inline-flex items-center gap-2 rounded-full px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold shadow-lg shadow-emerald-500/30 transition"
+              aria-label="Open chat"
             >
-              PAID
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M5 5h14v9H8l-3 3V5z"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              Chat
+              {unreadCount > 0 && (
+                <span className="absolute -top-2 -right-3 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {unreadCount > 9 ? "9+" : unreadCount}
+                </span>
+              )}
             </button>
           </div>
-        </section>
+        </header>
 
-        {/* Right: Controls, Utilities, Other Teams */}
-        <aside className="lg:col-span-5 col-span-1 flex flex-col gap-4">
-          <div className="bg-black/40 rounded-2xl p-4 shadow-xl border border-white/5 flex flex-col gap-4">
-            {/* Budget summary */}
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <div className="text-xs text-slate-300">Remaining Budget</div>
-                <div className="text-lg font-extrabold">
-                  ₹{Math.round(remainingBudget ?? 0)}
+        {/* Main layout */}
+        <main className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-5">
+          {/* LEFT PANEL */}
+          <section className="lg:col-span-7 col-span-1 flex flex-col gap-4">
+            {/* Timer + Player + Live bid */}
+            <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-lg shadow-slate-950/60">
+              {/* Top row: timer + team summary */}
+              <div className="flex items-center justify-between gap-4 mb-4">
+                {/* Timer */}
+                <div className="flex items-center gap-4">
+                  <div className="relative w-16 h-16 sm:w-20 sm:h-20">
+                    <div className="absolute inset-0 rounded-full border border-slate-700/70" />
+                    <div className="absolute inset-1 rounded-full border-2 border-amber-400/80 border-t-transparent animate-[spin_35s_linear_infinite]" />
+                    <div className="relative flex flex-col items-center justify-center h-full">
+                      <span className="text-[10px] uppercase text-slate-400 tracking-wide">
+                        Timer
+                      </span>
+                      <span className="text-lg sm:text-xl font-extrabold tabular-nums text-amber-400">
+                        {timer}s
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase text-slate-400">
+                      Current Lot
+                    </p>
+                    <p className="text-sm text-slate-300">
+                    Be ready to bid.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Your budget snapshot */}
+                <div className="sm:flex flex-col items-end gap-1">
+                  
+                  <AnimateBudget budget={remainingBudget} />
+
+                  <p className="text-[11px] text-slate-400 text-right">
+                    Squad:{" "}
+                    <span className="font-semibold text-slate-100">
+                      {team.length}/{totalPlayersPerTeam ?? 0}
+                    </span>
+                  </p>
                 </div>
               </div>
 
-              <div className="text-right">
-                <div className="text-xs text-slate-300">Team Size</div>
-                <div className="text-lg font-extrabold">
-                  {team.length}/{totalPlayersPerTeam ?? 0}
+              {/* Player card block */}
+              <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-4 mb-4">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-slate-400">
+                    Player on the block
+                  </p>
+                  <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] uppercase tracking-wider bg-slate-800 text-slate-300">
+                    {isCurrentPlayerForeign ? (
+                      <>
+                        🌍 <span>Foreign</span>
+                      </>
+                    ) : (
+                      <>
+                        🇮🇳 <span>Domestic</span>
+                      </>
+                    )}
+                  </span>
+                </div>
+                <PlayerCard
+                  player={player}
+                  soldInfo={soldInfo}
+                  soldDisplayMs={SOLD_DISPLAY_MS}
+                  isForeign={isCurrentPlayerForeign}
+                />
+              </div>
+
+              {/* Live bid row */}
+              
+                <div className="md:col-span-2 bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-2">
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-[11px] uppercase text-slate-400 tracking-[0.16em]">
+                      Live bidding
+                    </p>
+                    <p className="text-xs text-slate-400">
+                      Min increment:{" "}
+                      <span className="font-semibold text-slate-200">
+                        {getIncrement(bid)}
+                      </span>
+                    </p>
+                  </div>
+                  <LiveBidBox
+                    bid={bid}
+                    bidder={bidder}
+                    ownerName={playerName}
+                    socket={socket}
+                  />
+                </div>
+            </div>
+
+            {/* Stats card */}
+            <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 sm:p-4">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-sm font-semibold">Player Insights</h3>
+                <span className="text-[10px] uppercase text-slate-500">
+                  Recent seasons
+                </span>
+              </div>
+              <PlayerStats player={player} />
+            </div>
+
+            {/* Mobile Top Paid CTA */}
+            <div className="bg-slate-950/90 border border-slate-800 rounded-2xl p-3 flex items-center justify-between gap-3 md:hidden">
+              <div>
+                <h3 className="text-sm font-semibold">Top Paid</h3>
+                <p className="text-xs text-slate-400">
+                  Tap to view top 10 paid players
+                </p>
+              </div>
+              <button
+                className="btn btn-sm btn-primary rounded-lg px-4 py-2 bg-indigo-600 hover:bg-indigo-500 border-0"
+                onClick={() =>
+                  document.getElementById("topPaidModal")?.showModal?.()(true)
+                }
+                aria-haspopup="dialog"
+              >
+                PAID
+              </button>
+            </div>
+          </section>
+
+          {/* RIGHT PANEL */}
+          <aside className="lg:col-span-5 col-span-1 flex flex-col gap-4">
+            {/* Your table / budget & main actions */}
+            <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-lg shadow-slate-950/60 flex flex-col gap-4">
+              {/* Budget + team size */}
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-[11px] uppercase text-slate-400 tracking-[0.16em]">
+                    Remaining Budget
+                  </p>
+                  <p className="text-xl font-bold text-emerald-400">
+                    ₹{Math.round(remainingBudget ?? 0)}
+                  </p>
+                  <div className="mt-1 h-1.5 w-32 bg-slate-900 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-emerald-500"
+                      style={{
+                        width: `${
+                          totalPlayersPerTeam
+                            ? (team.length / totalPlayersPerTeam) * 100
+                            : 0
+                        }%`,
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="text-right">
+                  <p className="text-[11px] uppercase text-slate-400 tracking-[0.16em]">
+                    Squad Size
+                  </p>
+                  <p className="text-xl font-bold">
+                    {team.length}/{totalPlayersPerTeam ?? 0}
+                  </p>
+                  <p className="text-[11px] text-slate-400 mt-1">
+                    Keep enough for last slots
+                  </p>
+                </div>
+              </div>
+
+              {/* Actions (desktop/tablet) */}
+              <div className="hidden md:grid grid-cols-2 gap-3">
+                <button
+                  onClick={handleBid}
+                  disabled={bidDisabled}
+                  className={`h-11 rounded-lg text-sm font-semibold uppercase tracking-wide transition ${
+                    bidDisabled
+                      ? "bg-slate-800 text-slate-500 cursor-not-allowed"
+                      : "bg-emerald-500 text-slate-900 hover:bg-emerald-400 shadow-sm shadow-emerald-500/40"
+                  }`}
+                >
+                  Place Bid
+                </button>
+
+                <button
+                  onClick={handlePass}
+                  disabled={
+                    passDisabled ||
+                    bidder?.toLowerCase() === playerName.toLowerCase() ||
+                    (isCurrentPlayerForeign && foreignLimitReached)
+                  }
+                  className={`h-11 rounded-lg text-sm font-semibold uppercase tracking-wide transition ${
+                    passDisabled ||
+                    bidder?.toLowerCase() === playerName.toLowerCase() ||
+                    (isCurrentPlayerForeign && foreignLimitReached)
+                      ? "bg-slate-800 text-slate-500 cursor-not-allowed"
+                      : "bg-amber-500 text-slate-900 hover:bg-amber-400 shadow-sm shadow-amber-500/40"
+                  }`}
+                  title={
+                    isCurrentPlayerForeign && foreignLimitReached
+                      ? "You have reached your foreign player limit — you cannot participate in this auction"
+                      : undefined
+                  }
+                >
+                  {passDisabled
+                    ? `Pass (${passDisableRemaining}s)`
+                    : isCurrentPlayerForeign && foreignLimitReached
+                    ? "Locked"
+                    : "Skip Player"}
+                </button>
+              </div>
+
+              {/* Bid meta */}
+              <div className="text-sm text-slate-300">
+                <div>
+                  Current bid:{" "}
+                  <span className="font-semibold text-slate-50">₹{bid}</span>
+                </div>
+                <div>
+                  Highest bidder:{" "}
+                  <span className="font-semibold text-slate-50">
+                    {bidder ?? "—"}
+                  </span>
+                </div>
+                <div className="mt-1 text-xs text-slate-400">
+                  Minimum increment:{" "}
+                  <span className="font-medium">{getIncrement(bid)}</span>
                 </div>
               </div>
             </div>
 
-            {/* Primary actions (desktop/tablet) */}
-            <div className="hidden md:grid grid-cols-2 gap-3">
+            {/* Utility grid */}
+            <div className="grid grid-cols-3 gap-3">
+              <button
+                className="rounded-xl p-3 text-xs font-semibold bg-slate-950/80 border border-slate-800 hover:border-emerald-500/60 hover:bg-slate-900 transition flex flex-col items-start gap-1"
+                onClick={() =>
+                  document.getElementById("allTeamsModal")?.showModal()
+                }
+                title="View all teams / trade players"
+              >
+                <span className="text-[11px] uppercase text-slate-400">
+                  Trade Table
+                </span>
+                <span className="text-sm">TRADE</span>
+              </button>
+
+              <label
+                htmlFor="my-drawer-1"
+                className="rounded-xl p-3 text-xs font-semibold bg-slate-950/80 border border-slate-800 hover:border-indigo-500/60 hover:bg-slate-900 transition flex flex-col items-start gap-1 cursor-pointer"
+              >
+                <span className="text-[11px] uppercase text-slate-400">
+                  Your Squad
+                </span>
+                <span className="text-sm">SQUAD</span>
+              </label>
+
+              <button
+                className="rounded-xl p-3 text-xs font-semibold bg-slate-950/80 border border-slate-800 hover:border-amber-500/60 hover:bg-slate-900 transition flex flex-col items-start gap-1"
+                onClick={() =>
+                  document.getElementById("otherBudgetsModal")?.showModal()
+                }
+              >
+                <span className="text-[11px] uppercase text-slate-400">
+                  Budgets
+                </span>
+                <span className="text-sm">BUDS</span>
+              </button>
+            </div>
+
+            {/* Other teams */}
+            <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4">
+              <div className="flex items-center justify-between mb-2">
+                <h4 className="text-sm font-semibold">Other Tables</h4>
+                <span className="text-[11px] uppercase text-slate-500">
+                  Live budgets
+                </span>
+              </div>
+              <div className="max-h-52 overflow-y-auto space-y-2">
+                {otherTeams?.length ? (
+                  otherTeams.map((p) => {
+                    const maxBudget = room?.budget ?? p?.budget ?? 0;
+                    const currentBudget = Math.round(
+                      p?.budget ?? room?.budget ?? 0
+                    );
+                    const percent =
+                      maxBudget > 0
+                        ? Math.max(
+                            0,
+                            Math.min(100, (currentBudget / maxBudget) * 100)
+                          )
+                        : 0;
+
+                    return (
+                      <div
+                        key={p.name}
+                        className="flex flex-col gap-1 bg-slate-900/80 border border-slate-800 rounded-lg p-2.5"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="text-sm font-medium truncate">
+                            {p.name}
+                          </div>
+                          <div className="text-[11px] text-slate-300">
+                            ₹{currentBudget}
+                          </div>
+                        </div>
+                        <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-emerald-500/80"
+                            style={{ width: `${percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className="text-xs text-slate-400">
+                    No other teams yet.
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Desktop: Top Paid */}
+            <div className="hidden lg:block">
+              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 flex items-center justify-between">
+                <div>
+                  <h4 className="text-sm font-semibold">Top Paid (Top 10)</h4>
+                  <p className="text-xs text-slate-400">
+                    Open leaderboard of highest bids
+                  </p>
+                </div>
+                <button
+                  className="btn btn-sm btn-primary rounded-lg px-4 py-2 bg-indigo-600 hover:bg-indigo-500 border-0"
+                  onClick={() =>
+                    document.getElementById("topPaidModal")?.showModal?.()(true)
+                  }
+                >
+                  PAID
+                </button>
+              </div>
+            </div>
+          </aside>
+        </main>
+
+        {/* Mobile bottom bid bar */}
+        <div className="md:hidden fixed left-0 right-0 bottom-0 z-40 bg-slate-950/95 border-t border-slate-800 px-3 py-2">
+          <div className="max-w-6xl mx-auto flex items-center gap-3">
+            <div className="flex-1">
+              <p className="text-[11px] uppercase text-slate-400 tracking-[0.14em]">
+                Current Bid
+              </p>
+              <p className="text-base font-semibold">
+                ₹{bid}{" "}
+                <span className="text-xs font-normal text-slate-400">
+                  by {bidder ?? "—"}
+                </span>
+              </p>
+            </div>
+            <div className="flex gap-2 w-44">
               <button
                 onClick={handleBid}
                 disabled={bidDisabled}
-                className={`h-12 rounded-lg text-base font-bold transition p-2 ${
+                className={`flex-1 h-10 rounded-lg text-xs font-semibold uppercase tracking-wide transition ${
                   bidDisabled
-                    ? "bg-primary/40 text-white cursor-not-allowed"
-                    : "bg-player text-white hover:bg-primary/90"
+                    ? "bg-slate-800 text-slate-500 cursor-not-allowed"
+                    : "bg-emerald-500 text-slate-900 hover:bg-emerald-400"
                 }`}
               >
-                Place Bid
+                Bid
               </button>
-
               <button
                 onClick={handlePass}
                 disabled={
@@ -806,239 +1092,82 @@ function AuctionRoom() {
                   bidder?.toLowerCase() === playerName.toLowerCase() ||
                   (isCurrentPlayerForeign && foreignLimitReached)
                 }
-                className={`h-12 rounded-lg text-base font-bold transition p-2 ${
+                className={`flex-1 h-10 rounded-lg text-xs font-semibold uppercase tracking-wide transition ${
                   passDisabled ||
                   bidder?.toLowerCase() === playerName.toLowerCase() ||
                   (isCurrentPlayerForeign && foreignLimitReached)
-                    ? "bg-amber-400/40 text-amber-900 cursor-not-allowed"
-                    : "bg-amber-600 text-white hover:bg-amber-500"
+                    ? "bg-slate-800 text-slate-500 cursor-not-allowed"
+                    : "bg-amber-500 text-slate-900 hover:bg-amber-400"
                 }`}
                 title={
                   isCurrentPlayerForeign && foreignLimitReached
-                    ? "You have reached your foreign player limit — you cannot participate in this auction"
+                    ? "Foreign player limit reached"
                     : undefined
                 }
               >
-                {passDisabled
-                  ? `Pass (${passDisableRemaining}s)`
-                  : isCurrentPlayerForeign && foreignLimitReached
-                  ? "Locked"
-                  : "Skip Player"}
+                {passDisabled ? `Pass (${passDisableRemaining}s)` : "Skip"}
               </button>
             </div>
-
-            {/* Increment / Bid info */}
-            <div className="text-sm text-slate-300">
-              <div>
-                Current bid: <span className="font-semibold">₹{bid}</span>
-              </div>
-              <div>
-                Highest bidder:{" "}
-                <span className="font-semibold">{bidder ?? "—"}</span>
-              </div>
-              <div className="mt-2 text-xs text-slate-400">
-                Minimum increment:{" "}
-                <span className="font-medium">{getIncrement(bid)}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Utility grid */}
-          <div className="grid grid-cols-3 gap-3">
-            
-            <button
-              className="rounded-lg p-3 text-xs font-semibold bg-neutral btn btn-neutral btn-outline hover:bg-neutral text-accent"
-              onClick={() =>
-                document.getElementById("allTeamsModal")?.showModal()
-              }
-              title="View all teams / trade"
-            >
-              TRADE
-            </button>
-
-            <label
-              htmlFor="my-drawer-1"
-              className="rounded-lg p-3 text-xs font-semibold cursor-pointer btn  btn-primary hover:bg-primary/80"
-            >
-              SQUAD
-            </label>
-
-            {/* BUDS button: small-screen only (inline panel shows on md+) */}
-            <button
-              className="rounded-lg p-3 text-xs font-semibold btn btn-secondary btn-outline hover:bg-neutral hover:btn-neutral text-secondary"
-              onClick={() =>
-                document.getElementById("otherBudgetsModal")?.showModal()
-              }
-            >
-              BUDS
-            </button>
-          </div>
-
-          {/* Other teams list */}
-          <div className="bg-black/30 rounded-2xl p-4">
-            <h4 className="text-sm font-bold text-white mb-2">Other Teams</h4>
-            <div className="max-h-48 overflow-y-auto space-y-2">
-              {otherTeams?.length ? (
-                otherTeams.map((p) => (
-                  <div
-                    key={p.name}
-                    className="flex items-center justify-between bg-white/5 p-2 rounded-md"
-                  >
-                    <div className="text-sm font-medium truncate">{p.name}</div>
-                    <div className="text-xs text-slate-300">
-                      Budget: ₹{Math.round(p?.budget ?? room?.budget ?? 0)}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="text-xs text-slate-400">
-                  No other teams yet.
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Desktop: PAID button (opens TopPaidModal) */}
-          <div className="hidden lg:block">
-            <div className="bg-black/30 rounded-2xl p-4 flex items-center justify-between">
-              <div>
-                <h4 className="text-sm font-bold text-white mb-1">
-                  Top Paid (Top 10)
-                </h4>
-                <p className="text-xs text-slate-400">
-                  Open full top-paid list
-                </p>
-              </div>
-
-              <button
-                className="btn btn-sm btn-primary"
-                onClick={() =>
-                  document.getElementById("topPaidModal")?.showModal?.()(true)
-                }
-              >
-                PAID
-              </button>
-            </div>
-          </div>
-        </aside>
-      </main>
-
-      {/* Fixed bottom bar for small screens (floating Place Bid area).
-        It's intentionally below typical dialog overlays (z-40) so modals can appear above it (z-50+). */}
-      <div className="md:hidden fixed left-0 right-0 bottom-3 z-40 bg-linear-to-t from-black/80 to-black/60 border-t border-white/5 p-3 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto flex items-center gap-3">
-          <div className="flex-1">
-            <div className="text-xs text-slate-300">Current bid</div>
-            <div className="text-lg font-extrabold">
-              ₹{bid}{" "}
-              <span className="text-sm font-normal text-slate-400">
-                by {bidder ?? "—"}
-              </span>
-            </div>
-          </div>
-
-          <div className="flex gap-2">
-             <button
-              onClick={handleBid}
-              disabled={bidDisabled}
-              className={`flex-1 h-12 rounded-lg text-base font-bold transition p-2  min-w-30 ${
-                bidDisabled
-                  ? "bg-primary/40 text-white cursor-not-allowed"
-                  : "bg-player text-white"
-              }`}
-            >
-              Bid
-            </button>
-            <button
-              onClick={handlePass}
-              disabled={
-                passDisabled ||
-                bidder?.toLowerCase() === playerName.toLowerCase() ||
-                (isCurrentPlayerForeign && foreignLimitReached)
-              }
-              className={`flex-1 h-12 rounded-lg text-base font-bold transition p-2 min-w-30  ${
-                passDisabled ||
-                bidder?.toLowerCase() === playerName.toLowerCase() ||
-                (isCurrentPlayerForeign && foreignLimitReached)
-                  ? "bg-amber-400/40 text-amber-900 cursor-not-allowed"
-                  : "bg-amber-600 text-white"
-              }`}
-              title={
-                isCurrentPlayerForeign && foreignLimitReached
-                  ? "You have reached your foreign player limit — you cannot participate in this auction"
-                  : undefined
-              }
-            >
-              {passDisabled ? `Pass (${passDisableRemaining}s)` : "Skip"}
-            </button>
-
-           
           </div>
         </div>
-      </div>
 
-      {/* Other Modals / Panels */}
-      <AllTeamsModal
-        room={room}
-        totalPlayersPerTeam={totalPlayersPerTeam}
-        playerName={playerName}
-        socket={socket}
-        preventClose={auctionEnded}
-        onClose={() => {
-          if (auctionEnded) {
-            navigate("/");
-            return;
-          }
-        }}
-      />
+        {/* Modals / overlays (unchanged) */}
+        <AllTeamsModal
+          room={room}
+          totalPlayersPerTeam={totalPlayersPerTeam}
+          playerName={playerName}
+          socket={socket}
+          preventClose={auctionEnded}
+          onClose={() => {
+            if (auctionEnded) {
+              navigate("/");
+              return;
+            }
+          }}
+        />
 
-      {/* Small-screen Budgets dialog is already handled inside OtherBudgetsModal component */}
-      <OtherBudgetsModal
-        room={room}
-        playerName={playerName}
-        totalPlayersPerTeam={totalPlayersPerTeam}
-      />
+        <OtherBudgetsModal
+          room={room}
+          playerName={playerName}
+          totalPlayersPerTeam={totalPlayersPerTeam}
+        />
 
-      {/* TopPaidModal instance — open it from any PAID button above.
-        This assumes TopPaidModal is implemented as a dialog/modal that appears when rendered,
-        or it responds to document.getElementById('topPaidModal')?.showModal() if it uses native dialog.
-    */}
-      <TopPaidModal
-        topPlayers={topPlayers}
-        onClose={() => {
-          /* noop or setShowTopPaid(false) if you wire local state */
-        }}
-      />
+        <TopPaidModal
+          topPlayers={topPlayers}
+          onClose={() => {
+            /* noop or your own state handler */
+          }}
+        />
 
-      {/* Chat overlay (kept interactive / high z-index so it covers bottom bar) */}
-      {showChat && (
-        <div
-          className="fixed inset-0 z-50 bg-black/70 flex justify-center items-end sm:items-center p-4"
-          onClick={() => setShowChat(false)}
-        >
+        {showChat && (
           <div
-            className="w-full max-w-md h-96 bg-gradient-to-b from-white/5 to-white/3 rounded-2xl shadow-2xl overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-50 bg-black/70 flex justify-center items-end sm:items-center p-4"
+            onClick={() => setShowChat(false)}
           >
-            <ChatBox
-              roomId={roomCode}
-              playerName={playerName}
-              messages={messages}
-              setMessages={setMessages}
-              closeChat={() => setShowChat(false)}
-            />
+            <div
+              className="w-full max-w-md h-96  overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ChatBox
+                roomId={roomCode}
+                playerName={playerName}
+                messages={messages}
+                setMessages={setMessages}
+                closeChat={() => setShowChat(false)}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <SquadDrawer
-        team={team}
-        room={room}
-        remainingBudget={remainingBudget}
-        totalPlayersPerTeam={totalPlayersPerTeam}
-        bid={bid}
-        bidder={bidder}
-      />
+        <SquadDrawer
+          team={team}
+          room={room}
+          remainingBudget={remainingBudget}
+          totalPlayersPerTeam={totalPlayersPerTeam}
+          bid={bid}
+          bidder={bidder}
+        />
+      </div>
     </div>
   );
 }

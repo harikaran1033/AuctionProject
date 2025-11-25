@@ -282,16 +282,6 @@ export default function LiveBidBox({
     } catch (err) {}
   };
 
-  // formatted time-since-update
-  const timeSince = useMemo(() => {
-    const s = Math.round((Date.now() - lastUpdatedTs) / 1000);
-    if (s < 5) return "just now";
-    if (s < 60) return `${s}s`;
-    const m = Math.round(s / 60);
-    if (m < 60) return `${m}m`;
-    const h = Math.round(m / 60);
-    return `${h}h`;
-  }, [lastUpdatedTs]);
 
   return (
     <div
@@ -357,23 +347,16 @@ export default function LiveBidBox({
                 {pctLabel}
               </div>
 
-              <div className="text-[11px] text-white/40 px-2 py-0.5 rounded-md bg-[rgba(255,255,255,0.02)]">{timeSince}</div>
+             
 
-              {/* delta badge */}
-              <AnimatePresence>
-                {showDelta && delta > 0 && (
-                  <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.36 }}>
-                    <div className="ml-1 text-[12px] font-semibold px-2 py-0.5 rounded-md text-black" style={{ background: 'linear-gradient(90deg,#34D399,#06B6D4)' }}>+{delta.toFixed(2)}</div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+          
             </div>
           </div>
         </div>
       </div>
 
       {/* Center/Right: sparkline only (no round bar) and responsive visibility */}
-      <div className="flex-1 flex items-center justify-end min-w-0" style={{ flexBasis: 0 }}>
+      <div className="relative flex-1 flex items-center justify-end min-w-0" style={{ flexBasis: 0 }}>
         <div className="w-[190px] sm:w-[220px] h-10 rounded-md px-2 py-1 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),transparent)] border border-white/5 flex items-center gap-3" onClick={openTrades} role="button" aria-label="Open trades">
           <div className="flex-1 h-full flex items-center">
             <svg className="w-full h-full" viewBox={`0 0 ${svgW} ${svgH}`} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
@@ -409,6 +392,15 @@ export default function LiveBidBox({
             </svg>
           </div>
         </div>
+
+            {/* delta badge */}
+              <AnimatePresence>
+                {showDelta && delta > 0 && (
+                  <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.36 }}>
+                    <div className="ml-1 text-[12px] font-semibold px-2 py-0.5 rounded-md text-black absolute bottom-0 right-0" style={{ background: 'linear-gradient(90deg,#34D399,#06B6D4)' }}>+{delta.toFixed(2)}</div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
       </div>
 
       <span className="sr-only" aria-live="assertive">Live auction. Highest bid {Number(bid).toFixed(2)} by {bidderName}.</span>

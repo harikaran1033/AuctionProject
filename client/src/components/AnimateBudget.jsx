@@ -22,14 +22,14 @@ const AnimateBudget = ({ budget = 0, label = "Budget" }) => {
     <motion.div
       role="status"
       aria-live="polite"
-      className="inline-flex items-center gap-3 px-3 py-2 rounded-lg  backdrop-blur-sm border border-white/6"
+      className="inline-flex items-center gap-3  rounded-lg  backdrop-blur-sm border border-white/6"
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 24 }}
       title={`${label}: ${display} Cr`}
     >
-      <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-tr from-yellow-200/20 to-cyan-200/12 border border-white/6">
+      {/* <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-tr from-yellow-200/20 to-cyan-200/12 border border-white/6">
         <Wallet className="w-4 h-4" />
-      </div>
+      </div> */}
 
       <div className="flex flex-col leading-tight">
         <span className="text-[10px] uppercase text-font text-muted">{label}</span>

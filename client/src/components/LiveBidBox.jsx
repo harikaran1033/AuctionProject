@@ -285,7 +285,7 @@ export default function LiveBidBox({
 
   return (
     <div
-      className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-xl w-full max-w-[720px] bg-[linear-gradient(90deg,#061018dd,rgba(6,10,16,0.6))] border border-white/6 shadow-[0_8px_30px_rgba(2,6,23,0.65)] backdrop-blur-md"
+      className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-xl w-full max-w-[720px] bg-white/5  backdrop-blur-md"
       role="status"
       aria-live="polite"
     >

@@ -50,6 +50,10 @@ function setupSocket(server) {
     return { $regex: `^${escapeRegex(normalizeName(name))}$`, $options: "i" };
   }
 
+  function playerNameKey(p) {
+  return (p?.NAME || p?.name || "").trim().toLowerCase();
+}
+
   io.on("connection", (socket) => {
     // console.log("⚡ A user connected");
 
@@ -1647,16 +1651,33 @@ async function sendNextPlayer(roomCode) {
     clearInterval(state.intervalId);
     state.intervalId = null;
   }
+
+
+  if (!state.players || state.players.length === 0) return;
+
+  const room = await Room.findOne({ roomCode });
+  if (!room) return;
+
+  // Skip any players that are already owned by any team in the room (defensive)
+  while (state.players.length > 0) {
+    const candidate = state.players[0];
+    const candidateName = playerNameKey(candidate);
+    const alreadyOwned = (room.players || []).some((pl) =>
+      (pl.team || []).some((t) => (t.name || "").trim().toLowerCase() === candidateName)
+    );
+    if (alreadyOwned) {
+      // remove duplicate candidate and continue
+      state.players.shift();
+      continue;
+    }
+    break;
+  }
   // claim work
   if (!state.players || state.players.length === 0) return;
 
   // current candidate is first in queue
   const rawPlayer = state.players[0];
   if (!rawPlayer) return;
-
-  const room = await Room.findOne({ roomCode });
-  if (!room) return;
-
   const playerData = {
     name: rawPlayer.NAME,
     team: rawPlayer.TEAM?.trim(),

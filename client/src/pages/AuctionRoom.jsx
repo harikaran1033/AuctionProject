@@ -20,6 +20,7 @@ import AllTeamsModal from "../components/AllTeamsModal";
 import SquadDrawer from "../components/SquadDrawer.jsx";
 import TopPaidModal from "../components/TopPaidModal";
 import LiveBidBox from "../components/LiveBidBox.jsx";
+import HintButton from "../components/HintButton.jsx";
 
 function AuctionRoom() {
   const { roomCode } = useParams();
@@ -673,6 +674,7 @@ function AuctionRoom() {
           <div className="flex items-center gap-3 text-xs sm:text-sm">
             <div className="hidden sm:flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-xl px-3 py-2">
               <span className="uppercase text-slate-400 text-[11px]">Room</span>
+              
               <span className="px-2 py-1 rounded-lg bg-slate-800 font-mono text-[12px]">
                 {roomCode}
               </span>
@@ -693,22 +695,11 @@ function AuctionRoom() {
                 lastSeenCountRef.current = messages.length;
                 setUnreadCount(0);
               }}
-              className="relative inline-flex items-center gap-2 rounded-full px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold shadow-lg shadow-emerald-500/30 transition"
+              className="relative inline-flex items-center justify-center gap-1 rounded-full px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold shadow-lg shadow-emerald-500/30 transition"
               aria-label="Open chat"
             >
-              <svg
-                className="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  d="M5 5h14v9H8l-3 3V5z"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              
+              <MessageSquare className="w-4 h-4 mt-1" />
               Chat
               {unreadCount > 0 && (
                 <span className="absolute -top-2 -right-3 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
@@ -736,6 +727,7 @@ function AuctionRoom() {
                       <span className="text-[10px] uppercase text-slate-400 tracking-wide">
                         Timer
                       </span>
+                      
                       <span className="text-lg sm:text-xl font-extrabold tabular-nums text-amber-400">
                         {timer}s
                       </span>
@@ -752,16 +744,18 @@ function AuctionRoom() {
                 </div>
 
                 {/* Your budget snapshot */}
-                <div className="sm:flex flex-col items-end gap-1">
+                <div className="sm:flex flex flex-col items-end gap-1">
                   
                   <AnimateBudget budget={remainingBudget} />
-
+                   <div className="flex gap-2 items-center">
                   <p className="text-[11px] text-slate-400 text-right">
                     Squad:{" "}
                     <span className="font-semibold text-slate-100">
                       {team.length}/{totalPlayersPerTeam ?? 0}
                     </span>
                   </p>
+                  <HintButton />
+</div>
                 </div>
               </div>
 

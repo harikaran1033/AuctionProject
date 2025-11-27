@@ -1,7 +1,7 @@
 // client/websocket.js
 import { io } from "socket.io-client";
 
-const SOCKET_URL = "https://auctionplay.onrender.com";
+const SOCKET_URL = "http://localhost:5000";
 
 const socket = io(SOCKET_URL, {
   transports: ["polling", "websocket"], // try polling first (diagnostic), then upgrade

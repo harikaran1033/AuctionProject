@@ -175,7 +175,7 @@ export default function RoomLobby() {
                   className="px-3 py-1 rounded-md bg-highlight/95 text-black text-sm font-semibold shadow-sm"
                   title={copy ? "Copied" : "Copy"}
                 >
-                  {copy ? "Copied" : "Copy Code"}
+                  {copy ? "Copied" : <Copy />}
                 </button>
                 <button
                   onClick={() => navigator.clipboard.writeText(window.location.href)}
@@ -266,7 +266,7 @@ export default function RoomLobby() {
                 <button onClick={handleStart} className="btn btn-wide bg-highlight text-black font-semibold hover:scale-105 transition-all duration-200 px-6 py-2 rounded-lg">
                   <ArrowRightCircle className="mr-2" /> Start Auction
                 </button>
-                <button onClick={() => navigate(`/auction/${roomCode}`)} className="px-4 py-2 rounded-lg bg-white/5 text-white/90">Preview Auction</button>
+           
               </div>
             ) : (
               <div className="text-xs text-white/60">{isCreator ? "Waiting for all teams to join…" : "Please wait for the host to start the auction."}</div>
@@ -327,9 +327,7 @@ export default function RoomLobby() {
                 </div>
               </RuleItem>
 
-              <div className="mt-3 text-center">
-                <button onClick={() => navigate(`/auction/${roomCode}`)} className="w-full px-4 py-2 rounded-lg bg-highlight/95 font-semibold text-black">See Auction Preview</button>
-              </div>
+            
             </div>
           </div>
 

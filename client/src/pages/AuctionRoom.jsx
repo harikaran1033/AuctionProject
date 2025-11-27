@@ -772,7 +772,7 @@ function AuctionRoom() {
                       </>
                     ) : (
                       <>
-                        🇮🇳 <span>Domestic</span>
+                        <span>Domestic</span>
                       </>
                     )}
                   </span>

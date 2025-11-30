@@ -8,16 +8,22 @@ import { useParams, useNavigate } from "react-router-dom";
 import socket from "../socket";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
-import { BadgeDollarSign } from "lucide-react";
 import AnimateBid from "../components/AnimateBid";
 import PlayerCard from "../components/PlayerCard";
 import AnimateBudget from "../components/AnimateBudget";
 import ChatBox from "../components/ChatBox.jsx";
-import { MessageSquare, Users2, Wallet } from "lucide-react";
+import { Badge, MessageSquare } from "lucide-react";
 import PlayerStats from "../components/PlayerStats.jsx";
 import OtherBudgetsModal from "../components/OtherBudgetsModal.jsx";
 import AllTeamsModal from "../components/AllTeamsModal";
 import SquadDrawer from "../components/SquadDrawer.jsx";
+import { Menu } from "lucide-react";
+import { CircleDollarSign, IndianRupee } from "lucide-react";
+import { Repeat } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
+import { Crown } from "lucide-react";
+import { Medal } from "lucide-react";
+
 import TopPaidModal from "../components/TopPaidModal";
 import LiveBidBox from "../components/LiveBidBox.jsx";
 import HintButton from "../components/HintButton.jsx";
@@ -659,7 +665,6 @@ function AuctionRoom() {
         {/* Header */}
         <header className="max-w-6xl mx-auto w-full flex items-center justify-between gap-4 py-4">
           <div className="flex items-center gap-3">
-     
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
                 AuctionPlay
@@ -674,7 +679,7 @@ function AuctionRoom() {
           <div className="flex items-center gap-3 text-xs sm:text-sm">
             <div className="hidden sm:flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-xl px-3 py-2">
               <span className="uppercase text-slate-400 text-[11px]">Room</span>
-              
+
               <span className="px-2 py-1 rounded-lg bg-slate-800 font-mono text-[12px]">
                 {roomCode}
               </span>
@@ -698,8 +703,7 @@ function AuctionRoom() {
               className="relative inline-flex items-center justify-center gap-1 rounded-full px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold shadow-lg shadow-emerald-500/30 transition"
               aria-label="Open chat"
             >
-              
-              <MessageSquare className="w-4 h-4 mt-1" />
+              {/* <MessageSquare className="w-4 h-4 mt-1" /> */}
               Chat
               {unreadCount > 0 && (
                 <span className="absolute -top-2 -right-3 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
@@ -727,7 +731,7 @@ function AuctionRoom() {
                       <span className="text-[10px] uppercase text-slate-400 tracking-wide">
                         Timer
                       </span>
-                      
+
                       <span className="text-lg sm:text-xl font-extrabold tabular-nums text-amber-400">
                         {timer}s
                       </span>
@@ -737,25 +741,22 @@ function AuctionRoom() {
                     <p className="text-[11px] uppercase text-slate-400">
                       Current Lot
                     </p>
-                    <p className="text-sm text-slate-300">
-                    Be ready to bid.
-                    </p>
+                    <p className="text-sm text-slate-300">Be ready to bid.</p>
                   </div>
                 </div>
 
                 {/* Your budget snapshot */}
                 <div className="sm:flex flex flex-col items-end gap-1">
-                  
                   <AnimateBudget budget={remainingBudget} />
-                   <div className="flex gap-2 items-center">
-                  <p className="text-[11px] text-slate-400 text-right">
-                    Squad:{" "}
-                    <span className="font-semibold text-slate-100">
-                      {team.length}/{totalPlayersPerTeam ?? 0}
-                    </span>
-                  </p>
-                  <HintButton />
-</div>
+                  <div className="flex gap-2 items-center">
+                    <p className="text-[11px] text-slate-400 text-right">
+                      Squad:{" "}
+                      <span className="font-semibold text-slate-100">
+                        {team.length}/{totalPlayersPerTeam ?? 0}
+                      </span>
+                    </p>
+                    <HintButton />
+                  </div>
                 </div>
               </div>
 
@@ -786,26 +787,68 @@ function AuctionRoom() {
               </div>
 
               {/* Live bid row */}
-              
-                <div className="md:col-span-2 bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-2">
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-[11px] uppercase text-slate-400 tracking-[0.16em]">
-                      Live bidding
-                    </p>
-                    <p className="text-xs text-slate-400">
-                      Min increment:{" "}
-                      <span className="font-semibold text-slate-200">
-                        {getIncrement(bid)}
-                      </span>
-                    </p>
-                  </div>
-                  <LiveBidBox
-                    bid={bid}
-                    bidder={bidder}
-                    ownerName={playerName}
-                    socket={socket}
-                  />
+
+              <div className="md:col-span-2 bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-2">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-[11px] uppercase text-slate-400 tracking-[0.16em]">
+                    Live bidding
+                  </p>
+                  <p className="text-xs text-slate-400">
+                    Min increment:{" "}
+                    <span className="font-semibold text-slate-200">
+                      {getIncrement(bid)}
+                    </span>
+                  </p>
                 </div>
+                <LiveBidBox
+                  bid={bid}
+                  bidder={bidder}
+                  ownerName={playerName}
+                  socket={socket}
+                />
+              </div>
+            </div>
+
+            <div className="fab  fixed bottom-16 right-2 md:hidden lg:hidden">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-lg btn-circle btn-primary"
+              >
+                <Menu />
+              </div>
+
+              <div className="fab-close">
+                Close <span className="btn btn-circle btn-lg btn-error">✕</span>
+              </div>
+              <button
+                className="btn btn-lg btn-circle text-xs"
+                onClick={() =>
+                  document.getElementById("topPaidModal")?.showModal?.()(true)
+                }
+              >
+                <Crown className="text-emerald-500"/>
+              </button>
+              <button
+                className="btn btn-lg btn-circle "
+                onClick={() =>
+                  document.getElementById("otherBudgetsModal")?.showModal()
+                }
+              >
+                {/* <span className="text-xs">BUDS</span> */}
+                <CircleDollarSign  className="text-gold"/>
+              </button>
+
+              <button
+                className="btn btn-lg btn-circle"
+                onClick={() =>
+                  document.getElementById("allTeamsModal")?.showModal()
+                }
+                title="View all teams / trade players"
+              >
+                {/* <span className="text-xs">TRADE</span> */}
+                <Repeat  className="text-primary"/>
+              </button>
             </div>
 
             {/* Stats card */}
@@ -820,7 +863,7 @@ function AuctionRoom() {
             </div>
 
             {/* Mobile Top Paid CTA */}
-            <div className="bg-slate-950/90 border border-slate-800 rounded-2xl p-3 flex items-center justify-between gap-3 md:hidden">
+            <div className="bg-slate-950/90 border border-slate-800 rounded-2xl p-3  items-center justify-between gap-3 hidden md:flex">
               <div>
                 <h3 className="text-sm font-semibold">Top Paid</h3>
                 <p className="text-xs text-slate-400">
@@ -1067,7 +1110,7 @@ function AuctionRoom() {
                 </span>
               </p>
             </div>
-            <div className="flex gap-2 w-44">
+            <div className="flex gap-2 w-48">
               <button
                 onClick={handleBid}
                 disabled={bidDisabled}
@@ -1101,6 +1144,13 @@ function AuctionRoom() {
               >
                 {passDisabled ? `Pass (${passDisableRemaining}s)` : "Skip"}
               </button>
+
+              <label
+                htmlFor="my-drawer-1"
+                className="flex-1 rounded-lg text-xs font-semibold uppercase tracking-wide transition flex justify-center items-center text-white border cursor-pointer"
+              >
+                <span className="text-xs">SQUAD</span>
+              </label>
             </div>
           </div>
         </div>

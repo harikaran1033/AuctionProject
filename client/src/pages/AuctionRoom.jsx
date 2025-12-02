@@ -27,6 +27,7 @@ import { Medal } from "lucide-react";
 import TopPaidModal from "../components/TopPaidModal";
 import LiveBidBox from "../components/LiveBidBox.jsx";
 import HintButton from "../components/HintButton.jsx";
+import WikiPlayerStats from "../components/WikiPlayerStats.jsx";
 
 function AuctionRoom() {
   const { roomCode } = useParams();
@@ -827,7 +828,7 @@ function AuctionRoom() {
                   document.getElementById("topPaidModal")?.showModal?.()(true)
                 }
               >
-                <Crown className="text-emerald-500"/>
+                <Crown className="text-emerald-500" />
               </button>
               <button
                 className="btn btn-lg btn-circle "
@@ -836,7 +837,7 @@ function AuctionRoom() {
                 }
               >
                 {/* <span className="text-xs">BUDS</span> */}
-                <CircleDollarSign  className="text-gold"/>
+                <CircleDollarSign className="text-gold" />
               </button>
 
               <button
@@ -847,7 +848,7 @@ function AuctionRoom() {
                 title="View all teams / trade players"
               >
                 {/* <span className="text-xs">TRADE</span> */}
-                <Repeat  className="text-primary"/>
+                <Repeat className="text-primary" />
               </button>
             </div>
 
@@ -860,10 +861,12 @@ function AuctionRoom() {
                 </span>
               </div>
               <PlayerStats player={player} />
+
+              <WikiPlayerStats player={player} room={room} />
             </div>
 
             {/* Mobile Top Paid CTA */}
-            <div className="bg-slate-950/90 border border-slate-800 rounded-2xl p-3  items-center justify-between gap-3 hidden md:flex">
+            <div className="bg-slate-950/90 border border-slate-800 rounded-2xl p-3  items-center justify-between gap-3 flex md:hidden sm:hidden ">
               <div>
                 <h3 className="text-sm font-semibold">Top Paid</h3>
                 <p className="text-xs text-slate-400">
@@ -1155,7 +1158,8 @@ function AuctionRoom() {
           </div>
         </div>
 
-        {/* Modals / overlays (unchanged) */}
+
+
         <AllTeamsModal
           room={room}
           totalPlayersPerTeam={totalPlayersPerTeam}

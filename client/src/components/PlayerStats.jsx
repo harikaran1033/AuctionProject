@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Star } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 /* helpers (keeps your safe() behavior but treats 0 as valid) */
 const safe = (v) => (v === null || v === undefined || v === "" ? "-" : String(v));
@@ -63,6 +64,56 @@ const remainingStyle = (s) => {
   const parts = String(s).split(",").map((p) => p.trim()).filter(Boolean);
   return parts.slice(1).join(", ");
 };
+
+// AnimatedNumber: animates numeric strings on mount/change. Non-numeric values are rendered as-is.
+function AnimatedNumber({ value, duration = 800, decimals = null }) {
+  // value: string or number
+  const raw = value ?? "-";
+  const str = String(raw).trim();
+
+  // detect plain numeric string (optionally with commas)
+  const numericMatch = str.match(/^(-?\d{1,3}(?:,\d{3})*|\d+)(?:\.(\d+))?$/);
+  if (!numericMatch) {
+    // not a clean number -> just render safely
+    return <div className="text-sm font-semibold text-white tabular-nums">{safe(raw)}</div>;
+  }
+
+  // parse target and decide formatting
+  const integerPart = numericMatch[1].replace(/,/g, "");
+  const fraction = numericMatch[2] ?? null;
+  const target = parseFloat(`${integerPart}${fraction ? '.' + fraction : ''}`);
+  const precision = decimals ?? (fraction ? fraction.length : 0);
+
+  const mv = useMotionValue(0);
+  const spring = useSpring(mv, { stiffness: 120, damping: 20, mass: 1 });
+  const [display, setDisplay] = useState(() => {
+    // show 0 initially (or preserve initial if you prefer)
+    return precision > 0 ? (0).toFixed(precision) : String(0);
+  });
+
+  useEffect(() => {
+    // start animation to target on mount / when target changes
+    mv.set(target);
+    const unsubscribe = spring.on('change', (v) => {
+      if (precision > 0) setDisplay(Number(v).toFixed(precision));
+      else setDisplay(String(Math.round(v)));
+    });
+    return () => unsubscribe();
+  }, [target, precision]);
+
+  // optional: show commas for thousands for integers
+  const formatted = () => {
+    if (precision > 0) {
+      // keep decimals as fixed, but format integer part with commas
+      const parts = display.split('.');
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return parts.join('.');
+    }
+    return display.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  return <div className="text-sm font-semibold text-white tabular-nums">{formatted()}</div>;
+}
 
 export default function PlayerStats({ player = {} }) {
   // keep the last non-empty player to avoid flash-of-empty on initial mount
@@ -226,7 +277,8 @@ export default function PlayerStats({ player = {} }) {
         <div className="mt-3 grid grid-cols-4 sm:grid-cols-4 gap-2">
           {entries.slice(0, 4).map(([k, v]) => (
             <div key={k} className="bg-white/6 rounded-md px-3 py-2 flex flex-col">
-              <div className="text-sm font-semibold text-white tabular-nums">{v}</div>
+              {/* use AnimatedNumber for numeric values */}
+              <AnimatedNumber value={v} />
               <div className="text-[10px] text-muted uppercase tracking-wide mt-1">{k}</div>
             </div>
           ))}

@@ -1220,7 +1220,7 @@ export default[
     "TEAM": "ENG",
     "ROLE": "WK-Batter",
     "NATION": "England",
-    "BASE_PRICE": 10.0,
+    "BASE_PRICE": 2.0,
     "PLAYER_STYLE": "Right-hand bat",
     "PLAYER_TYPE": "Wicketkeeper",
     "BEST": "124",

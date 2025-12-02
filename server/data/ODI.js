@@ -2746,6 +2746,27 @@ export default
     }
 },
 {
+    "NAME": "Quinton de Kock",
+    "TEAM": "SA",
+    "ROLE": "WK-Batter",
+    "NATION": "South Africa",
+    "BASE_PRICE": 2.0,
+    "PLAYER_STYLE": "Left-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "178",
+    "STATS": {
+        "Batting": {
+            "M": 158,
+            "I": 158,
+            "R": 7009,
+            "Avg": 46.73,
+            "SR": 95.64,
+            "50": 32,
+            "100": 22
+        }
+    }
+},
+{
     "NAME": "Dewald Brevis",
     "TEAM": "SA",
     "ROLE": "Batter",

@@ -1215,6 +1215,27 @@ export default[
     }
   }
 },
+{
+    "NAME": "Jos Buttler",
+    "TEAM": "ENG",
+    "ROLE": "WK-Batter",
+    "NATION": "England",
+    "BASE_PRICE": 10.0,
+    "PLAYER_STYLE": "Right-hand bat",
+    "PLAYER_TYPE": "Wicketkeeper",
+    "BEST": "124",
+    "STATS": {
+        "Batting": {
+            "M": 103,
+            "I": 100,
+            "R": 3377,
+            "Avg": 38.37,
+            "SR": 147.92,
+            "50": 20,
+            "100": 7
+        }
+    }
+},
    {
     "NAME": "ANUJ RAWAT",
     "TEAM": "GT",

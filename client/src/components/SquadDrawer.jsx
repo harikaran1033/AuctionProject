@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useMemo, useState } from "react";
 import { isForeign, getIncrement } from "../utils/players";
@@ -9,25 +11,62 @@ export default function SquadDrawer({
   totalPlayersPerTeam = 0,
   bid = 0,
   bidder = null,
-
 }) {
   const [copied, setCopied] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   // positions is an array of objects or nulls length 11 representing XI slots 1..11
-  const [positions, setPositions] = useState(() => Array(11).fill(null));
-  // meta for each assigned slot: { playerName, price, role, nation, isCaptain, isVC }
   const [selectedPos, setSelectedPos] = useState(null);
+  const STORE_KEY = `squad_xi_positions_${room?.id ?? "global"}`;
+
+  const [positions, setPositions] = useState(() => {
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (!raw) return Array(11).fill(null);
+      const parsed = JSON.parse(raw);
+      // basic validation: must be array length 11 or fallback
+      if (Array.isArray(parsed) && parsed.length === 11) return parsed;
+      return Array(11).fill(null);
+    } catch (e) {
+      return Array(11).fill(null);
+    }
+  });
 
   useEffect(() => {
-    // keep positions in sync if team shrinks/changes: remove assignments of players not in team
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(positions));
+    } catch (e) {
+      // ignore storage errors (e.g. privacy mode)
+    }
+  }, [positions, STORE_KEY]);
+
+  useEffect(() => {
+    // don't try to validate until we have a non-empty team (avoid wiping on initial load)
+    if (!team || team.length === 0) return;
+
     setPositions((prev) =>
       prev.map((slot) => {
         if (!slot) return null;
-        const exists = team.find((p) => p.name === slot.playerName);
+        // case-insensitive match to be tolerant of differences
+        const exists = team.find(
+          (p) =>
+            String(p.name).toLowerCase() ===
+            String(slot.playerName).toLowerCase()
+        );
         return exists ? slot : null;
       })
     );
   }, [team]);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(
+        `squad_xi_positions_${room?.id ?? "global"}`
+      );
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length === 11) setPositions(parsed);
+    } catch (e) {}
+  }, [room?.id]);
 
   const roles = ["Batter", "Bowler", "All-Rounder", "WK-Batter"];
 
@@ -36,7 +75,9 @@ export default function SquadDrawer({
       .toLowerCase()
       .replace(/\b\w/g, (c) => c.toUpperCase());
 
-  const foreignCount = team.filter((p) => isForeign(room?.dataset, p.nation)).length;
+  const foreignCount = team.filter((p) =>
+    isForeign(room?.dataset, p.nation)
+  ).length;
 
   const nextMinBid = (() => {
     const current = Number(bid || 0);
@@ -56,7 +97,22 @@ export default function SquadDrawer({
     setIsEditOpen(false);
   };
 
-  const resetPositions = () => setPositions(Array(11).fill(null));
+  const resetPositions = () => {
+    const empty = Array(11).fill(null);
+    setPositions(empty);
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch (e) {}
+  };
+
+  useEffect(() => {
+    const allEmpty = positions.every((p) => p === null);
+    if (allEmpty) {
+      try {
+        localStorage.removeItem(STORE_KEY);
+      } catch (e) {}
+    }
+  }, [positions]);
 
   const assignPlayerToSelected = (player) => {
     // if no selected position, choose first free slot (index 0..10)
@@ -124,44 +180,48 @@ export default function SquadDrawer({
     });
   };
 
-const copyTeam = async () => {
-  try {
-    let textToCopy;
-    if (isEditOpen) {
-      // Build a numbered, human readable list from positions
-      const lines = positions
-        .map((p, i) => {
-          if (!p) return null;
-          const pos = i + 1;
-          const name = formatName(p.playerName);
-          const role = p.role || "";
-          // show (c) or (vc) in lowercase as requested
-          const flag = p.isCaptain ? " (c)" : p.isVC ? " (vc)" : "";
-          return `${pos}. ${name} - ${role}${flag}`;
-        })
-        .filter(Boolean);
-      textToCopy = lines.join("\n");
-    } else {
-      // keep original behaviour in normal mode (JSON)
-      textToCopy = JSON.stringify(
-        team.map((p) => ({ name: p.name, price: p.price, role: p.role })),
-        null,
-        2
-      );
+  const copyTeam = async () => {
+    try {
+      let textToCopy;
+      if (isEditOpen) {
+        // Build a numbered, human readable list from positions
+        const lines = positions
+          .map((p, i) => {
+            if (!p) return null;
+            const pos = i + 1;
+            const name = formatName(p.playerName);
+            const role = p.role || "";
+            // show (c) or (vc) in lowercase as requested
+            const flag = p.isCaptain ? " (c)" : p.isVC ? " (vc)" : "";
+            return `${pos}. ${name} - ${role}${flag}`;
+          })
+          .filter(Boolean);
+        textToCopy = lines.join("\n");
+      } else {
+        // keep original behaviour in normal mode (JSON)
+        textToCopy = JSON.stringify(
+          team.map((p) => ({ name: p.name, price: p.price, role: p.role })),
+          null,
+          2
+        );
+      }
+
+      await navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1200);
+    } catch (e) {
+      // noop
     }
-
-    await navigator.clipboard.writeText(textToCopy);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1200);
-  } catch (e) {
-    // noop
-  }
-};
-
+  };
 
   const playersByRole = useMemo(() => {
     const map = {};
-    roles.forEach((r) => (map[r] = team.filter((p) => String(p.role || "").toLowerCase() === r.toLowerCase())));
+    roles.forEach(
+      (r) =>
+        (map[r] = team.filter(
+          (p) => String(p.role || "").toLowerCase() === r.toLowerCase()
+        ))
+    );
     return map;
   }, [team]);
 
@@ -175,7 +235,9 @@ const copyTeam = async () => {
         <div className="menu bg-bg text-white min-h-full w-80 p-4 border-l border-border relative">
           {/* Header */}
           <div className="flex justify-between items-center mb-3 border-b border-border pb-2">
-            <h4 className="text-lg font-semibold text-role uppercase tracking-wide">Your Squad</h4>
+            <h4 className="text-lg font-semibold text-role uppercase tracking-wide">
+              Your Squad
+            </h4>
             <div className="flex items-center gap-2">
               <button
                 type="button"
@@ -185,7 +247,10 @@ const copyTeam = async () => {
               >
                 {isEditOpen ? "Squad" : "Edit Squad"}
               </button>
-              <label htmlFor="my-drawer-1" className="cursor-pointer hover:text-playerName transition-colors text-base">
+              <label
+                htmlFor="my-drawer-1"
+                className="cursor-pointer hover:text-playerName transition-colors text-base"
+              >
                 ✕
               </label>
             </div>
@@ -198,31 +263,43 @@ const copyTeam = async () => {
               <div className="space-y-3">
                 <div className="bg-card rounded-lg p-2 border border-border/60 transition-all duration-200">
                   <div className="flex justify-between items-center mb-1">
-                    <h5 className="text-player font-semibold text-[11px] uppercase tracking-wide">Your XI</h5>
-                    <span className="text-[10px] text-mute">Click a slot then assign a player</span>
+                    <h5 className="text-player font-semibold text-[11px] uppercase tracking-wide">
+                      Your XI
+                    </h5>
+                    <span className="text-[10px] text-mute">
+                      Click a slot then assign a player
+                    </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 mb-3">
-
                     {positions.map((slot, idx) => (
                       <div
                         key={idx}
                         onClick={() => setSelectedPos(idx)}
-                        className={`p-2 rounded-md border min-h-[64px] cursor-pointer relative ${
-                          selectedPos === idx ? "border-player/80 shadow" : "border-border/40"
+                        className={`p-2 rounded-md border min-h-16 cursor-pointer relative ${
+                          selectedPos === idx
+                            ? "border-player/80 shadow"
+                            : "border-border/40"
                         }`}
                       >
                         <div className="text-xs text-mute">#{idx + 1}</div>
                         {slot ? (
                           <div className="mt-1">
                             {/* only show name inside the slot */}
-                            <div className="font-medium">{formatName(slot.playerName)}</div>
+                            <div className="font-medium">
+                              {formatName(slot.playerName)}
+                            </div>
 
                             <div className="flex items-center gap-2 mt-2">
                               <button
                                 type="button"
-                                onClick={(e) => { e.stopPropagation(); toggleCaptain(idx); }}
-                                className={`text-[11px] btn btn-ghost btn-xs ${slot.isCaptain ? "btn-active" : ""}`}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  toggleCaptain(idx);
+                                }}
+                                className={`text-[11px] btn btn-ghost btn-xs ${
+                                  slot.isCaptain ? "btn-active" : ""
+                                }`}
                                 title="Toggle Captain"
                               >
                                 C
@@ -230,8 +307,13 @@ const copyTeam = async () => {
 
                               <button
                                 type="button"
-                                onClick={(e) => { e.stopPropagation(); toggleVC(idx); }}
-                                className={`text-[11px] btn btn-ghost btn-xs ${slot.isVC ? "btn-active" : ""}`}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  toggleVC(idx);
+                                }}
+                                className={`text-[11px] btn btn-ghost btn-xs ${
+                                  slot.isVC ? "btn-active" : ""
+                                }`}
                                 title="Toggle Vice-Captain"
                               >
                                 VC
@@ -239,7 +321,10 @@ const copyTeam = async () => {
 
                               <button
                                 type="button"
-                                onClick={(e) => { e.stopPropagation(); removeFromPosition(idx); }}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  removeFromPosition(idx);
+                                }}
                                 className="text-[11px] btn btn-ghost btn-xs"
                                 title="Remove from slot"
                               >
@@ -248,7 +333,7 @@ const copyTeam = async () => {
                             </div>
                           </div>
                         ) : (
-                          <div className="mt-2 text-sm text-mute">Empty</div>
+                          <div className="mt-2 text-xs text-mute">Empty</div>
                         )}
 
                         {slot && (
@@ -261,34 +346,57 @@ const copyTeam = async () => {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <button type="button" onClick={() => setSelectedPos(null)} className="btn btn-sm">Clear Selection</button>
-                    <button type="button" onClick={resetPositions} className="btn btn-sm btn-outline">Reset XI</button>
-                    <div className="text-sm text-mute">{selectedPos !== null ? `Selected: #${selectedPos + 1}` : "No position selected"}</div>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedPos(null)}
+                      className="btn btn-sm"
+                    >
+                      Clear Selection
+                    </button>
+                    <button
+                      type="button"
+                      onClick={resetPositions}
+                      className="btn btn-sm btn-outline"
+                    >
+                      Reset XI
+                    </button>
+                    {/* <div className="text-sm text-mute">{selectedPos !== null ? `Selected: #${selectedPos + 1}` : "No position selected"}</div> */}
                   </div>
                 </div>
 
                 <div className="bg-card rounded-lg p-2 border border-border/60 transition-all duration-200">
                   <div className="flex justify-between items-center mb-1">
-                    <h5 className="text-player font-semibold text-[11px] uppercase tracking-wide">Squad</h5>
-                    <span className="text-[10px] text-mute">Tap a player to assign to selected slot</span>
+                    <h5 className="text-player font-semibold text-[11px] uppercase tracking-wide">
+                      Squad
+                    </h5>
+                    <span className="text-[10px] text-mute">
+                      Tap a player to assign to selected slot
+                    </span>
                   </div>
 
-                  <div className="h-[240px] overflow-y-auto pr-2 space-y-2">
+                  <div className="h-60 overflow-y-auto  space-y-2">
                     {team.map((p, i) => (
-                      <div key={i} className="flex items-center justify-between p-2 border rounded-md">
+                      <div
+                        key={i}
+                        className="flex items-center justify-between p-2 border rounded-md"
+                      >
                         <div className="flex items-center gap-2">
-                          <div className="text-sm font-medium">{formatName(p.name)}</div>
+                          <div className="text-sm font-medium text-emerald-500">
+                            {formatName(p.name)}
+                          </div>
                           <div className="text-xs text-mute">{p.role}</div>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="text-xs">₹{p.price} Cr</div>
-                          <button
-                            type="button"
-                            onClick={() => assignPlayerToSelected(p)}
-                            className="btn btn-xs"
-                          >
-                            Assign
-                          </button>
+                          {isEditOpen && (
+                            <button
+                              type="button"
+                              onClick={() => assignPlayerToSelected(p)}
+                              className="btn btn-xs btn-outline"
+                              title="Assign to selected slot (or first empty)"
+                            >
+                              Assign
+                            </button>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -303,31 +411,53 @@ const copyTeam = async () => {
                   if (players.length === 0) return null;
 
                   return (
-                    <div key={role} className="bg-card rounded-lg p-2 border border-border/60 hover:border-player/60 transition-all duration-200">
+                    <div
+                      key={role}
+                      className="bg-card rounded-lg p-2 border border-border/60 hover:border-player/60 transition-all duration-200"
+                    >
                       <div className="flex justify-between items-center mb-1">
-                        <h5 className="text-player  font-semibold text-[11px] uppercase tracking-wide">{role}s</h5>
-                        <span className="text-[10px] text-mute">{players.length}</span>
+                        <h5 className="text-player  font-semibold text-[11px] uppercase tracking-wide">
+                          {role}s
+                        </h5>
+                        <span className="text-[10px] text-mute">
+                          {players.length}
+                        </span>
                       </div>
 
                       <ul className="divide-y divide-border/40 text-[13px] font-medium">
                         {players.map((p, i) => (
-                          <li key={i} className="flex justify-between items-center py-1 flex-row">
+                          <li
+                            key={i}
+                            className="flex justify-between items-center py-1 flex-row"
+                          >
                             <div className="flex items-center gap-1">
-                              <span className="text-white">{formatName(p.name)}</span>
+                              <span className="text-white">
+                                {formatName(p.name)}
+                              </span>
                               {isForeign(room.dataset, p.nation) && (
-                                <span className="text-white/40 text-[11px]" title={`${p.nation} Player`}>✈</span>
+                                <span
+                                  className="text-white/40 text-[11px]"
+                                  title={`${p.nation} Player`}
+                                >
+                                  ✈
+                                </span>
                               )}
                             </div>
+                          
                             <div className="flex items-center gap-2">
-                              <span className="text-bid text-highlight font-semibold text-[12px]">₹{p.price} Cr</span>
-                              <button
-                                type="button"
-                                onClick={() => assignPlayerToSelected(p)}
-                                className="btn btn-xs btn-outline"
-                                title="Assign to selected slot (or first empty)"
-                              >
-                                Assign
-                              </button>
+                              <span className="text-bid text-highlight font-semibold text-[12px]">
+                                ₹{p.price} Cr
+                              </span>
+                              {isEditOpen && (
+                                <button
+                                  type="button"
+                                  onClick={() => assignPlayerToSelected(p)}
+                                  className="btn btn-xs btn-outline"
+                                  title="Assign to selected slot (or first empty)"
+                                >
+                                  Assign
+                                </button>
+                              )}
                             </div>
                           </li>
                         ))}
@@ -344,12 +474,16 @@ const copyTeam = async () => {
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <p className="text-sm text-mute">Remaining Budget</p>
-                <p className="text-role font-semibold">₹{Number(remainingBudget).toFixed(2)} Cr</p>
+                <p className="text-role font-semibold">
+                  ₹{Number(remainingBudget).toFixed(2)} Cr
+                </p>
               </div>
 
               <div>
                 <p className="text-sm text-mute">Spots Filled</p>
-                <p className="text-playerName font-semibold">{team.length} / {totalPlayersPerTeam}</p>
+                <p className="text-playerName font-semibold">
+                  {team.length} / {totalPlayersPerTeam}
+                </p>
               </div>
 
               <div>
@@ -367,7 +501,9 @@ const copyTeam = async () => {
 
               <div>
                 <p className="text-sm text-mute">Next min bid</p>
-                <p className="text-playerName font-semibold">₹{nextMinBid} Cr</p>
+                <p className="text-playerName font-semibold">
+                  ₹{nextMinBid} Cr
+                </p>
               </div>
             </div>
 

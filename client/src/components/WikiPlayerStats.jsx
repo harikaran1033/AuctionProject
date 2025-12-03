@@ -797,6 +797,179 @@ function matchesDataset(table, dataset) {
   return false;
 }
 
+/* ----------------- NEW: pickMetricsForFormat -----------------
+   Given a parsed table and the datasetKey/type, return a normalized
+   small table containing only the allowed metrics (Metric / Value).
+   This keeps your parsing logic intact and just trims what is shown.
+----------------------------------------------------------------*/
+const METRIC_SETS = {
+  // canonical labels we want to show for career T20I/T20/league
+  t20: [
+    "competition",
+    "t20i",
+    "matches",
+    "mat",
+    "runs scored",
+    "runs",
+    "batting average",
+    "avg",
+    "100s/50s",
+    "100s/50s",
+    "top score",
+    "balls bowled",
+    "wickets",
+    "wkts",
+    "bowling average",
+    "best bowling",
+    "5 wickets in innings",
+    "5w",
+    "10 wickets in match",
+    "10w",
+    "catches/stumpings",
+    "catches",
+  ],
+  // ODI set (similar keys)
+  odi: [
+    "competition",
+    "matches",
+    "mat",
+    "runs scored",
+    "runs",
+    "batting average",
+    "avg",
+    "100s/50s",
+    "top score",
+    "balls bowled",
+    "wickets",
+    "bowling average",
+    "best bowling",
+    "catches/stumpings",
+  ],
+  // Test set
+  test: [
+    "competition",
+    "matches",
+    "mat",
+    "runs scored",
+    "runs",
+    "batting average",
+    "avg",
+    "100s/50s",
+    "top score",
+    "balls bowled",
+    "wickets",
+    "bowling average",
+    "best bowling",
+    "catches/stumpings",
+  ],
+};
+
+// helper to normalize keys (strip punctuation & lower)
+function canonicalKey(k) {
+  if (!k) return "";
+  return k
+    .toString()
+    .replace(/[:\u2013\u2014–—]/g, " ")
+    .replace(/[^\w\s/]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+// return a normalized small table { title, headers: ['Metric','Value'], rows: [{Metric, Value}, ...] }
+function pickMetricsForFormat(table, datasetKey) {
+  if (!table || !table.rows || !table.rows.length) return null;
+
+  const dk = (datasetKey || "").toLowerCase().trim();
+  let wanted = METRIC_SETS.t20;
+  if (dk === "odi") wanted = METRIC_SETS.odi;
+  if (dk === "test") wanted = METRIC_SETS.test;
+  if (LEAGUE_DATASETS.has(dk)) wanted = METRIC_SETS.t20; // leagues use t20 set
+
+  // If datasetKey unspecified, attempt to infer from table title
+  const titleLower = (table.title || "").toLowerCase();
+  if (!dk) {
+    if (titleLower.includes("odi")) wanted = METRIC_SETS.odi;
+    else if (titleLower.includes("test")) wanted = METRIC_SETS.test;
+    else wanted = METRIC_SETS.t20;
+  }
+
+  const normalizedRows = [];
+
+  // table may already be in Metric-Value form (pivoted) or columnar
+  // Try to map first column -> metric name, second column -> value
+  for (const r of table.rows) {
+    const firstKey = Object.keys(r)[0];
+    const secondKey = Object.keys(r)[1] ?? Object.keys(r)[0];
+    const rawMetric = (r[firstKey] ?? "").toString().trim();
+    const rawValue = (r[secondKey] ?? "").toString().trim();
+
+    const ck = canonicalKey(rawMetric);
+
+    // Check if canonical metric matches any wanted token (loose contains)
+    const matchesWanted = wanted.some((w) => ck.includes(canonicalKey(w)));
+    if (matchesWanted) {
+      // Normalize label: prefer a cleaned human label
+      let label = rawMetric
+        .replace(/\s+/g, " ")
+        .replace(/[:\u2013\u2014]/g, " ")
+        .trim();
+      // Some metrics come like "100s/50s" already fine; ensure consistent casing
+      if (/100s\/50s/i.test(label)) label = "100s/50s";
+      if (/top\s*score/i.test(label)) label = "Top score";
+      if (/balls\s*bowled/i.test(label)) label = "Balls bowled";
+      if (/wickets|wkts/i.test(label)) label = "Wickets";
+      if (/batting average|avg/i.test(label)) label = "Batting average";
+      if (/bowling average/i.test(label)) label = "Bowling average";
+      if (/best bowling|best/i.test(label)) label = "Best bowling";
+      if (/catches\/stumpings|catches|stumpings/i.test(label))
+        label = "Catches/stumpings";
+      if (/competition/i.test(label)) label = "Competition";
+
+      normalizedRows.push({ Metric: label, Value: rawValue || "-" });
+    }
+  }
+
+  // Deduplicate keeping first occurrence of each Metric
+  const seen = new Set();
+  const deduped = [];
+  for (const rr of normalizedRows) {
+    const k = canonicalKey(rr.Metric);
+    if (!seen.has(k)) {
+      deduped.push(rr);
+      seen.add(k);
+    }
+  }
+
+  // If there are no matches but the table already looks like "Metric/Value", keep top sensible rows (fallback)
+  if (!deduped.length) {
+    // Try a fallback: take rows whose metric looks numeric-like or common tokens
+    for (const r of table.rows.slice(0, 20)) {
+      const firstKey = Object.keys(r)[0];
+      const secondKey = Object.keys(r)[1] ?? Object.keys(r)[0];
+      const rawMetric = (r[firstKey] ?? "").toString().trim();
+      const rawValue = (r[secondKey] ?? "").toString().trim();
+      const ck2 = canonicalKey(rawMetric);
+      if (
+        /matches|mat|runs|wickets|wkts|avg|batting average|top score|balls bowled|best bowling|catches/.test(
+          ck2
+        )
+      ) {
+        deduped.push({ Metric: rawMetric, Value: rawValue || "-" });
+      }
+    }
+  }
+
+  if (!deduped.length) return null;
+
+  // Ensure the title indicates the format properly (prefer table.title)
+  const outTitle = table.title || "Career statistics";
+
+  return { title: outTitle, headers: ["Metric", "Value"], rows: deduped };
+}
+
+/* ----------------- MAIN COMPONENT ----------------- */
+
 export default function WikiPlayerStats({
   player,
   room,
@@ -990,12 +1163,17 @@ doc._skipTableIfTemplate = (table) => {
           selected ? selected.map((s) => s.title) : null
         );
 
-        setStatsTables(selected);
+        // Apply the pickMetricsForFormat filter to each selected table so we only display the desired small set
+        const filtered = (selected || [])
+          .map((t) => pickMetricsForFormat(t, datasetKey))
+          .filter(Boolean);
+
+        setStatsTables(filtered);
 
         // If nothing found show helpful message
         if (
           (!parsedRows || !parsedRows.length) &&
-          (!selected || !selected.length)
+          (!filtered || !filtered.length)
         ) {
           setError(
             datasetKey
@@ -1027,140 +1205,146 @@ doc._skipTableIfTemplate = (table) => {
 
   const headerName = name || "Unknown player";
 
-  return (
+   return (
     <motion.div
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       className="w-full mt-2"
     >
-      <div className="bg-black p-3 shadow-md border border-outline rounded-xl">
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <div className="text-xs text-emerald-500 truncate">Wikipedia</div>
-            <div className="text-lg font-semibold text-white">{headerName}</div>
+      {/* Grid container: stack on xs, side-by-side on sm+ */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {/* ---------- Left: Compact Infobox (small, matches stats styling) ---------- */}
+        <div className="bg-white/5 rounded-xl p-3 flex flex-col gap-3 shadow-sm">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <div className="text-xs text-emerald-500 truncate">Wikipedia</div>
+              <div className="text-base font-semibold text-white">{headerName}</div>
+            </div>
+            <div className="text-right text-[12px] text-muted">
+              <div className="text-[12px]">{player?.TEAM ?? player?.team ?? ""}</div>
+              {pageUrl ? (
+                <a
+                  href={pageUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-sky-400 hover:underline"
+                >
+                  View on Wikipedia <ExternalLink className="w-3 h-3" />
+                </a>
+              ) : null}
+            </div>
           </div>
-          <div className="text-right text-[12px] text-muted">
-            <div>{player?.TEAM ?? player?.team ?? ""}</div>
-            {pageUrl ? (
+
+          <div className="mt-1">
+            {loading && (
+              <div className="flex justify-center py-6">
+                <span className="loading loading-spinner loading-lg text-primary"></span>
+              </div>
+            )}
+
+            {!loading && error && (
+              <div className="p-2 rounded-md bg-white/6 text-sm text-muted">
+                {error}. You can still search Wikipedia manually.
+              </div>
+            )}
+
+            {!loading && rows && (
+              <div className="grid grid-cols-2 gap-2">
+                {rows.map(({ label, value }) => (
+                  <div
+                    key={label}
+                    className="bg-black/40 rounded-md px-2 py-2 flex flex-col min-h-[44px] justify-center"
+                  >
+                    <div className="text-sm font-semibold text-white tabular-nums">
+                      {safe(value)}
+                    </div>
+                    <div className="text-[10px] text-muted uppercase tracking-wide mt-1">
+                      {label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {!loading && !rows && !error && (
+              <div className="text-sm text-muted">No data available from Wikipedia infobox.</div>
+            )}
+          </div>
+
+          <div className="mt-1 text-[11px] text-muted">
+            <div>
+              Content from Wikipedia is available under <strong>CC BY-SA 4.0</strong>.{" "}
               <a
-                href={pageUrl}
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-sky-400 hover:underline"
+                className="underline"
               >
-                View on Wikipedia <ExternalLink className="w-3 h-3" />
+                License
               </a>
-            ) : null}
+              .
+            </div>
           </div>
         </div>
 
-       <div className="mt-3">
-  {loading && (
-    <div className="flex justify-center py-6">
-      <span className="loading loading-spinner loading-lg text-primary"></span>
-    </div>
-  )}
+        {/* ---------- Right: Stats Box (compact cards) ---------- */}
+        <div className="bg-white/5 rounded-xl p-3 flex flex-col gap-3 shadow-sm">
+          {!loading && statsTables && statsTables.length > 0 ? (
+            <div className="w-full">
+              <div className="grid grid-cols-1 gap-3">
+                {statsTables.map((tbl, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-black/40 rounded-md p-3 flex flex-col gap-3"
+                    aria-labelledby={`stats-${idx}`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div id={`stats-${idx}`} className="text-sm font-semibold text-emerald-300">
+                        {tbl.title}
+                      </div>
+                    </div>
 
-  {!loading && error && (
-    <div className="p-3 rounded-md bg-white/6 text-sm text-muted">
-      {error}. You can still search Wikipedia manually.
-    </div>
-  )}
-
-  {!loading && rows && (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-      {rows.map(({ label, value }) => (
-        <div
-          key={label}
-          className="bg-white/6 rounded-md px-3 py-2 flex flex-col"
-        >
-          <AnimatedNumber value={value} />
-          <div className="text-[10px] text-muted uppercase tracking-wide mt-1">
-            {label}
-          </div>
-        </div>
-      ))}
-    </div>
-  )}
-
-  {!loading && !rows && !error && (
-    <div className="text-sm text-muted">
-      No data available from Wikipedia infobox.
-    </div>
-  )}
-</div>
-
-
-        <div className="mt-3 text-[11px] text-muted">
-          <div>
-            Content from Wikipedia is available under{" "}
-            <strong>CC BY-SA 4.0</strong>.{" "}
-            <a
-              href="https://creativecommons.org/licenses/by-sa/4.0/"
-              target="_blank"
-              rel="noreferrer"
-              className="underline"
-            >
-              License
-            </a>
-            .
-          </div>
-        </div>
-      </div>
-
-      {/* --- Stats tables --- */}
-      {!loading && statsTables && statsTables.length > 0 && (
-        <div className="mt-3 space-y-3">
-          {statsTables.map((tbl, idx) => (
-            <div key={idx} className="bg-white/6 rounded-md p-2">
-              <div className="text-xs text-emerald-400 font-semibold mb-2">
-                {tbl.title}
-              </div>
-              <div className="overflow-auto">
-                <table className="w-full text-sm table-auto">
-                  <thead>
-                    <tr>
-                      {tbl.headers.map((h) => (
-                        <th
-                          key={h}
-                          className="text-left text-[11px] text-muted uppercase pr-4 pb-1"
-                        >
-                          {h}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tbl.rows.map((r, ridx) => (
-                      <tr key={ridx} className="align-top">
-                        {tbl.headers.map((h) => {
-                          const cell = r[h] ?? "";
-                          // detect numeric-ish cells and render AnimatedNumber
+                    <div className="w-full overflow-auto">
+                      <div className="grid grid-cols-2 gap-2">
+                        {tbl.rows.map((r, ridx) => {
                           const numeric =
                             /^(-?\d{1,3}(?:,\d{3})*|\d+)(?:\.(\d+))?$/.test(
-                              String(cell).trim()
+                              String(r.Value).trim()
                             );
                           return (
-                            <td key={h} className="py-1 pr-4 align-top">
-                              {numeric ? (
-                                <AnimatedNumber value={cell} />
-                              ) : (
-                                <div className="text-sm text-white">
-                                  {cell || "-"}
-                                </div>
-                              )}
-                            </td>
+                            <div
+                              key={ridx}
+                              className="bg-white/6 rounded-md p-2 flex items-center justify-between"
+                            >
+                              <div className="text-[11px] text-muted">{r.Metric}</div>
+                              <div className="ml-3 text-right">
+                                {numeric ? (
+                                  <AnimatedNumber value={r.Value} />
+                                ) : (
+                                  <div className="text-sm font-semibold text-white">
+                                    {r.Value || "-"}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
                           );
                         })}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          ) : (
+            !loading && (
+              <div className="p-2 rounded-md bg-white/6 text-sm text-muted">
+                No stats available.
+              </div>
+            )
+          )}
         </div>
-      )}
+      </div>
     </motion.div>
   );
+
 }

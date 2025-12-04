@@ -86,6 +86,9 @@ export default function SquadDrawer({
     return Number(next).toFixed(2);
   })();
 
+  // NEW: modal state for player selection
+  const [isPlayerModalOpen, setIsPlayerModalOpen] = useState(false);
+
   // Helpers for editor
   const openEditor = () => {
     // toggle edit mode (open inside drawer)
@@ -114,6 +117,7 @@ export default function SquadDrawer({
     }
   }, [positions]);
 
+  // assign uses selectedPos (existing behaviour)
   const assignPlayerToSelected = (player) => {
     // if no selected position, choose first free slot (index 0..10)
     let posIndex = selectedPos;
@@ -225,6 +229,27 @@ export default function SquadDrawer({
     return map;
   }, [team]);
 
+  // NEW helper: open player modal for a slot (used when clicking empty slot)
+  const openPlayerModal = (idx) => {
+    setSelectedPos(idx);
+    setIsPlayerModalOpen(true);
+  };
+
+  const closePlayerModal = () => {
+    setSelectedPos(null);
+    setIsPlayerModalOpen(false);
+  };
+
+  // Compute available players for the modal:
+  // exclude players already assigned to other slots (but allow the player assigned to the currently selected slot)
+  const availablePlayersForSelected = useMemo(() => {
+    if (selectedPos === null) return team || [];
+    const assignedOther = positions
+      .map((p, i) => (i === selectedPos || !p ? null : p.playerName))
+      .filter(Boolean);
+    return team.filter((p) => !assignedOther.includes(p.name));
+  }, [team, positions, selectedPos]);
+
   return (
     <div className="absolute right-4 top-4 font-body font-semibold drawer z-50">
       <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
@@ -257,7 +282,8 @@ export default function SquadDrawer({
           </div>
 
           {/* Scrollable Content - toggles between edit view and normal squad view */}
-          <div className="max-h-[68vh] overflow-y-auto pr-1 custom-scrollbar space-y-2">
+         <div className="max-h-[68vh] overflow-y-auto pr-1 custom-scrollbar space-y-2 pb-32">
+
             {isEditOpen ? (
               // EDIT MODE: XI editor inside the drawer
               <div className="space-y-3">
@@ -267,7 +293,7 @@ export default function SquadDrawer({
                       Your XI
                     </h5>
                     <span className="text-[10px] text-mute">
-                      Click a slot then assign a player
+                      Click an empty slot to assign a player
                     </span>
                   </div>
 
@@ -275,7 +301,8 @@ export default function SquadDrawer({
                     {positions.map((slot, idx) => (
                       <div
                         key={idx}
-                        onClick={() => setSelectedPos(idx)}
+                        // If slot is empty -> open the player modal; if filled -> select slot (existing actions still work)
+                        onClick={() => (slot ? setSelectedPos(idx) : openPlayerModal(idx))}
                         className={`p-2 rounded-md border min-h-16 cursor-pointer relative ${
                           selectedPos === idx
                             ? "border-player/80 shadow"
@@ -370,7 +397,7 @@ export default function SquadDrawer({
                       Squad
                     </h5>
                     <span className="text-[10px] text-mute">
-                      Tap a player to assign to selected slot
+                      Tap a player to assign to selected slot (or use slot modal)
                     </span>
                   </div>
 
@@ -390,7 +417,16 @@ export default function SquadDrawer({
                           {isEditOpen && (
                             <button
                               type="button"
-                              onClick={() => assignPlayerToSelected(p)}
+                              onClick={() => {
+                                // when tapping from list, set selectedPos (if none pick first empty) and assign
+                                if (selectedPos === null) {
+                                  const free = positions.findIndex((s) => s === null);
+                                  setSelectedPos(free === -1 ? null : free);
+                                }
+                                // assign and keep editor open
+                                assignPlayerToSelected(p);
+                                // if we opened this via modal we might want to close modal — but this button is in drawer so leave as-is
+                              }}
                               className="btn btn-xs btn-outline"
                               title="Assign to selected slot (or first empty)"
                             >
@@ -443,7 +479,7 @@ export default function SquadDrawer({
                                 </span>
                               )}
                             </div>
-                          
+
                             <div className="flex items-center gap-2">
                               <span className="text-bid text-highlight font-semibold text-[12px]">
                                 ₹{p.price} Cr
@@ -519,6 +555,64 @@ export default function SquadDrawer({
           </div>
         </div>
       </div>
+
+      {/* Player selection modal (shown when clicking an empty slot) */}
+      {isPlayerModalOpen && (
+        <div
+          className="fixed inset-0 z-60 flex items-center justify-center"
+          aria-modal="true"
+          role="dialog"
+        >
+          <div
+            className="absolute inset-0 bg-black/60"
+            onClick={closePlayerModal}
+          />
+          <div className="relative bg-black rounded-lg p-4 w-96 max-h-[70vh] overflow-y-auto border border-border">
+            <div className="flex justify-between items-center mb-3">
+              <h4 className="text-player font-semibold">Assign Player</h4>
+              <button className="btn btn-ghost btn-sm" onClick={closePlayerModal}>
+                Close
+              </button>
+            </div>
+
+            <div className="text-sm text-mute mb-2">
+              Choose a player to assign to slot #{selectedPos !== null ? selectedPos + 1 : "-"}
+            </div>
+
+            <div className="space-y-2">
+              {availablePlayersForSelected.length === 0 && (
+                <div className="text-xs text-mute">No available players</div>
+              )}
+
+              {availablePlayersForSelected.map((p, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between p-2 border rounded-md bg-black"
+                >
+                  <div>
+                    <div className="font-medium">{formatName(p.name)}</div>
+                    <div className="text-xs text-mute">{p.role}</div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <div className="text-xs text-bid">₹{p.price} Cr</div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        assignPlayerToSelected(p);
+                        closePlayerModal();
+                      }}
+                      className="btn btn-success btn-xs btn-outline"
+                    >
+                      Assign
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

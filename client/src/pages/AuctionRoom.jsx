@@ -8,11 +8,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import socket from "../socket";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
-import AnimateBid from "../components/AnimateBid";
 import PlayerCard from "../components/PlayerCard";
 import AnimateBudget from "../components/AnimateBudget";
 import ChatBox from "../components/ChatBox.jsx";
-import { Badge, MessageSquare } from "lucide-react";
 import PlayerStats from "../components/PlayerStats.jsx";
 import OtherBudgetsModal from "../components/OtherBudgetsModal.jsx";
 import AllTeamsModal from "../components/AllTeamsModal";
@@ -20,14 +18,12 @@ import SquadDrawer from "../components/SquadDrawer.jsx";
 import { Menu } from "lucide-react";
 import { CircleDollarSign, IndianRupee } from "lucide-react";
 import { Repeat } from "lucide-react";
-import { BadgeCheck } from "lucide-react";
 import { Crown } from "lucide-react";
-import { Medal } from "lucide-react";
-
 import TopPaidModal from "../components/TopPaidModal";
 import LiveBidBox from "../components/LiveBidBox.jsx";
 import HintButton from "../components/HintButton.jsx";
 import WikiPlayerStats from "../components/WikiPlayerStats.jsx";
+// import AuctionSimulationRunner from "../components/AuctionSimulationRunner.jsx";
 
 function AuctionRoom() {
   const { roomCode } = useParams();
@@ -967,6 +963,10 @@ function AuctionRoom() {
                 </button>
               </div>
 
+              {/* <label htmlFor="leagueRunnerModal" className="btn btn-primary">
+                Open League Runner
+              </label> */}
+
               {/* Bid meta */}
               <div className="text-sm text-slate-300">
                 <div>
@@ -1113,7 +1113,7 @@ function AuctionRoom() {
                 </span>
               </p>
             </div>
-            <div className="flex gap-2 w-48">
+            <div className="flex gap-2 w-64">
               <button
                 onClick={handleBid}
                 disabled={bidDisabled}
@@ -1150,7 +1150,7 @@ function AuctionRoom() {
 
               <label
                 htmlFor="my-drawer-1"
-                className="flex-1 rounded-lg text-xs font-semibold uppercase tracking-wide transition flex justify-center items-center text-white border cursor-pointer"
+                className="flex-1 rounded-lg text-xs font-semibold uppercase tracking-wide transition flex justify-center items-center text-white border cursor-pointer "
               >
                 <span className="text-xs">SQUAD</span>
               </label>
@@ -1158,7 +1158,14 @@ function AuctionRoom() {
           </div>
         </div>
 
-
+        {/* <AuctionSimulationRunner
+          roomCode={roomCode}
+          playerName={playerName}
+          isHost={
+            (room?.creator || "").trim().toLowerCase() ===
+            (playerName || "").trim().toLowerCase()
+          }
+        /> */}
 
         <AllTeamsModal
           room={room}

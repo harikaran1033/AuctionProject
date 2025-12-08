@@ -753,6 +753,8 @@ function AuctionRoom() {
                       </span>
                     </p>
                     <HintButton />
+
+                    
                   </div>
                 </div>
               </div>
@@ -846,6 +848,7 @@ function AuctionRoom() {
                 {/* <span className="text-xs">TRADE</span> */}
                 <Repeat className="text-primary" />
               </button>
+              
             </div>
 
             {/* Stats card */}
@@ -1104,7 +1107,7 @@ function AuctionRoom() {
           <div className="max-w-6xl mx-auto flex items-center gap-3">
             <div className="flex-1">
               <p className="text-[11px] uppercase text-slate-400 tracking-[0.14em]">
-                Current Bid
+                Current Bid 
               </p>
               <p className="text-base font-semibold">
                 ₹{bid}{" "}
@@ -1112,6 +1115,9 @@ function AuctionRoom() {
                   by {bidder ?? "—"}
                 </span>
               </p>
+
+              
+              
             </div>
             <div className="flex gap-2 w-64">
               <button
@@ -1125,6 +1131,7 @@ function AuctionRoom() {
               >
                 Bid
               </button>
+              
               <button
                 onClick={handlePass}
                 disabled={
@@ -1148,12 +1155,12 @@ function AuctionRoom() {
                 {passDisabled ? `Pass (${passDisableRemaining}s)` : "Skip"}
               </button>
 
-              <label
+              {/* <label
                 htmlFor="my-drawer-1"
                 className="flex-1 rounded-lg text-xs font-semibold uppercase tracking-wide transition flex justify-center items-center text-white border cursor-pointer "
               >
                 <span className="text-xs">SQUAD</span>
-              </label>
+              </label> */}
             </div>
           </div>
         </div>
